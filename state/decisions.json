@@ -1,0 +1,14 @@
+[
+ {
+  "time": "2026-10-31T13:59:09Z",
+  "candle": "2026-10-31T12:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 3,
+  "text": "No trade: none of the 3 setups fired on the 12:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
+ }
+]
