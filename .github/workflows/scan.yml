@@ -2,20 +2,34 @@ name: Hourly scan
 
 on:
   schedule:
-    - cron: "7,37 * * * *"   # twice an hour; repeat runs on the same candle are ignored
+    - cron: "7,37 * * * *"   # GitHub's own timer; only a backup, the bot books its own next check
   workflow_dispatch:
+    inputs:
+      wait:
+        description: "Minutes to wait first (the bot's own timer sets this; leave 0 to check now)"
+        required: false
+        default: "0"
 
 permissions:
   contents: write
-
-concurrency:
-  group: bot-state
-  cancel-in-progress: false
+  actions: write
 
 jobs:
+  wait:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.wait != '0' && inputs.wait != '' }}
+    runs-on: ubuntu-latest
+    environment: wait-${{ inputs.wait }}
+    steps:
+      - run: echo "Waited ${{ inputs.wait }} minutes"
+
   scan:
+    needs: wait
+    if: ${{ always() && needs.wait.result != 'failure' && needs.wait.result != 'cancelled' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    concurrency:
+      group: bot-state
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v5
         with:
@@ -31,6 +45,7 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           BOT_MODE: ${{ vars.BOT_MODE }}
           TRADING_ENABLED: ${{ vars.TRADING_ENABLED }}
+          SCAN_EVERY_MINUTES: ${{ vars.SCAN_EVERY_MINUTES }}
           COINBASE_PORTFOLIO_UUID: ${{ vars.COINBASE_PORTFOLIO_UUID }}
           COINBASE_API_KEY: ${{ secrets.COINBASE_API_KEY }}
           COINBASE_API_SECRET: ${{ secrets.COINBASE_API_SECRET }}
@@ -38,8 +53,20 @@ jobs:
       - name: Save journal
         if: always()
         run: bash scripts/save_to_git.sh "scan $(date -u +%Y-%m-%dT%H:%MZ)" state docs claude_project/journal_summary.md
-      - name: Alert if saving failed
+      - name: Book the next check
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVERY: ${{ vars.SCAN_EVERY_MINUTES }}
+        run: |
+          case "$EVERY" in 15|30|60) ;; *) EVERY=30 ;; esac
+          booked=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow scan.yml --limit 20 --json status,databaseId \
+            --jq "[.[] | select(.databaseId != $GITHUB_RUN_ID) | select(.status == \"waiting\" or .status == \"queued\" or .status == \"pending\" or .status == \"requested\")] | length")
+          if [ "$booked" -gt 0 ]; then echo "Next check already booked"; exit 0; fi
+          gh workflow run scan.yml --repo "$GITHUB_REPOSITORY" --ref main -f wait="$EVERY"
+          echo "Booked the next check in $EVERY minutes"
+      - name: Alert if something failed
         if: failure()
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python -m bot.notify "Hourly scan job failed. Check the Actions tab in the crypto-bot repo."
+        run: python -m bot.notify "⚠️ A bot check failed. Look at the Actions tab in the crypto-bot repo."
