@@ -25,10 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: main
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -46,7 +46,7 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python -m bot.run_backtest --notify
       - name: Save reports
-        run: bash scripts/save_to_git.sh "backtest $(date -u +%Y-%m-%d)" reports claude_project
+        run: bash scripts/save_to_git.sh "backtest $(date -u +%Y-%m-%d)" reports claude_project docs
       - name: Alert on failure
         if: failure()
         env:
