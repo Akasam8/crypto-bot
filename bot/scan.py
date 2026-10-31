@@ -201,22 +201,30 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
         say(f"🛑 Bot halted: {state['halt_reason']}. No new trades until you run the Resume workflow. Review the journal first.")
 
     # 3. new signals on the candle that just closed
+    # if earlier hourly runs were skipped, also look at the candles they missed (up to 3 back);
+    # late entries are only taken for trades held a day or more, where an hour or two barely matters
+    prev = ts(state["last_candle"]) if state.get("last_candle") else last_closed - H1
+    lookback = max(1, min(int((last_closed - prev) / H1), 3))
     candidates = []
     for s in setups:
         tp_mult, sl_mult = EXIT_PROFILES[s["profile"]]
         for pid, f in feats.items():
-            if f.index[-1] != last_closed or f["volume"].iloc[-1] <= 0:
-                continue  # stale or no trades in the last hour
-            if not signal(s["family"], s["params"], f, is_btc=(pid == btc_pid))[-1]:
-                continue
-            sigma = float(f["sigma"].iloc[-1])
-            if not np.isfinite(sigma):
-                continue
-            tp_pct, sl_pct = (float(x[0]) for x in exit_levels(np.array([sigma]), s["hold"], tp_mult, sl_mult))
-            sig_t = last_closed + H1
-            if journal.has(s["key"], pid, iso(sig_t)):
-                continue
-            candidates.append({"s": s, "pid": pid, "tp_pct": tp_pct, "sl_pct": sl_pct, "sig_t": sig_t})
+            if f.index[-1] != last_closed:
+                continue  # stale data
+            sig = signal(s["family"], s["params"], f, is_btc=(pid == btc_pid))
+            for k in range(lookback):
+                i = len(f) - 1 - k
+                if not sig[i] or f["volume"].iloc[i] <= 0 or (k > 0 and s["hold"] < 24):
+                    continue
+                sigma = float(f["sigma"].iloc[i])
+                if not np.isfinite(sigma):
+                    continue
+                tp_pct, sl_pct = (float(x[0]) for x in exit_levels(np.array([sigma]), s["hold"], tp_mult, sl_mult))
+                sig_t = f.index[i] + H1
+                if journal.has(s["key"], pid, iso(sig_t)):
+                    continue
+                candidates.append({"s": s, "pid": pid, "tp_pct": tp_pct, "sl_pct": sl_pct, "sig_t": sig_t, "late_h": k})
+                break
 
     for c in candidates:
         s, pid = c["s"], c["pid"]
@@ -240,14 +248,15 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
             entry = ask if live else next_open.get(pid, ask)
             sl_px = entry * (1 - c["sl_pct"])
             tp_px = entry * (1 + c["tp_pct"]) if np.isfinite(c["tp_pct"]) else None
-            exit_by = c["sig_t"] + s["hold"] * H1
+            entry_t = last_closed + H1
+            exit_by = entry_t + s["hold"] * H1
             rec = {
                 "id": uuid.uuid4().hex[:10], "mode": "LIVE_AUTO" if live else ("LIVE_MANUAL" if mode == "LIVE_MANUAL" else "PAPER"),
                 "coin": pid, "product": product, "setup": s["title"], "setup_key": s["key"], "signal_time": iso(c["sig_t"]),
-                "entry_time": iso(c["sig_t"]), "entry_price": entry, "size_gbp": d.size_gbp,
+                "entry_time": iso(entry_t), "entry_price": entry, "size_gbp": d.size_gbp,
                 "units": d.size_gbp / gbp / (entry * (1 + cost["a"][0])), "risk_gbp": d.risk_gbp, "sl_price": sl_px,
                 "tp_price": tp_px, "hold_hours": s["hold"], "exit_by": iso(exit_by), "status": "submitting" if live else "open",
-                "note": ("unproven setup; " if s.get("status") == "candidate" else "") + ("" if live else f"ask at scan {ask:.6g}"),
+                "note": ("unproven setup; " if s.get("status") == "candidate" else "") + (f"caught up {c['late_h']}h late; " if c["late_h"] else "") + ("" if live else f"ask at scan {ask:.6g}"),
             }
             journal.add(rec)
             journal.save()  # written before any order goes out, so nothing can be lost
@@ -326,6 +335,7 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
     state["last_prices"] = {k: round(v, 10) for k, v in last_px.items()}
     state["gbp_per_usd"] = round(gbp, 6)
 
+    state["last_candle"] = iso(last_closed)
     state["last_run"] = iso(now)
     state["consecutive_errors"] = 0
     journal.save()
