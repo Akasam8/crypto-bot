@@ -1,0 +1,128 @@
+{
+  "configs_tested": 555,
+  "coins": [
+    "BTC-USD",
+    "ETH-USD",
+    "ZEC-USD",
+    "XRP-USD",
+    "SOL-USD",
+    "NEAR-USD",
+    "SUI-USD",
+    "QNT-USD",
+    "ADA-USD",
+    "LINK-USD",
+    "LTC-USD",
+    "UNI-USD",
+    "DOGE-USD",
+    "XLM-USD",
+    "HBAR-USD",
+    "AERO-USD",
+    "AVAX-USD",
+    "ONDO-USD",
+    "ZRO-USD",
+    "INJ-USD",
+    "STRK-USD",
+    "AAVE-USD",
+    "FET-USD",
+    "FIL-USD",
+    "BCH-USD"
+  ],
+  "data_from": "2023-11-01",
+  "data_to": "2026-10-31",
+  "train_window": [
+    "2023-11-09",
+    "2025-10-30"
+  ],
+  "test_window": [
+    "2025-10-31",
+    "2026-10-31"
+  ],
+  "folds": [
+    {
+      "train": [
+        "2023-11-09",
+        "2024-11-08"
+      ],
+      "test": [
+        "2024-11-09",
+        "2025-05-09"
+      ]
+    },
+    {
+      "train": [
+        "2024-05-09",
+        "2025-05-08"
+      ],
+      "test": [
+        "2025-05-09",
+        "2025-10-30"
+      ]
+    }
+  ],
+  "benchmarks": {
+    "btc_hold_pct": -29.71,
+    "equal_weight_hold_pct": -14.87
+  },
+  "families": [
+    {
+      "family": "breakout",
+      "title": "Breakout with volume",
+      "configs_tested": 60,
+      "selected": null,
+      "survived": false,
+      "fail_reasons": [
+        "nothing was profitable after fees even on the training data"
+      ]
+    },
+    {
+      "family": "oversold_bounce",
+      "title": "Oversold bounce in a BTC uptrend",
+      "configs_tested": 45,
+      "selected": null,
+      "survived": false,
+      "fail_reasons": [
+        "nothing was profitable after fees even on the training data"
+      ]
+    },
+    {
+      "family": "volume_spike",
+      "title": "Volume spike continuation",
+      "configs_tested": 30,
+      "selected": null,
+      "survived": false,
+      "fail_reasons": [
+        "nothing was profitable after fees even on the training data"
+      ]
+    },
+    {
+      "family": "btc_catchup",
+      "title": "Alt catching up to BTC",
+      "configs_tested": 30,
+      "selected": null,
+      "survived": false,
+      "fail_reasons": [
+        "nothing was profitable after fees even on the training data"
+      ]
+    },
+    {
+      "family": "trend_pullback",
+      "title": "Trend pullback",
+      "configs_tested": 30,
+      "selected": null,
+      "survived": false,
+      "fail_reasons": [
+        "nothing was profitable after fees even on the training data"
+      ]
+    },
+    {
+      "family": "session",
+      "title": "Time of day entry",
+      "configs_tested": 360,
+      "selected": null,
+      "survived": false,
+      "fail_reasons": [
+        "nothing was profitable after fees even on the training data"
+      ]
+    }
+  ]
+}
