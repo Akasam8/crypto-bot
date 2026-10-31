@@ -60,8 +60,8 @@
     }
   ],
   "benchmarks": {
-    "btc_hold_pct": 32.01,
-    "equal_weight_hold_pct": 69.98
+    "btc_hold_pct": 32.57,
+    "equal_weight_hold_pct": 69.92
   },
   "families": [
     {
@@ -93,12 +93,12 @@
         "year_stats": {
           "n": 242,
           "win_rate": 0.3760330578512397,
-          "avg_net_pct": 0.26248876632121765,
+          "avg_net_pct": 0.262488766321218,
           "median_net_pct": -2.3364509223494254,
           "avg_win_pct": 12.02111599590165,
           "avg_loss_pct": -6.823836252829904,
           "profit_factor": 1.061648220298342,
-          "t_stat": 0.3053190350348145,
+          "t_stat": 0.30531903503481495,
           "max_drawdown_pct_of_stake": 380.95897112487575,
           "worst_losing_streak": 23,
           "months_with_trades": 8,
@@ -171,7 +171,7 @@
               "avg_net_pct": 2.965
             }
           },
-          "avg_net_pct_maker_entry": 3.324048215969913,
+          "avg_net_pct_maker_entry": 3.324048215969914,
           "avg_hold_hours": 164.34375,
           "exit_mix": {
             "target": 0.0,
@@ -415,7 +415,7 @@
             "win_rate": 0.397
           }
         },
-        "typical_stop_pct": 11.62844978616111,
+        "typical_stop_pct": 11.628449786161102,
         "typical_target_pct": null
       },
       "test_stats": {
@@ -472,7 +472,7 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 0.41041238498883265,
+        "random_mean_pct": 0.40528583274225866,
         "random_p90_pct": 2.573619031856581,
         "random_cut_pct": 5.383364083540662,
         "p_value": 0.0825
@@ -989,7 +989,7 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 3.9392327221984846,
+        "random_mean_pct": 3.936427656386956,
         "random_p90_pct": 11.735976336260999,
         "random_cut_pct": 17.435193384180632,
         "p_value": 0.2125

@@ -6,7 +6,7 @@ Data: 25 coins, hourly candles from 2025-10-31 to 2026-10-31. Setups were picked
 
 Every trade pays 0.5% Coinbase taker fee plus 0.1% slippage on the way in and again on the way out, so a round trip costs about 1.20%. A trade has to move that much just to break even.
 
-For comparison, over the test period simply holding BTC returned +32.01% and holding all the coins equally returned +69.98%.
+For comparison, over the test period simply holding BTC returned +32.57% and holding all the coins equally returned +69.92%.
 
 ## Results by setup
 
@@ -49,7 +49,7 @@ Training: 124 trades, +0.025% per trade, win rate 36%.
 
 Unseen test period: 140 trades, +3.038% per trade after fees (+3.398% if entries filled as maker), win rate 44%, average win +14.72%, average loss -6.25%, profit factor 1.87, worst losing streak 8, 50% of months positive. Exits: target 0%, stop 10%, time 90%.
 
-The same trades slid to random times averaged +0.410%. To pass, the setup had to beat +5.383%, which only 2.5% of random runs reach. Share of random runs that did at least as well as the setup: 8.2%.
+The same trades slid to random times averaged +0.405%. To pass, the setup had to beat +5.383%, which only 2.5% of random runs reach. Share of random runs that did at least as well as the setup: 8.2%.
 
 By market regime: BTC above 50d avg: yes: 140 trades, +3.038%; high volatility: yes: 71 trades, +2.636%; high volatility: no: 69 trades, +3.451%.
 
@@ -69,7 +69,7 @@ Training: 66 trades, +2.201% per trade, win rate 44%.
 
 Unseen test period: 76 trades, +5.601% per trade after fees (+5.970% if entries filled as maker), win rate 49%, average win +22.24%, average loss -10.19%, profit factor 2.07, worst losing streak 7, 50% of months positive. Exits: target 0%, stop 20%, time 80%.
 
-The same trades slid to random times averaged +3.939%. To pass, the setup had to beat +17.435%, which only 2.5% of random runs reach. Share of random runs that did at least as well as the setup: 21.2%.
+The same trades slid to random times averaged +3.936%. To pass, the setup had to beat +17.435%, which only 2.5% of random runs reach. Share of random runs that did at least as well as the setup: 21.2%.
 
 By market regime: BTC above 50d avg: yes: 76 trades, +5.601%; high volatility: yes: 29 trades, +13.142%; high volatility: no: 47 trades, +0.948%.
 

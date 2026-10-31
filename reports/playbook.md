@@ -35,30 +35,30 @@ high volatility: no: average 24h move +0.10%, up 47% of days, a random 24h long 
 
 | Coin | Yearly volatility | Return over the period | Daily volume (USD m) |
 |---|---|---|---|
-| BTC-USD | 43% | -30% | 412.6 |
+| BTC-USD | 43% | -30% | 403.8 |
 | ETH-USD | 59% | -42% | 195.2 |
-| ZEC-USD | 134% | +250% | 106.1 |
+| ZEC-USD | 134% | +233% | 106.1 |
 | XRP-USD | 64% | -50% | 63.1 |
 | SOL-USD | 65% | -49% | 53.4 |
-| NEAR-USD | 105% | +108% | 41.0 |
-| SUI-USD | 86% | -62% | 16.7 |
+| NEAR-USD | 105% | +105% | 41.0 |
+| SUI-USD | 86% | -63% | 16.7 |
 | QNT-USD | 105% | +149% | 12.5 |
 | ADA-USD | 76% | -69% | 9.9 |
-| PUMP-USD | 124% | -4% | 8.3 |
+| PUMP-USD | 124% | -7% | 8.3 |
 | LINK-USD | 69% | -33% | 7.8 |
 | UNI-USD | 97% | +21% | 7.3 |
-| LTC-USD | 62% | -42% | 7.2 |
-| TAO-USD | 96% | -50% | 6.5 |
+| LTC-USD | 62% | -43% | 7.2 |
+| TAO-USD | 96% | -51% | 6.5 |
 | DOGE-USD | 68% | -60% | 6.2 |
 | XLM-USD | 80% | -45% | 6.1 |
-| HBAR-USD | 71% | -63% | 6.0 |
-| ENA-USD | 111% | -52% | 6.0 |
-| VVV-USD | 149% | +1400% | 6.0 |
-| AERO-USD | 106% | -43% | 5.9 |
+| HBAR-USD | 71% | -64% | 6.0 |
+| ENA-USD | 111% | -53% | 6.0 |
+| VVV-USD | 149% | +1381% | 6.0 |
+| AERO-USD | 106% | -42% | 5.9 |
 | AVAX-USD | 72% | -54% | 5.7 |
 | ONDO-USD | 94% | -41% | 5.6 |
-| ZRO-USD | 118% | +11% | 4.6 |
-| INJ-USD | 103% | -7% | 3.9 |
+| ZRO-USD | 118% | +12% | 4.6 |
+| INJ-USD | 103% | -8% | 3.9 |
 | WLD-USD | 117% | -51% | 3.4 |
 
 ## Verdict from the latest backtest
