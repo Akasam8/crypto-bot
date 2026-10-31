@@ -77,6 +77,14 @@
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 800px) { .grid2 { grid-template-columns: 1fr; } .decisions li { grid-template-columns: 1fr; gap: 2px; } }
   footer { color: var(--text-muted); font-size: 12px; padding: 8px 0 24px; }
+  .actions { margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .btn { font: inherit; font-weight: 600; border-radius: 8px; padding: 7px 14px; cursor: pointer; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary); text-decoration: none; }
+  .btn.primary { background: var(--series-1); border-color: var(--series-1); color: #fff; }
+  .btn:disabled { opacity: .6; cursor: default; }
+  .runbox { display: grid; gap: 8px; }
+  .runbox input { font: inherit; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-0); color: var(--text-primary); width: 100%; }
+  .runbox ol { margin: 0; padding-left: 20px; color: var(--text-secondary); }
+  .status { font-size: 13px; color: var(--text-secondary); }
 </style>
 </head>
 <body>
@@ -86,7 +94,24 @@
     <h1>Crypto Bot</h1>
     <span class="pill" id="mode"></span>
     <span class="muted" id="updated"></span>
+    <div class="actions">
+      <span class="status" id="run-status" aria-live="polite"></span>
+      <button class="btn primary" id="run-btn" type="button">Run now</button>
+      <a class="btn" id="gh-link" target="_blank" rel="noopener">Open on GitHub</a>
+    </div>
   </header>
+  <section class="card runbox" id="run-setup" hidden>
+    <h2>Set up the Run now button (once per device)</h2>
+    <div class="muted">The button needs a GitHub key that is allowed to start the bot. It's saved only in this browser on this device, never on the website or in the repo.</div>
+    <ol>
+      <li>Open <a id="pat-link" target="_blank" rel="noopener" href="https://github.com/settings/personal-access-tokens/new">GitHub's new token page</a>, name it "crypto-bot run button", pick a long expiry.</li>
+      <li>Repository access: <b>Only select repositories</b>, choose <b>crypto-bot</b>.</li>
+      <li>Permissions: add <b>Actions</b> and set it to <b>Read and write</b>. Nothing else.</li>
+      <li>Click Generate token, copy it, paste it below.</li>
+    </ol>
+    <input id="pat-input" type="password" placeholder="Paste the token here" autocomplete="off">
+    <div><button class="btn primary" id="pat-save" type="button">Save and run</button> <button class="btn" id="pat-cancel" type="button">Cancel</button></div>
+  </section>
   <div class="banner" id="banner" hidden></div>
 
   <section class="kpis">
@@ -217,6 +242,7 @@ function drawChart(points, start) {
 }
 
 function render(D) {
+  ["open", "decisions", "trades", "setups"].forEach(id => { document.getElementById(id).textContent = ""; });
   const test = D.mode === "PAPER";
   document.getElementById("mode").textContent = test ? "TEST MODE · fake money, real prices, real fees" : (D.mode === "LIVE_AUTO" ? (D.trading_enabled ? "LIVE · real money" : "LIVE · orders switched off") : "SIGNALS ONLY · you place trades");
   document.getElementById("updated").textContent = D.generated ? "Updated " + ukTime(D.generated) + " UK · refreshes every hour" : "Waiting for the first scan";
@@ -285,12 +311,87 @@ function render(D) {
     "Risk rules: max " + D.risk.max_risk_per_trade_pct + "% of the pot at risk per trade, " + D.risk.max_open_positions + " open at once, halt at £" + D.risk.pot_floor_gbp + ". Not financial advice.";
 }
 
-const s = document.createElement("script");
-s.src = "data.js?t=" + Date.now();
-s.onload = () => render(window.BOT_DATA);
-s.onerror = () => { document.getElementById("updated").textContent = "No data yet. The first hourly scan creates it."; };
-document.head.appendChild(s);
-window.addEventListener("resize", () => window.BOT_DATA && drawChart(window.BOT_DATA.equity, window.BOT_DATA.start_gbp));
+const REPO = (() => {
+  const h = location.hostname, seg = location.pathname.split("/").filter(Boolean);
+  if (h.endsWith(".github.io") && seg.length) return h.split(".")[0] + "/" + seg[0];
+  return "";
+})();
+let current = null;
+
+async function loadData() {
+  const r = await fetch("data.js?t=" + Date.now(), { cache: "no-store" });
+  if (!r.ok) throw new Error("no data yet");
+  const txt = await r.text();
+  return JSON.parse(txt.slice(txt.indexOf("=") + 1).trim().replace(/;$/, ""));
+}
+function show(D) { current = D; window.BOT_DATA = D; render(D); }
+
+const repo = () => (current && current.repo) || REPO;
+const runStatus = t => { document.getElementById("run-status").textContent = t; };
+const store = { get: () => { try { return localStorage.getItem("cb_gh_token") || ""; } catch (e) { return ""; } },
+                set: v => { try { localStorage.setItem("cb_gh_token", v); } catch (e) {} },
+                clear: () => { try { localStorage.removeItem("cb_gh_token"); } catch (e) {} } };
+
+async function gh(path, opts = {}) {
+  return fetch("https://api.github.com/repos/" + repo() + path, { ...opts, headers: { "Accept": "application/vnd.github+json", "Authorization": "Bearer " + store.get(), ...(opts.headers || {}) } });
+}
+
+async function runNow() {
+  const btn = document.getElementById("run-btn");
+  if (!repo()) { runStatus("Run now works on the GitHub website version of this page."); return; }
+  if (!store.get()) { document.getElementById("run-setup").hidden = false; return; }
+  btn.disabled = true;
+  const before = current ? current.generated : "";
+  runStatus("Starting a check…");
+  try {
+    const r = await gh("/actions/workflows/scan.yml/dispatches", { method: "POST", body: JSON.stringify({ ref: "main" }) });
+    if (r.status === 401 || r.status === 403 || r.status === 404) {
+      store.clear(); document.getElementById("run-setup").hidden = false;
+      runStatus("GitHub refused the key (" + r.status + "). Make a new one with Actions read and write.");
+      btn.disabled = false; return;
+    }
+    if (r.status !== 204) throw new Error("GitHub answered " + r.status);
+  } catch (e) { runStatus("Couldn't start it: " + e.message); btn.disabled = false; return; }
+  runStatus("Running on GitHub… usually about a minute.");
+  const t0 = Date.now();
+  const poll = async () => {
+    try {
+      const runs = await (await gh("/actions/workflows/scan.yml/runs?per_page=1")).json();
+      const run = runs.workflow_runs && runs.workflow_runs[0];
+      if (run && run.status !== "completed") runStatus("Running on GitHub… (" + run.status.replace("_", " ") + ")");
+      else if (run && run.conclusion !== "success") { runStatus("The check failed on GitHub. Open on GitHub to see why."); btn.disabled = false; return; }
+      else runStatus("Check done, updating the page…");
+      const D = await loadData();
+      if (D.generated && D.generated !== before) { show(D); runStatus("Updated just now: " + (D.decisions[0] ? D.decisions[0].text : "")); btn.disabled = false; return; }
+    } catch (e) { /* keep polling */ }
+    if (Date.now() - t0 > 6 * 60 * 1000) { runStatus("Still waiting. The website can take a few minutes to refresh, so reload soon."); btn.disabled = false; return; }
+    setTimeout(poll, 15000);
+  };
+  setTimeout(poll, 20000);
+}
+
+document.getElementById("run-btn").addEventListener("click", runNow);
+document.getElementById("pat-save").addEventListener("click", () => {
+  const v = document.getElementById("pat-input").value.trim();
+  if (!v) return;
+  store.set(v); document.getElementById("pat-input").value = ""; document.getElementById("run-setup").hidden = true; runNow();
+});
+document.getElementById("pat-cancel").addEventListener("click", () => { document.getElementById("run-setup").hidden = true; });
+
+(async () => {
+  const link = document.getElementById("gh-link");
+  if (REPO) link.href = "https://github.com/" + REPO + "/actions/workflows/scan.yml"; else link.hidden = true;
+  try { show(await loadData()); if (!link.hidden && current.repo) link.href = "https://github.com/" + current.repo + "/actions/workflows/scan.yml"; }
+  catch (e) {
+    if (window.BOT_DATA) { show(window.BOT_DATA); return; }
+    const s = document.createElement("script");  // file:// fallback, where fetch isn't allowed
+    s.src = "data.js";
+    s.onload = () => show(window.BOT_DATA);
+    s.onerror = () => { document.getElementById("updated").textContent = "No data yet. The first hourly scan creates it."; };
+    document.head.appendChild(s);
+  }
+})();
+window.addEventListener("resize", () => current && drawChart(current.equity, current.start_gbp));
 setTimeout(() => location.reload(), 10 * 60 * 1000);
 </script>
 </body>
