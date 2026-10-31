@@ -2,7 +2,7 @@ name: Hourly scan
 
 on:
   schedule:
-    - cron: "7 * * * *"
+    - cron: "7,37 * * * *"   # twice an hour; repeat runs on the same candle are ignored
   workflow_dispatch:
 
 permissions:
