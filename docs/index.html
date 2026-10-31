@@ -81,6 +81,7 @@
   .btn { font: inherit; font-weight: 600; border-radius: 8px; padding: 7px 14px; cursor: pointer; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary); text-decoration: none; }
   .btn.primary { background: var(--series-1); border-color: var(--series-1); color: #fff; }
   .btn:disabled { opacity: .6; cursor: default; }
+  [hidden] { display: none !important; }
   .runbox { display: grid; gap: 8px; }
   .runbox input { font: inherit; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-0); color: var(--text-primary); width: 100%; }
   .runbox ol { margin: 0; padding-left: 20px; color: var(--text-secondary); }
@@ -211,7 +212,7 @@ function drawChart(points, start) {
   for (let i = 0; i <= 4; i++) {
     const tt = x0 + (x1 - x0) * i / 4;
     const t = mk("text", { x: X(tt), y: H - 6, "text-anchor": i === 0 ? "start" : (i === 4 ? "end" : "middle"), fill: "var(--text-muted)", "font-size": 11 });
-    t.textContent = new Date(tt).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "Europe/London" }); svg.appendChild(t);
+    t.textContent = (x1 - x0 < 2 * 86400000) ? new Date(tt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/London" }) : new Date(tt).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "Europe/London" }); svg.appendChild(t);
   }
   svg.appendChild(mk("line", { x1: P.l, x2: W - P.r, y1: Y(start), y2: Y(start), stroke: "var(--text-muted)", "stroke-dasharray": "4 4", "stroke-width": 1 }));
   const st = mk("text", { x: W - P.r, y: Y(start) - 5, "text-anchor": "end", fill: "var(--text-muted)", "font-size": 11 }); st.textContent = "start £" + start.toFixed(0); svg.appendChild(st);
