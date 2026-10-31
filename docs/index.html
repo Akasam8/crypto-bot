@@ -313,6 +313,7 @@ function render(D) {
   document.getElementById("footer").textContent =
     "Every trade pays about " + D.round_trip_cost_pct + "% in Coinbase fees and slippage, in test mode too. " +
     (r.data_from ? "Setups researched on " + r.coins + " coins, " + r.data_from + " to " + r.data_to + ". " : "") +
+    "To change how often it checks, set SCAN_EVERY_MINUTES to 15, 30 or 60 in the repo's Settings, Secrets and variables, Actions, Variables. " +
     "Risk rules: max " + D.risk.max_risk_per_trade_pct + "% of the pot at risk per trade, " + D.risk.max_open_positions + " open at once, halt at £" + D.risk.pot_floor_gbp + ". Not financial advice.";
 }
 
@@ -401,12 +402,6 @@ document.getElementById("pat-cancel").addEventListener("click", () => { document
   }
 })();
 window.addEventListener("resize", () => current && drawChart(current.equity, current.start_gbp));
-function nextSlot(now) {
-  const d = new Date(now); d.setUTCSeconds(0, 0);
-  const m = d.getUTCMinutes();
-  if (m < 7) d.setUTCMinutes(7); else if (m < 37) d.setUTCMinutes(37); else { d.setUTCHours(d.getUTCHours() + 1, 7); }
-  return d.getTime();
-}
 function fmtDur(ms) {
   const s = Math.max(0, Math.round(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
   return h ? h + "h " + m + "m" : m + ":" + String(ss).padStart(2, "0");
@@ -414,10 +409,13 @@ function fmtDur(ms) {
 function tick() {
   const el = document.getElementById("updated"), dot = document.getElementById("live-dot");
   if (!current || !current.generated) { el.textContent = "Waiting for the first check"; dot.className = "dot"; return; }
-  const now = Date.now(), ago = now - new Date(current.generated).getTime(), late = ago > 75 * 60000;
+  const every = (current.check_every_minutes || 30) * 60000;
+  const now = Date.now(), last = new Date(current.generated).getTime(), ago = now - last, late = ago > every + 20 * 60000;
   dot.className = "dot " + (late ? "late" : "ok");
   const agoTxt = ago < 60000 ? "just now" : (ago < 3600000 ? Math.floor(ago / 60000) + " min ago" : fmtDur(ago) + " ago");
-  el.textContent = (late ? "Late: last check " : "Running · last check ") + agoTxt + " (" + ukTime(current.generated, false) + " UK) · next check due in " + fmtDur(nextSlot(now) - now);
+  const due = last + every + 90000 - now;
+  const next = due > 0 ? "next check in " + fmtDur(due) : "next check any moment";
+  el.textContent = (late ? "Late: last check " : "Running · last check ") + agoTxt + " (" + ukTime(current.generated, false) + " UK) · " + next + " · checks every " + (current.check_every_minutes || 30) + " min";
 }
 setInterval(tick, 1000);
 setInterval(async () => {
