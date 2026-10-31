@@ -93,12 +93,12 @@
         "year_stats": {
           "n": 242,
           "win_rate": 0.3760330578512397,
-          "avg_net_pct": 0.262488766321218,
+          "avg_net_pct": 0.26248876632121765,
           "median_net_pct": -2.3364509223494254,
           "avg_win_pct": 12.02111599590165,
           "avg_loss_pct": -6.823836252829904,
           "profit_factor": 1.061648220298342,
-          "t_stat": 0.30531903503481495,
+          "t_stat": 0.3053190350348145,
           "max_drawdown_pct_of_stake": 380.95897112487575,
           "worst_losing_streak": 23,
           "months_with_trades": 8,
@@ -171,7 +171,7 @@
               "avg_net_pct": 2.965
             }
           },
-          "avg_net_pct_maker_entry": 3.324048215969914,
+          "avg_net_pct_maker_entry": 3.324048215969913,
           "avg_hold_hours": 164.34375,
           "exit_mix": {
             "target": 0.0,
@@ -472,7 +472,7 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 0.38824890939598955,
+        "random_mean_pct": 0.3882489093959896,
         "random_p90_pct": 2.573619031856581,
         "random_cut_pct": 5.383364083540662,
         "p_value": 0.0825
