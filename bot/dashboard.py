@@ -84,6 +84,7 @@ def build(cfg: dict, reports_dir=REPORTS_DIR, state_dir=STATE_DIR) -> dict:
     return {
         "generated": state.get("last_run") or "",
         "repo": os.environ.get("GITHUB_REPOSITORY", ""),
+        "check_every_minutes": every if (every := int(os.environ.get("SCAN_EVERY_MINUTES") or 30)) in (15, 30, 60) else 30,
         "mode": cfg["mode"],
         "trading_enabled": bool(cfg.get("trading_enabled")),
         "halted": bool(state.get("halted")),
