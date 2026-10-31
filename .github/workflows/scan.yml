@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: main
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -37,7 +37,7 @@ jobs:
         run: python -m bot.scan
       - name: Save journal
         if: always()
-        run: bash scripts/save_to_git.sh "scan $(date -u +%Y-%m-%dT%H:%MZ)" state claude_project/journal_summary.md
+        run: bash scripts/save_to_git.sh "scan $(date -u +%Y-%m-%dT%H:%MZ)" state docs claude_project/journal_summary.md
       - name: Alert if saving failed
         if: failure()
         env:
