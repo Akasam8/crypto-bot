@@ -274,7 +274,7 @@ function render(D) {
     c.appendChild(h);
     c.appendChild(el("p", {}, s.rule + " Holds up to " + (s.hold >= 24 ? (s.hold / 24) + (s.hold === 24 ? " day" : " days") : s.hold + " hours") + "."));
     const t = s.test || {};
-    c.appendChild(el("p", { class: "muted" }, (s.status === "validated" ? "Unseen test period: " : "Past year: ") + t.n + " trades, " + Math.round((t.win_rate || 0) * 100) + "% won, " + fmtPct(t.avg_net_pct) + " per trade after fees"));
+    c.appendChild(el("p", { class: "muted" }, (s.status === "validated" ? "Unseen test period: " : "Past year, on the same data it was picked from, so expect worse: ") + t.n + " trades, " + Math.round((t.win_rate || 0) * 100) + "% won, " + fmtPct(t.avg_net_pct) + " per trade after fees"));
     sg.appendChild(c);
   });
 
