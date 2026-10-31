@@ -248,3 +248,26 @@ def test_dashboard_data_and_decision_log(env):
     assert sides == {"BUY", "SELL"}
     closed = [r for r in Journal(st / "trades.csv").rows() if r["status"] == "closed"]
     assert d["balance_gbp"] == pytest.approx(100 + sum(r["pnl_gbp"] for r in closed) + d["open_pnl_gbp"], abs=0.02)
+
+
+def test_skipped_hours_are_caught_up_for_multi_day_trades(env):
+    cfg, uni, rep, st, msgs = env
+    cfg["risk"]["max_open_positions"] = 3
+    surv = json.loads((rep / "survivors.json").read_text())
+    surv[0].update(key="session[hour=10]|24h|tight", hold=24)
+    (rep / "survivors.json").write_text(json.dumps(surv))
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    scan_at(env, day + pd.Timedelta(hours=9, minutes=7))   # sees the 08:00 candle
+    scan_at(env, day + pd.Timedelta(hours=12, minutes=7))  # runs at 10:07 and 11:07 were skipped
+    rows = Journal(st / "trades.csv").rows()
+    assert len(rows) == 3
+    assert all("caught up 2h late" in r["note"] for r in rows)
+    assert all(r["entry_time"] == (day + pd.Timedelta(hours=12)).strftime("%Y-%m-%dT%H:%M:%SZ") for r in rows)
+
+
+def test_short_trades_are_not_taken_late(env):
+    cfg, uni, rep, st, msgs = env
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    scan_at(env, day + pd.Timedelta(hours=9, minutes=7))
+    scan_at(env, day + pd.Timedelta(hours=12, minutes=7))  # the 4h setup's 10:00 entry was missed
+    assert len(Journal(st / "trades.csv").rows()) == 0
