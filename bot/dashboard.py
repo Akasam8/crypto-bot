@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import sys
 import webbrowser
 from functools import partial
@@ -82,6 +83,7 @@ def build(cfg: dict, reports_dir=REPORTS_DIR, state_dir=STATE_DIR) -> dict:
     wins = sum(1 for r in closed if (r["pnl_gbp"] or 0) > 0)
     return {
         "generated": state.get("last_run") or "",
+        "repo": os.environ.get("GITHUB_REPOSITORY", ""),
         "mode": cfg["mode"],
         "trading_enabled": bool(cfg.get("trading_enabled")),
         "halted": bool(state.get("halted")),
