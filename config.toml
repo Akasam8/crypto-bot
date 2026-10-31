@@ -1,0 +1,58 @@
+# crypto-bot settings. Secrets never go in this file, they live in GitHub Actions secrets.
+
+# PAPER       = signals + simulated trades, no real money (default)
+# LIVE_MANUAL = signals for you to place by hand, journal tracks them as shadow trades
+# LIVE_AUTO   = the bot places real orders (also needs trading_enabled = true)
+mode = "PAPER"
+trading_enabled = false
+
+uk_timezone = "Europe/London"
+daily_summary_hour_uk = 14      # 2pm UK daily summary
+weekly_summary_weekday = 6      # 0 = Monday ... 6 = Sunday
+
+[risk]
+pot_start_gbp = 100.0
+pot_floor_gbp = 80.0            # at or below this the bot halts until you turn it back on
+max_risk_per_trade_pct = 2.0    # most you can lose on one trade if the stop hits, as % of pot
+max_position_gbp = 40.0
+min_position_gbp = 5.0
+max_open_positions = 2
+max_new_trades_per_day = 3
+daily_loss_limit_gbp = 5.0
+max_spread_pct = 0.20           # skip coins whose live bid/ask spread is wider than this
+
+[fees]
+# Coinbase Advanced, UK intro tier after the 16 Sept 2026 change. Check your real tier
+# in Coinbase (Advanced > fee tier) and update these if they differ.
+maker_pct = 0.25
+taker_pct = 0.50
+slippage_pct = 0.10
+
+[data]
+history_days = 1095             # 3 years of hourly candles
+universe_size = 25
+candidate_pool = 35
+min_history_days = 730
+quote = "USD"
+fallback_gbpusd = 1.30
+exclude = []                    # extra coins to skip, e.g. ["SHIB", "PEPE"]
+
+[backtest]
+train_months = 24
+test_months = 12
+hold_hours = [1, 2, 4, 12, 24]
+min_train_trades = 60
+min_test_trades = 50
+min_profit_factor = 1.2
+min_positive_month_share = 0.6
+random_trials = 400
+random_percentile = 97.5       # must beat 97.5% of time shifted random runs
+wf_train_months = 12          # walk forward folds sit inside the 24 months before the test year
+wf_test_months = 6
+wf_min_positive_folds = 2
+wf_random_percentile = 75      # each fold must beat 75% of time shifted random runs
+
+[live]
+quote_currency = "USDC"         # what the bot trades against in live mode; check your account
+portfolio_uuid = ""             # the dedicated "bot" portfolio UUID, required for live modes
+entry_limit_buffer_pct = 0.20   # limit price this far above the ask so entries fill straight away
