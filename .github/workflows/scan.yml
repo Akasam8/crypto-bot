@@ -1,0 +1,45 @@
+name: Hourly scan
+
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bot-state
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-scan.txt
+      - run: pip install -r requirements-scan.txt
+      - name: Scan markets
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          BOT_MODE: ${{ vars.BOT_MODE }}
+          TRADING_ENABLED: ${{ vars.TRADING_ENABLED }}
+          COINBASE_PORTFOLIO_UUID: ${{ vars.COINBASE_PORTFOLIO_UUID }}
+          COINBASE_API_KEY: ${{ secrets.COINBASE_API_KEY }}
+          COINBASE_API_SECRET: ${{ secrets.COINBASE_API_SECRET }}
+        run: python -m bot.scan
+      - name: Save journal
+        if: always()
+        run: bash scripts/save_to_git.sh "scan $(date -u +%Y-%m-%dT%H:%MZ)" state claude_project/journal_summary.md
+      - name: Alert if saving failed
+        if: failure()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python -m bot.notify "Hourly scan job failed. Check the Actions tab in the crypto-bot repo."
