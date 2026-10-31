@@ -340,7 +340,13 @@ async function gh(path, opts = {}) {
 async function runNow() {
   const btn = document.getElementById("run-btn");
   if (!repo()) { runStatus("Run now works on the GitHub website version of this page."); return; }
-  if (!store.get()) { document.getElementById("run-setup").hidden = false; return; }
+  if (!store.get()) {
+    window.open("https://github.com/" + repo() + "/actions/workflows/scan.yml", "_blank", "noopener");
+    const st = document.getElementById("run-status"); st.textContent = "Opened GitHub: click the green Run workflow button there. ";
+    const a = document.createElement("a"); a.href = "#"; a.textContent = "Or set up one click running";
+    a.addEventListener("click", e => { e.preventDefault(); document.getElementById("run-setup").hidden = false; });
+    st.appendChild(a); return;
+  }
   btn.disabled = true;
   const before = current ? current.generated : "";
   runStatus("Starting a check…");
