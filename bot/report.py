@@ -85,7 +85,7 @@ def verdict_text(research: dict) -> str:
     names = ", ".join(f["title"] for f in surv)
     return (
         f"**{len(surv)} of {n_fam} setup families survived:** {names}. They made money after fees on the unseen "
-        "test year, beat random entries, and held up in the walk forward checks. Survival means it's worth paper "
+        "test period, beat random entries, and held up in the walk forward checks. Survival means it's worth paper "
         "trading, not that it's guaranteed. Live results usually come in worse than backtests."
     )
 
@@ -106,7 +106,7 @@ def backtest_report(research: dict, notes: dict, cfg: dict) -> str:
         f"and again on the way out, so a round trip costs about {notes['round_trip_cost_pct']:.2f}%. A trade has to move that much just to break even.\n"
     )
     b = research["benchmarks"]
-    L.append(f"For comparison, over the test year simply holding BTC returned {_pct(b['btc_hold_pct'])} and holding all the coins equally returned {_pct(b['equal_weight_hold_pct'])}.\n")
+    L.append(f"For comparison, over the test period simply holding BTC returned {_pct(b['btc_hold_pct'])} and holding all the coins equally returned {_pct(b['equal_weight_hold_pct'])}.\n")
 
     L.append("## Results by setup\n")
     L.append("| Setup | Test trades | Win rate | Avg per trade after fees | Profit factor | Beat random? | Walk forward | Verdict |")
@@ -134,7 +134,7 @@ def backtest_report(research: dict, notes: dict, cfg: dict) -> str:
         L.append(f"Training: {tr.get('n', 0)} trades, {_pct(tr.get('avg_net_pct'), 3)} per trade, win rate {_num((tr.get('win_rate') or 0) * 100, 0)}%.\n")
         if ts.get("n"):
             L.append(
-                f"Unseen test year: {ts['n']} trades, {_pct(ts['avg_net_pct'], 3)} per trade after fees "
+                f"Unseen test period: {ts['n']} trades, {_pct(ts['avg_net_pct'], 3)} per trade after fees "
                 f"({_pct(ts.get('avg_net_pct_maker_entry'), 3)} if entries filled as maker), win rate {ts['win_rate'] * 100:.0f}%, "
                 f"average win {_pct(ts['avg_win_pct'])}, average loss {_pct(ts['avg_loss_pct'])}, profit factor {_num(ts['profit_factor'])}, "
                 f"worst losing streak {ts['worst_losing_streak']}, {ts['positive_month_share'] * 100:.0f}% of months positive. "
