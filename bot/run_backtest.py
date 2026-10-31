@@ -46,9 +46,7 @@ def main(argv=None):
         from .project import write_project_pack
 
         write_project_pack(cfg)
-        from .dashboard import write_data
-
-        write_data(cfg)
+        # the dashboard data is only written by the scan, which always has the latest journal
     surv = [f["family"] for f in research["families"] if f["survived"]]
     if args.notify:
         from .notify import send
