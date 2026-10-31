@@ -86,6 +86,10 @@
   .runbox input { font: inherit; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-0); color: var(--text-primary); width: 100%; }
   .runbox ol { margin: 0; padding-left: 20px; color: var(--text-secondary); }
   .status { font-size: 13px; color: var(--text-secondary); }
+  .live { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--text-muted); flex: none; }
+  .dot.ok { background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 25%, transparent); }
+  .dot.late { background: #e0a100; }
 </style>
 </head>
 <body>
@@ -94,7 +98,7 @@
   <header>
     <h1>Crypto Bot</h1>
     <span class="pill" id="mode"></span>
-    <span class="muted" id="updated"></span>
+    <span class="live"><span class="dot" id="live-dot"></span><span id="updated"></span></span>
     <div class="actions">
       <span class="status" id="run-status" aria-live="polite"></span>
       <button class="btn primary" id="run-btn" type="button">Run now</button>
@@ -246,7 +250,7 @@ function render(D) {
   ["open", "decisions", "trades", "setups"].forEach(id => { document.getElementById(id).textContent = ""; });
   const test = D.mode === "PAPER";
   document.getElementById("mode").textContent = test ? "TEST MODE · fake money, real prices, real fees" : (D.mode === "LIVE_AUTO" ? (D.trading_enabled ? "LIVE · real money" : "LIVE · orders switched off") : "SIGNALS ONLY · you place trades");
-  document.getElementById("updated").textContent = D.generated ? "Updated " + ukTime(D.generated) + " UK · refreshes every hour" : "Waiting for the first scan";
+  tick();
   const banner = document.getElementById("banner");
   if (D.halted) { banner.hidden = false; banner.textContent = "Bot halted: " + D.halt_reason + ". Run the Resume workflow on GitHub after checking why."; }
 
@@ -341,11 +345,9 @@ async function runNow() {
   const btn = document.getElementById("run-btn");
   if (!repo()) { runStatus("Run now works on the GitHub website version of this page."); return; }
   if (!store.get()) {
-    window.open("https://github.com/" + repo() + "/actions/workflows/scan.yml", "_blank", "noopener");
-    const st = document.getElementById("run-status"); st.textContent = "Opened GitHub: click the green Run workflow button there. ";
-    const a = document.createElement("a"); a.href = "#"; a.textContent = "Or set up one click running";
-    a.addEventListener("click", e => { e.preventDefault(); document.getElementById("run-setup").hidden = false; });
-    st.appendChild(a); return;
+    const box = document.getElementById("run-setup"); box.hidden = false; box.scrollIntoView({ behavior: "smooth", block: "center" });
+    runStatus("The bot already runs by itself. Run now is for an extra check, and needs a one time key below.");
+    return;
   }
   btn.disabled = true;
   const before = current ? current.generated : "";
@@ -399,7 +401,31 @@ document.getElementById("pat-cancel").addEventListener("click", () => { document
   }
 })();
 window.addEventListener("resize", () => current && drawChart(current.equity, current.start_gbp));
-setTimeout(() => location.reload(), 10 * 60 * 1000);
+function nextSlot(now) {
+  const d = new Date(now); d.setUTCSeconds(0, 0);
+  const m = d.getUTCMinutes();
+  if (m < 7) d.setUTCMinutes(7); else if (m < 37) d.setUTCMinutes(37); else { d.setUTCHours(d.getUTCHours() + 1, 7); }
+  return d.getTime();
+}
+function fmtDur(ms) {
+  const s = Math.max(0, Math.round(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
+  return h ? h + "h " + m + "m" : m + ":" + String(ss).padStart(2, "0");
+}
+function tick() {
+  const el = document.getElementById("updated"), dot = document.getElementById("live-dot");
+  if (!current || !current.generated) { el.textContent = "Waiting for the first check"; dot.className = "dot"; return; }
+  const now = Date.now(), ago = now - new Date(current.generated).getTime(), late = ago > 75 * 60000;
+  dot.className = "dot " + (late ? "late" : "ok");
+  const agoTxt = ago < 60000 ? "just now" : (ago < 3600000 ? Math.floor(ago / 60000) + " min ago" : fmtDur(ago) + " ago");
+  el.textContent = (late ? "Late: last check " : "Running · last check ") + agoTxt + " (" + ukTime(current.generated, false) + " UK) · next check due in " + fmtDur(nextSlot(now) - now);
+}
+setInterval(tick, 1000);
+setInterval(async () => {
+  try {
+    const D = await loadData();
+    if (D.generated && (!current || D.generated !== current.generated)) { show(D); runStatus("New check landed at " + ukTime(D.generated, false) + ": " + (D.decisions[0] ? D.decisions[0].text : "")); }
+  } catch (e) { /* try again next minute */ }
+}, 60000);
 </script>
 </body>
 </html>
