@@ -5,6 +5,7 @@
 # LIVE_AUTO   = the bot places real orders (also needs trading_enabled = true)
 mode = "PAPER"
 trading_enabled = false
+paper_trades_candidates = true  # test mode also trades the best unproven setups, so you can watch them against real prices
 
 uk_timezone = "Europe/London"
 daily_summary_hour_uk = 14      # 2pm UK daily summary
@@ -29,26 +30,27 @@ taker_pct = 0.50
 slippage_pct = 0.10
 
 [data]
-history_days = 1095             # 3 years of hourly candles
+history_days = 365              # 1 year of hourly candles: enough to read trends, recent enough to matter
 universe_size = 25
 candidate_pool = 35
-min_history_days = 730
+min_history_days = 300
 quote = "USD"
 fallback_gbpusd = 1.30
 exclude = []                    # extra coins to skip, e.g. ["SHIB", "PEPE"]
 
 [backtest]
-train_months = 24
-test_months = 12
-hold_hours = [1, 2, 4, 12, 24]
-min_train_trades = 60
-min_test_trades = 50
+train_months = 8
+test_months = 4
+hold_hours = [4, 24, 72, 168]     # 4 hours up to 7 days
+min_train_trades = 30
+min_test_trades = 20
+min_candidate_trades = 20
 min_profit_factor = 1.2
 min_positive_month_share = 0.6
 random_trials = 400
 random_percentile = 97.5       # must beat 97.5% of time shifted random runs
-wf_train_months = 12          # walk forward folds sit inside the 24 months before the test year
-wf_test_months = 6
+wf_train_months = 4           # walk forward folds sit inside the 8 months before the test period
+wf_test_months = 2
 wf_min_positive_folds = 2
 wf_random_percentile = 75      # each fold must beat 75% of time shifted random runs
 

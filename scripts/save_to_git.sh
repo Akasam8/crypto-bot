@@ -4,7 +4,7 @@ set -u
 msg="$1"; shift
 git config user.name "crypto-bot"
 git config user.email "crypto-bot@users.noreply.github.com"
-git add "$@" 2>/dev/null || true
+for p in "$@"; do [ -e "$p" ] && git add "$p"; done
 git diff --cached --quiet && exit 0
 git commit -q -m "$msg"
 for i in 1 2 3 4 5; do

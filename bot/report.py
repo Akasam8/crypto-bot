@@ -39,35 +39,48 @@ def _json_default(o):
     return str(o)
 
 
-def survivors_payload(research: dict) -> list[dict]:
+STAT_KEYS = ("n", "win_rate", "avg_net_pct", "profit_factor", "positive_month_share", "typical_stop_pct", "typical_target_pct", "worst_losing_streak")
+
+
+def survivors_payload(research: dict, max_candidates: int = 3) -> list[dict]:
+    """Setups the scanner may trade. 'validated' passed every check (live allowed);
+    'candidate' only looked good on the past year (test mode only)."""
     out = []
     for f in research["families"]:
         if not f.get("survived"):
             continue
         ts = f["test_stats"]
         out.append({
-            "family": f["family"],
-            "title": f["title"],
-            "rule": f["rule"],
-            "key": f["selected"],
-            "params": f["config"]["params"],
-            "hold": f["config"]["hold"],
-            "profile": f["config"]["profile"],
-            "test": {k: ts.get(k) for k in ("n", "win_rate", "avg_net_pct", "profit_factor", "positive_month_share", "typical_stop_pct", "typical_target_pct")},
-            "random_p_value": f["random_baseline"].get("p_value"),
+            "status": "validated", "family": f["family"], "title": f["title"], "rule": f["rule"], "key": f["selected"],
+            "params": f["config"]["params"], "hold": f["config"]["hold"], "profile": f["config"]["profile"],
+            "test": {k: ts.get(k) for k in STAT_KEYS}, "random_p_value": f["random_baseline"].get("p_value"),
         })
     out.sort(key=lambda s: -(s["test"]["avg_net_pct"] or 0))
-    return out
+    cands = []
+    for f in research["families"]:
+        c = f.get("candidate")
+        if f.get("survived") or not c:
+            continue
+        ys, rs = c["year_stats"], c["recent_stats"]
+        cands.append({
+            "status": "candidate", "family": f["family"], "title": f["title"], "rule": c["rule"], "key": c["key"],
+            "params": c["config"]["params"], "hold": c["config"]["hold"], "profile": c["config"]["profile"],
+            "test": {k: ys.get(k) for k in STAT_KEYS}, "recent": {k: rs.get(k) for k in ("n", "win_rate", "avg_net_pct")},
+        })
+    cands.sort(key=lambda s: -(s["test"]["avg_net_pct"] or 0))
+    return out + cands[:max_candidates]
 
 
 def verdict_text(research: dict) -> str:
     surv = [f for f in research["families"] if f.get("survived")]
     n_fam = len(research["families"])
+    cands = [f for f in research["families"] if f.get("candidate") and not f.get("survived")]
     if not surv:
+        tail = (f" Test mode will still trade the best {min(3, len(cands))} unproven setups with fake money, so you can watch how they do against real prices and fees. None of them can go live." if cands
+                else " Nothing even looked good on the past year, so test mode has nothing to trade either.")
         return (
-            f"**Nothing survived.** None of the {n_fam} setup families made money after fees on data they "
-            "weren't built on, in a way that clearly beat random entries. The bot will stay idle and only send "
-            "daily summaries. That's an honest result, and it means the £100 stays in your pocket."
+            f"**Nothing is proven.** None of the {n_fam} setup families made money after fees on data they "
+            "weren't built on, in a way that clearly beat random entries. Live trading stays off." + tail
         )
     names = ", ".join(f["title"] for f in surv)
     return (
@@ -132,13 +145,20 @@ def backtest_report(research: dict, notes: dict, cfg: dict) -> str:
                 L.append("By market regime: " + "; ".join(f"{k}: {v['n']} trades, {_pct(v['avg_net_pct'], 3)}" for k, v in ts["by_regime"].items()) + ".\n")
         wf = f["walk_forward"]
         if wf:
-            L.append("Walk forward inside the training years (picked on 12 months, tested on the next 6): " + "; ".join(
+            L.append("Walk forward inside the training period (picked on 4 months, tested on the next 2): " + "; ".join(
                 f"{w.get('test_from', '?')} to {w.get('test_to', '?')}: " + (f"{w['n']} trades, {_pct(w['avg_net_pct'], 3)} per trade, {_pct(w.get('edge_vs_random_pct'), 3)} vs the 75th percentile of random timing" if w['avg_net_pct'] is not None else "nothing passed training") for w in wf) + ".\n")
         if f["fail_reasons"]:
             L.append(f"**Failed because:** {'; '.join(f['fail_reasons'])}.\n")
         else:
             L.append("**Survived every check.**\n")
 
+    cands = [s_ for s_ in survivors_payload(research) if s_["status"] == "candidate"]
+    if cands:
+        L.append("## Test mode setups (unproven)\n")
+        L.append("These looked best over the whole year, which is exactly the data they were picked on, so their numbers are flattering. Test mode trades them with fake money to find out if they hold up on new prices.\n")
+        for c in cands:
+            t, r = c["test"], c["recent"]
+            L.append(f"**{c['title']}**: {c['rule']} Hold up to {c['hold']}h, {PROFILE_TEXT[c['profile']]}. Past year: {t['n']} trades, {t['win_rate'] * 100:.0f}% wins, {_pct(t['avg_net_pct'])} per trade after fees. Last {cfg['backtest']['test_months']} months alone: {r['n']} trades, {_pct(r['avg_net_pct'])} per trade.\n")
     L.append("## Caveats\n")
     L.append(
         "Trades on different coins often fire at the same time because crypto moves together, so the real number of independent bets is smaller than the trade count. "
@@ -152,7 +172,7 @@ def strategy_cards(research: dict, cfg: dict) -> str:
     surv = [f for f in research["families"] if f.get("survived")]
     L = ["# Strategy cards\n"]
     if not surv:
-        L.append("No setup survived the latest backtest, so there are no live strategy cards. The scanner stays idle until the monthly rerun finds something.\n")
+        L.append("No setup is proven, so nothing can trade live. See the test mode setups in the backtest report for what's being paper traded.\n")
         return "\n".join(L)
     pos = cfg["risk"]["max_position_gbp"]
     for f in surv:

@@ -4,15 +4,20 @@ A small Coinbase bot that only trades setups which proved themselves on 3 years 
 
 ## How it works
 
-Everything runs on GitHub Actions, so nothing needs to stay on at home.
+Everything runs free on GitHub Actions, so nothing needs to stay on at home.
 
-1. **Backtest** (`.github/workflows/backtest.yml`) pulls 3 years of hourly candles for the 25 most traded coins on Coinbase, tests 6 setup families (555 variations) with Coinbase fees and slippage on both sides, picks the best version of each on the first 2 years, then judges it on the last year it never saw. A setup only survives if it makes money after fees, beats the same trades slid to random times, and holds up in 3 rolling walk forward periods. It runs on the 1st of every month and whenever the code changes. Results land in `reports/`.
-2. **Hourly scan** (`.github/workflows/scan.yml`) runs at 7 minutes past every hour. It checks open positions with exactly the backtest's exit rules, looks for surviving setups on the candle that just closed, applies the risk rules, and posts to Discord. Every signal and trade goes in `state/trades.csv`.
-3. **Claude** reads the files in `claude_project/` (playbook, backtest report, journal summary) so you can ask it about any trade.
+1. **Backtest** (`.github/workflows/backtest.yml`) pulls the last year of hourly candles for the 25 most traded coins on Coinbase and tests 8 setup families (252 variations), from quick 4 hour trades to trend trades held up to 7 days, with Coinbase fees and slippage on both sides. Each family's best version is picked on the first 8 months and judged on the last 4 it never saw. Only setups that make money after fees, beat the same trades slid to random times, and hold up in walk forward checks count as **proven**. The best of the rest become **unproven** setups that only test mode may trade. Reruns on the 1st of every month and whenever the code changes.
+2. **Hourly scan** (`.github/workflows/scan.yml`) runs at 7 minutes past every hour. It checks open positions with exactly the backtest's exit rules, looks for setups on the candle that just closed, applies the risk rules, logs its decision, and posts to Discord.
+3. **Dashboard** (`docs/index.html`) shows balance, profit, open positions, every buy and sell, and the latest decisions. GitHub Pages serves it at `https://<you>.github.io/crypto-bot/` and the scan refreshes it every hour. On your own PC: `python -m bot.dashboard` opens it at http://localhost:8000.
+4. **Claude** reads the files in `claude_project/` (playbook, backtest report, journal summary) so you can ask it about any trade.
+
+## Test mode
+
+`BOT_MODE=PAPER` (the default) is test mode: a fake £100, real Coinbase prices, real fees and slippage on every buy and sell, and the same stops, targets and time exits a live trade would get. It trades proven setups and, while `paper_trades_candidates = true` in config.toml, the best unproven ones too, so you can watch how they really do. Live modes only ever trade proven setups.
 
 ## Files worth reading
 
-`reports/backtest_report.md` is the verdict. `reports/playbook.md` holds the market notes plus the live strategy cards. `state/trades.csv` is the journal, and `state/state.json` shows whether the bot is halted.
+`reports/backtest_report.md` is the verdict. `reports/playbook.md` holds the market notes plus the strategy cards. `state/trades.csv` is the journal, `state/decisions.json` is every hourly decision, `state/equity.csv` is the balance history, and `state/state.json` shows whether the bot is halted.
 
 ## Modes
 
@@ -57,7 +62,8 @@ To pause everything, go to Actions, pick Hourly scan, and click Disable workflow
 
 ```bash
 pip install -r requirements.txt
-python -m pytest -q                      # 24 tests incl. no lookahead and paper vs backtest parity
+python -m pytest -q                      # 27 tests incl. no lookahead and paper vs backtest parity
+python -m bot.dashboard                  # dashboard on http://localhost:8000
 python -m bot.run_backtest --synthetic   # offline dry run on fake data with no edge in it
 python -m bot.run_backtest               # real data, needs internet access to Coinbase
 python -m bot.scan                       # one scan

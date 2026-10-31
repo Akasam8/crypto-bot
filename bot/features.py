@@ -68,11 +68,23 @@ def coin_features(df: pd.DataFrame, ctx: pd.DataFrame) -> pd.DataFrame:
     f["ret_4"] = np.log(c).diff(4)
     f["sigma"] = lr.rolling(SIGMA_BARS, min_periods=SIGMA_BARS // 2).std()
     f["rsi14"] = rsi(c, 14)
-    for span in (20, 50, 200):
+    for span in (20, 50):
         f[f"ema{span}"] = ema(c, span)
-    for n in (24, 72):
+    for n in (48, 120, 200, 240, 480):  # simple averages: identical whether you have 800 bars or 3 years
+        f[f"sma{n}"] = c.rolling(n, min_periods=n).mean()
+    for n in (24, 72, 240, 480):
         f[f"hi{n}"] = prior_max(df["high"], n)
+    for n in (24, 72, 168):
         f[f"vmed{n}"] = prior_median(df["volume"], n)
-    f["vmed168"] = prior_median(df["volume"], 168)
+    f["ret_168"] = np.log(c).diff(168)
     f = f.join(ctx, how="left")
     return f
+
+
+def add_cross_sectional(feats: dict[str, pd.DataFrame]) -> dict[str, pd.DataFrame]:
+    """Rank every coin by its 7 day return at each hour (1 = strongest). Uses only data up to that bar."""
+    r = pd.DataFrame({pid: f["ret_168"] for pid, f in feats.items()})
+    rank = r.rank(axis=1, ascending=False, method="first")
+    for pid, f in feats.items():
+        f["mom_rank"] = rank[pid].reindex(f.index)
+    return feats

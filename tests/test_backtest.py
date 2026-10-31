@@ -76,20 +76,40 @@ def test_exit_levels_clipped():
 
 
 def test_no_lookahead_in_features_and_signals():
-    uni = synthetic_universe(n_coins=3, days=400, seed=3)
-    full_ctx = btc_context(uni["BTC-USD"])
+    from bot.features import add_cross_sectional
+
+    uni = synthetic_universe(n_coins=4, days=400, seed=3)
+
+    def feats_of(u):
+        ctx = btc_context(u["BTC-USD"])
+        return add_cross_sectional({k: coin_features(v, ctx) for k, v in u.items()})
+
+    full = feats_of(uni)
+    cut = len(uni["BTC-USD"]) - 37
+    tr = feats_of({k: v.iloc[:cut] for k, v in uni.items()})
     pid = "C1-USD"
-    full = coin_features(uni[pid], full_ctx)
-    cut = len(full) - 37
-    trunc_uni = {k: v.iloc[:cut] for k, v in uni.items()}
-    tr = coin_features(trunc_uni[pid], btc_context(trunc_uni["BTC-USD"]))
-    cols = [c for c in full.columns]
-    pd.testing.assert_frame_equal(full.iloc[:cut][cols], tr[cols], check_freq=False)
+    pd.testing.assert_frame_equal(full[pid].iloc[:cut], tr[pid], check_freq=False)
     for fam, spec in FAMILIES.items():
-        for p in spec["grid"][:3]:
-            a = signal(fam, p, full)[:cut]
-            b = signal(fam, p, tr)
+        for p in spec["grid"][:4]:
+            a = signal(fam, p, full[pid])[:cut]
+            b = signal(fam, p, tr[pid])
             assert (a == b).all(), (fam, p)
+
+
+def test_live_window_gives_same_features_as_full_history():
+    """The scan only fetches 800 hourly bars; long averages must match the backtest's values exactly."""
+    from bot.features import add_cross_sectional
+
+    uni = synthetic_universe(n_coins=3, days=200, seed=8)
+    ctx_full = btc_context(uni["BTC-USD"])
+    full = add_cross_sectional({k: coin_features(v, ctx_full) for k, v in uni.items()})
+    short_uni = {k: v.iloc[-800:] for k, v in uni.items()}
+    daily = uni["BTC-USD"]["close"].resample("1D").last()
+    short = add_cross_sectional({k: coin_features(v, btc_context(short_uni["BTC-USD"], daily)) for k, v in short_uni.items()})
+    cols = ["sma480", "sma240", "hi480", "ret_168", "mom_rank", "sigma", "rsi14", "btc_up50"]
+    a = full["C1-USD"][cols].iloc[-24:]
+    b = short["C1-USD"][cols].iloc[-24:]
+    pd.testing.assert_frame_equal(a, b, check_freq=False, rtol=1e-9)
 
 
 @pytest.fixture(scope="module")
@@ -129,6 +149,7 @@ def test_planted_edge_is_found(cfg):
         uni[pid] = df
     c = copy.deepcopy(cfg)
     c["backtest"]["random_trials"] = 100
+    c["backtest"]["hold_hours"] = [4, 24]  # the planted edge lasts 12 hours
     res = run_research(prepare(uni, "BTC-USD"), c, log=lambda *a: None)
     surv = {f["family"] for f in res["families"] if f["survived"]}
     assert surv & {"volume_spike", "breakout"}, [(f["family"], f["fail_reasons"]) for f in res["families"]]

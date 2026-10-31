@@ -16,14 +16,14 @@ import pandas as pd
 from .backtest import exit_levels
 from .config import REPORTS_DIR, STATE_DIR, costs, load_config
 from .data import DAY, HOUR, complete_only, fill_gaps, gbp_per_usd, make_api
-from .features import btc_context, coin_features
+from .features import add_cross_sectional, btc_context, coin_features
 from .journal import Journal, load_state, save_state
 from .notify import send
 from .project import write_journal_summary
 from .risk import gate, size_position
 from .strategies import EXIT_PROFILES, signal
 
-HOURLY_BARS = 500
+HOURLY_BARS = 800
 DAILY_BARS = 420
 H1 = pd.Timedelta(hours=1)
 ACTIVE = ("open", "pending", "submitting")
@@ -48,6 +48,10 @@ def fmt_uk(t, cfg) -> str:
 
 def sym(pid: str) -> str:
     return pid.split("-")[0]
+
+
+def price(x: float) -> str:
+    return f"${x:,.2f}" if x >= 1 else f"${x:.4g}"
 
 
 def money(x: float) -> str:
@@ -114,7 +118,7 @@ def unrealised(pos: dict, price, cost: dict) -> float:
 
 
 def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_live: bool = False,
-        reports_dir=REPORTS_DIR, state_dir=STATE_DIR) -> dict:
+        reports_dir=REPORTS_DIR, state_dir=STATE_DIR, docs_dir=None) -> dict:
     now = pd.Timestamp(now).tz_convert("UTC")
     mode = cfg["mode"]
     cost = costs(cfg)
@@ -124,6 +128,8 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
     journal = Journal(state_dir / "trades.csv")
     research = load_json(reports_dir / "research.json", {})
     survivors = load_json(reports_dir / "survivors.json", [])
+    allow_candidates = mode == "PAPER" and cfg.get("paper_trades_candidates", True)
+    setups = [s for s in survivors if s.get("status", "validated") == "validated" or (allow_candidates and s.get("status") == "candidate")]
     btc_pid = f"BTC-{cfg['data']['quote']}"
     pids = research.get("coins") or [btc_pid]
     live = bool(can_open_live and broker is not None and mode == "LIVE_AUTO")
@@ -140,7 +146,7 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
     if btc_pid not in frames:
         raise RuntimeError("couldn't load BTC candles from Coinbase")
     ctx = btc_context(frames[btc_pid], daily)
-    feats = {pid: coin_features(df, ctx) for pid, df in frames.items()}
+    feats = add_cross_sectional({pid: coin_features(df, ctx) for pid, df in frames.items()})
     gbp = gbp_per_usd(api, cfg["data"]["fallback_gbpusd"])
 
     # 1. manage open positions (live ones are always reconciled when a broker exists, even with trading off)
@@ -196,7 +202,7 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
 
     # 3. new signals on the candle that just closed
     candidates = []
-    for s in survivors:
+    for s in setups:
         tp_mult, sl_mult = EXIT_PROFILES[s["profile"]]
         for pid, f in feats.items():
             if f.index[-1] != last_closed or f["volume"].iloc[-1] <= 0:
@@ -241,7 +247,7 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
                 "entry_time": iso(c["sig_t"]), "entry_price": entry, "size_gbp": d.size_gbp,
                 "units": d.size_gbp / gbp / (entry * (1 + cost["a"][0])), "risk_gbp": d.risk_gbp, "sl_price": sl_px,
                 "tp_price": tp_px, "hold_hours": s["hold"], "exit_by": iso(exit_by), "status": "submitting" if live else "open",
-                "note": "" if live else f"ask at scan {ask:.6g}",
+                "note": ("unproven setup; " if s.get("status") == "candidate" else "") + ("" if live else f"ask at scan {ask:.6g}"),
             }
             journal.add(rec)
             journal.save()  # written before any order goes out, so nothing can be lost
@@ -262,13 +268,13 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
         free -= d.size_gbp
         log["opened"].append(rec["id"])
         t = s["test"]
-        tag = {"PAPER": "PAPER", "LIVE_MANUAL": "SIGNAL (place it yourself)", "LIVE_AUTO": "LIVE ORDER"}[rec["mode"]]
-        tp_txt = f"Target ${tp_px:,.6g} (+{c['tp_pct'] * 100:.1f}%)" if tp_px else "No target"
+        tag = {"PAPER": "TEST (fake money)", "LIVE_MANUAL": "SIGNAL (place it yourself)", "LIVE_AUTO": "LIVE ORDER"}[rec["mode"]]
+        tp_txt = f"Target {price(tp_px)} (+{c['tp_pct'] * 100:.1f}%)" if tp_px else "No target"
         say(
             f"🟢 {tag}: BUY {sym(pid)} ({s['title']})\n"
-            f"Entry ${rec['entry_price']:,.6g} · £{d.size_gbp:.2f} position · £{d.risk_gbp:.2f} at risk\n"
-            f"{tp_txt} · Stop ${sl_px:,.6g} (-{c['sl_pct'] * 100:.1f}%) · Sell by {fmt_uk(exit_by, cfg)} UK\n"
-            f"Backtest test year: {t['win_rate'] * 100:.0f}% wins, {t['avg_net_pct']:+.2f}% avg after fees, {t['n']} trades\n"
+            f"Entry {price(rec['entry_price'])} · £{d.size_gbp:.2f} position · £{d.risk_gbp:.2f} at risk\n"
+            f"{tp_txt} · Stop {price(sl_px)} (-{c['sl_pct'] * 100:.1f}%) · Sell by {fmt_uk(exit_by, cfg)} UK\n"
+            f"{'Unproven setup, past year' if s.get('status') == 'candidate' else 'Backtest test period'}: {t['win_rate'] * 100:.0f}% wins, {t['avg_net_pct']:+.2f}% avg after fees, {t['n']} trades\n"
             f"BTC above its 50 day average: {'yes' if f_up(feats[btc_pid]) else 'no'}"
         )
     if log["skipped"]:
@@ -277,19 +283,62 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
     # 4. summaries
     local = uk(now, cfg)
     if local.hour >= cfg["daily_summary_hour_uk"] and state["last_daily_summary"] != str(today):
-        say(daily_summary(cfg, journal, survivors, pot, last_px, cost, today, state, mode == "LIVE_AUTO" and not live))
+        say(daily_summary(cfg, journal, setups, pot, last_px, cost, today, state, mode == "LIVE_AUTO" and not live))
         state["last_daily_summary"] = str(today)
         week = str((local - pd.Timedelta(days=local.weekday())).date())
         if local.weekday() == cfg["weekly_summary_weekday"] and state["last_weekly_summary"] != week:
-            say(weekly_summary(journal, survivors))
+            say(weekly_summary(journal, setups))
             state["last_weekly_summary"] = week
+
+    # 5. decision log + balance history for the dashboard
+    rows = journal.rows()
+    closed = [r for r in rows if r["status"] == "closed"]
+    active = [r for r in rows if r["status"] in ACTIVE]
+    open_pnl = sum(unrealised(r, last_px.get(r["coin"]), cost) for r in active)
+    realised = sum(r["pnl_gbp"] or 0 for r in closed)
+    balance = broker.portfolio_value_gbp(gbp) if live else cfg["risk"]["pot_start_gbp"] + realised + open_pnl
+    by_id = {r["id"]: r for r in rows}
+    parts = [f"Sold {sym(by_id[i]['coin'])} ({by_id[i]['exit_reason']}, {money(by_id[i]['pnl_gbp'])})" for i in log["closed"] if i in by_id]
+    parts += [f"Bought {sym(by_id[i]['coin'])} ({by_id[i]['setup']}) at {price(by_id[i]['entry_price'])}" for i in log["opened"] if i in by_id]
+    if not parts:
+        if state.get("halted"):
+            parts.append(f"No trade: bot is halted ({state['halt_reason']})")
+        elif not setups:
+            parts.append("No trade: no setup is approved for this mode yet")
+        elif log["skipped"]:
+            reasons = sorted({x.split(": ", 1)[-1] for x in log["skipped"]})
+            parts.append(f"No trade: {len(log['skipped'])} signal(s) skipped ({'; '.join(reasons)})")
+        else:
+            parts.append(f"No trade: none of the {len(setups)} setups fired on the {uk(last_closed, cfg).strftime('%H:%M')} candle")
+    decision = {
+        "time": iso(now), "candle": iso(last_closed), "mode": mode, "btc_trend": "up" if f_up(feats[btc_pid]) else "down",
+        "coins_checked": len(feats), "setups": len(setups), "text": ". ".join(parts),
+        "opened": log["opened"], "closed": log["closed"], "skipped": log["skipped"],
+    }
+    decisions = load_json(state_dir / "decisions.json", [])
+    decisions = [d for d in decisions if d.get("candle") != decision["candle"]] + [decision]
+    (state_dir / "decisions.json").write_text(json.dumps(decisions[-500:], indent=1))
+    eq_path = state_dir / "equity.csv"
+    if not eq_path.exists():
+        eq_path.write_text("time,balance_gbp,realised_gbp,open_gbp\n")
+    with open(eq_path, "a") as fh:
+        fh.write(f"{iso(now)},{balance:.4f},{realised:.4f},{open_pnl:.4f}\n")
+    state["last_prices"] = {k: round(v, 10) for k, v in last_px.items()}
+    state["gbp_per_usd"] = round(gbp, 6)
 
     state["last_run"] = iso(now)
     state["consecutive_errors"] = 0
     journal.save()
     save_state(state_path, state)
     write_journal_summary(cfg)
-    log["pot_gbp"] = round(pot, 2)
+    try:
+        from .dashboard import write_data
+
+        write_data(cfg, reports_dir=reports_dir, state_dir=state_dir, docs_dir=docs_dir)
+    except Exception as e:  # noqa: BLE001
+        print(f"[dashboard] couldn't update: {e}")
+    log["pot_gbp"] = round(balance, 2)
+    log["decision"] = decision["text"]
     return log
 
 
@@ -313,9 +362,10 @@ def daily_summary(cfg, journal, survivors, pot, last_px, cost, today, state, ord
     if state.get("halted"):
         L.append(f"🛑 HALTED: {state['halt_reason']}")
     if survivors:
-        L.append("Setups being traded: " + ", ".join(s["title"] for s in survivors) + ".")
+        tags = [s["title"] + (" (unproven, test only)" if s.get("status") == "candidate" else "") for s in survivors]
+        L.append("Setups being traded: " + ", ".join(tags) + ".")
     else:
-        L.append("No setup has passed the backtest, so the bot is watching but not trading. It reruns the backtest on the 1st of each month.")
+        L.append("No setup is approved for this mode, so the bot is watching but not trading. It reruns the backtest on the 1st of each month.")
     return "\n".join(L)
 
 

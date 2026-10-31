@@ -41,10 +41,26 @@ FAMILIES = {
     },
     "trend_pullback": {
         "title": "Trend pullback",
-        "desc": "In an uptrend (above a rising 200h average), price dips to the {fast}h average and closes back above it.",
+        "desc": "In an uptrend (above a rising 200 hour average), price dips to the {fast}h average and closes back above it.",
         "grid": [{"fast": 20}, {"fast": 50}],
     },
+    "trend_breakout": {
+        "title": "Trend breakout",
+        "desc": "Price breaks above its highest point of the last {days} days while above its 20 day average{btc_text}.",
+        "grid": [{"days": d, "btc_filter": b} for d in (10, 20) for b in (True, False)],
+    },
+    "ma_cross": {
+        "title": "Moving average cross",
+        "desc": "The {fast_d:g} day average crosses above the {slow_d:g} day average.",
+        "grid": [{"fast": 120, "slow": 480}, {"fast": 48, "slow": 240}],
+    },
+    "momentum_leader": {
+        "title": "Momentum leader",
+        "desc": "Once a day, buy a coin that's in the top {top} for 7 day gains, up on the week, while BTC is above its 50 day average.",
+        "grid": [{"top": 3}, {"top": 5}],
+    },
     "session": {
+        "research": False,
         "title": "Time of day entry",
         "desc": "Enter at {hour:02d}:00 UTC every day. The hour is picked on training data only.",
         "grid": [{"hour": h} for h in range(24)],
@@ -56,6 +72,10 @@ def describe(family: str, params: dict) -> str:
     p = dict(params)
     if family == "oversold_bounce":
         p["mode_text"] = "drops below" if p["mode"] == "below" else "climbs back above"
+    if family == "trend_breakout":
+        p["btc_text"] = ", with BTC above its 50 day average" if p["btc_filter"] else ""
+    if family == "ma_cross":
+        p["fast_d"], p["slow_d"] = p["fast"] / 24, p["slow"] / 24
     return FAMILIES[family]["desc"].format(**p)
 
 
@@ -81,8 +101,18 @@ def signal(family: str, params: dict, f: pd.DataFrame, is_btc: bool = False) -> 
         s = (b > 1.5 * f["btc_sigma"] * np.sqrt(L)) & (a < 0.5 * b)
     elif family == "trend_pullback":
         e = f[f"ema{params['fast']}"]
-        up = (f["close"] > f["ema200"]) & (f["ema200"] > f["ema200"].shift(24))
+        up = (f["close"] > f["sma200"]) & (f["sma200"] > f["sma200"].shift(24))
         s = up & (f["low"] <= e) & (f["close"] > e)
+    elif family == "trend_breakout":
+        s = (f["close"] > f[f"hi{params['days'] * 24}"]) & (f["close"] > f["sma480"])
+        if params["btc_filter"]:
+            s = s & (f["btc_up50"] == 1)
+    elif family == "ma_cross":
+        fa, sl = f[f"sma{params['fast']}"], f[f"sma{params['slow']}"]
+        s = (fa.shift(1) <= sl.shift(1)) & (fa > sl)
+    elif family == "momentum_leader":
+        s = (f.index.hour == 23) & (f["mom_rank"] <= params["top"]) & (f["ret_168"] > 0) & (f["btc_up50"] == 1)
+        s = pd.Series(s, index=f.index)
     elif family == "session":
         # signal bar closes at the top of the entry hour
         s = pd.Series((f.index.hour + 1) % 24 == params["hour"], index=f.index)
@@ -94,6 +124,8 @@ def signal(family: str, params: dict, f: pd.DataFrame, is_btc: bool = False) -> 
 def all_configs(hold_hours) -> list[dict]:
     out = []
     for fam, spec in FAMILIES.items():
+        if not spec.get("research", True):
+            continue
         for params, hold, prof in itertools.product(spec["grid"], hold_hours, EXIT_PROFILES):
             out.append({"family": fam, "params": params, "hold": int(hold), "profile": prof})
     return out

@@ -9,7 +9,7 @@ import pandas as pd
 
 from .backtest import Outcomes, select_trades, simulate_all
 from .config import costs
-from .features import btc_context, coin_features
+from .features import add_cross_sectional, btc_context, coin_features
 from .strategies import FAMILIES, all_configs, config_key, describe, signal
 
 NS_HOUR = 3_600_000_000_000
@@ -54,11 +54,8 @@ class Universe:
 
 def prepare(universe: dict[str, pd.DataFrame], btc_pid: str) -> Universe:
     ctx = btc_context(universe[btc_pid])
-    feats, times = {}, {}
-    for pid, df in universe.items():
-        f = coin_features(df, ctx)
-        feats[pid] = f
-        times[pid] = ns_index(f.index)
+    feats = add_cross_sectional({pid: coin_features(df, ctx) for pid, df in universe.items()})
+    times = {pid: ns_index(f.index) for pid, f in feats.items()}
     b = times[btc_pid]
     return Universe(list(universe), btc_pid, feats, times, int(b[0]), int(b[-1]) + NS_HOUR)
 
@@ -219,13 +216,13 @@ def run_research(u: Universe, cfg: dict, log=print) -> dict:
     while True:
         tr_b = month_add(f0, bc["wf_train_months"])
         te_b = min(month_add(tr_b, bc["wf_test_months"]), test_a - max_hold)
-        if te_b < month_add(tr_b, 3):  # need at least 3 months of unseen data per fold
+        if te_b - tr_b < 30 * 24 * NS_HOUR:  # need at least a month of unseen data per fold
             break
         folds.append(((f0, tr_b - max_hold), (tr_b, te_b)))
         f0 = month_add(f0, bc["wf_test_months"])
     log(f"[research] {len(configs)} configs, {len(u.pids)} coins, {len(folds)} walk forward folds")
 
-    windows = [train] + [f[0] for f in folds]
+    windows = [train] + [f[0] for f in folds] + [(warm, end)]  # last one = the whole year, for test mode candidates
     summary = []
     for i, c in enumerate(configs):
         ts = trades_for(u, c, cost)
@@ -246,12 +243,30 @@ def run_research(u: Universe, cfg: dict, log=print) -> dict:
                 best = r
         return best
 
+    def candidate(family: str):
+        """Best version over the whole year (in sample). Good enough to paper trade, never to go live."""
+        best = None
+        for r in summary:
+            if r["cfg"]["family"] != family:
+                continue
+            n, m, t = r["train"][-1]
+            if n < bc["min_candidate_trades"] or m <= 0:
+                continue
+            if best is None or t > best["train"][-1][2]:
+                best = r
+        return best
+
     results = []
-    for fam in FAMILIES:
+    for fam in [f for f, spec in FAMILIES.items() if spec.get("research", True)]:
         res = {"family": fam, "title": FAMILIES[fam]["title"], "configs_tested": sum(1 for r in summary if r["cfg"]["family"] == fam)}
         chosen = pick(fam, 0)
+        cand = candidate(fam)
+        if cand is not None:
+            cts = trades_for(u, cand["cfg"], cost, detail=True)
+            res["candidate"] = {"key": cand["key"], "config": cand["cfg"], "rule": describe(fam, cand["cfg"]["params"]),
+                                "year_stats": full_stats(window(cts, warm, end)), "recent_stats": full_stats(window(cts, test_a, end))}
         if chosen is None:
-            res.update(selected=None, survived=False, fail_reasons=["nothing was profitable after fees even on the training data"])
+            res.update(selected=None, survived=False, fail_reasons=["nothing was profitable after fees on the training data"])
             results.append(res)
             continue
         c = chosen["cfg"]

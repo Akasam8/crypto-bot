@@ -60,7 +60,7 @@ def env(tmp_path):
 def scan_at(env, when):
     cfg, uni, rep, st, msgs = env
     now = pd.Timestamp(when).tz_convert("UTC")
-    return run(cfg, FakeAPI(uni, now), now, notify=msgs.append, reports_dir=rep, state_dir=st)
+    return run(cfg, FakeAPI(uni, now), now, notify=msgs.append, reports_dir=rep, state_dir=st, docs_dir=st.parent / "docs")
 
 
 def test_paper_trade_matches_backtest_exactly(env):
@@ -211,3 +211,40 @@ def test_stale_coin_data_is_not_traded(env):
     scan_at(env, t)
     coins = {r["coin"] for r in Journal(st / "trades.csv").rows()}
     assert "C1-USD" not in coins and "BTC-USD" in coins
+
+
+def test_candidates_trade_in_test_mode_only(env):
+    cfg, uni, rep, st, msgs = env
+    cfg["risk"]["max_open_positions"] = 3
+    surv = json.loads((rep / "survivors.json").read_text())
+    surv[0]["status"] = "candidate"
+    (rep / "survivors.json").write_text(json.dumps(surv))
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    t = day + pd.Timedelta(hours=10, minutes=7)
+    cfg["mode"] = "LIVE_MANUAL"
+    scan_at(env, t)
+    assert len(Journal(st / "trades.csv").rows()) == 0
+    cfg["mode"] = "PAPER"
+    scan_at(env, t + pd.Timedelta(minutes=5))
+    rows = Journal(st / "trades.csv").rows()
+    assert len(rows) == 3 and all("unproven" in r["note"] for r in rows)
+
+
+def test_dashboard_data_and_decision_log(env):
+    cfg, uni, rep, st, msgs = env
+    cfg["risk"]["max_open_positions"] = 3
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    start = day + pd.Timedelta(hours=8, minutes=7)
+    for h in range(0, 10):
+        scan_at(env, start + pd.Timedelta(hours=h))
+    js = (st.parent / "docs" / "data.js").read_text()
+    assert js.startswith("window.BOT_DATA = ")
+    d = json.loads(js[len("window.BOT_DATA = "):].rstrip().rstrip(";"))
+    assert len(d["equity"]) == 10 and len(d["decisions"]) == 10
+    assert d["decisions"][-1]["text"].startswith("No trade")  # oldest first scan: nothing fired at 07:00
+    assert any(x["text"].startswith("Bought") for x in d["decisions"])
+    assert any(x["text"].startswith("Sold") for x in d["decisions"])
+    sides = {t["side"] for t in d["trades"]}
+    assert sides == {"BUY", "SELL"}
+    closed = [r for r in Journal(st / "trades.csv").rows() if r["status"] == "closed"]
+    assert d["balance_gbp"] == pytest.approx(100 + sum(r["pnl_gbp"] for r in closed) + d["open_pnl_gbp"], abs=0.02)

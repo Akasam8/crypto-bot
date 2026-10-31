@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crypto Bot</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-0: #f4f4f2;
+    --surface-1: #fcfcfb;
+    --border: #e2e1dc;
+    --grid: #ecebe7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #7a7974;
+    --series-1: #2a78d6;
+    --good: #1a7f37;
+    --bad: #c4302b;
+    --warn-bg: #fff4d6;
+    --warn-text: #6b4e00;
+    --pill-bg: #e8f0fb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-0: #111110;
+      --surface-1: #1a1a19;
+      --border: #2c2c2a;
+      --grid: #262624;
+      --text-primary: #f0efec;
+      --text-secondary: #c3c2b7;
+      --text-muted: #8f8e86;
+      --series-1: #3987e5;
+      --good: #3fb950;
+      --bad: #f2615a;
+      --warn-bg: #3a2f10;
+      --warn-text: #f3d27a;
+      --pill-bg: #1d2c42;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .viz-root { background: var(--surface-0); color: var(--text-primary); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; min-height: 100vh; padding: 20px; }
+  .wrap { max-width: 1100px; margin: 0 auto; display: grid; gap: 16px; }
+  header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  h1 { font-size: 22px; margin: 0; }
+  h2 { font-size: 15px; margin: 0 0 10px; }
+  .pill { background: var(--pill-bg); border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 600; }
+  .muted { color: var(--text-muted); font-size: 12px; }
+  .banner { background: var(--warn-bg); color: var(--warn-text); border-radius: 8px; padding: 10px 14px; }
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .kpi .label { color: var(--text-secondary); font-size: 12px; }
+  .kpi .value { font-size: 26px; font-weight: 650; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .kpi .sub { color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+  .up { color: var(--good); }
+  .down { color: var(--bad); }
+  .chart { position: relative; }
+  .chart svg { width: 100%; height: 260px; display: block; }
+  .tip { position: absolute; pointer-events: none; background: var(--surface-1); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.15); display: none; white-space: nowrap; }
+  .tip strong { display: block; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+  th { color: var(--text-secondary); font-weight: 600; font-size: 12px; }
+  td.num, th.num { text-align: right; }
+  .scroll { overflow-x: auto; }
+  .tag { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-secondary); }
+  .buy { color: var(--good); font-weight: 600; }
+  .sell { color: var(--bad); font-weight: 600; }
+  .decisions { list-style: none; margin: 0; padding: 0; }
+  .decisions li { padding: 8px 0; border-bottom: 1px solid var(--grid); display: grid; grid-template-columns: 110px 1fr; gap: 10px; }
+  .decisions li:last-child { border-bottom: 0; }
+  .setups { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .setup p { margin: 6px 0 0; color: var(--text-secondary); }
+  .empty { color: var(--text-muted); padding: 8px 0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 800px) { .grid2 { grid-template-columns: 1fr; } .decisions li { grid-template-columns: 1fr; gap: 2px; } }
+  footer { color: var(--text-muted); font-size: 12px; padding: 8px 0 24px; }
+</style>
+</head>
+<body>
+<div class="viz-root">
+<div class="wrap">
+  <header>
+    <h1>Crypto Bot</h1>
+    <span class="pill" id="mode"></span>
+    <span class="muted" id="updated"></span>
+  </header>
+  <div class="banner" id="banner" hidden></div>
+
+  <section class="kpis">
+    <div class="card kpi"><div class="label">Balance</div><div class="value" id="k-balance"></div><div class="sub" id="k-balance-sub"></div></div>
+    <div class="card kpi"><div class="label">Profit / loss</div><div class="value" id="k-pnl"></div><div class="sub" id="k-pnl-sub"></div></div>
+    <div class="card kpi"><div class="label">Closed trades</div><div class="value" id="k-trades"></div><div class="sub" id="k-trades-sub"></div></div>
+    <div class="card kpi"><div class="label">Open positions</div><div class="value" id="k-open"></div><div class="sub" id="k-open-sub"></div></div>
+  </section>
+
+  <section class="card">
+    <h2>Balance over time</h2>
+    <div class="chart" id="chart"><svg id="svg" role="img" aria-label="Balance over time"></svg><div class="tip" id="tip"></div></div>
+  </section>
+
+  <section class="card">
+    <h2>Open positions</h2>
+    <div class="scroll" id="open"></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>Latest decisions</h2>
+      <ul class="decisions" id="decisions"></ul>
+    </section>
+    <section class="card">
+      <h2>Buys and sells</h2>
+      <div class="scroll" id="trades"></div>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>Setups it's trading</h2>
+    <div class="setups" id="setups"></div>
+  </section>
+
+  <footer id="footer"></footer>
+</div>
+</div>
+
+<script>
+const fmtGBP = (x, sign) => (x == null || isNaN(x)) ? "–" : (sign && x > 0 ? "+" : (x < 0 ? "-" : "")) + "£" + Math.abs(x).toFixed(2);
+const fmtPct = x => (x == null || isNaN(x)) ? "–" : (x > 0 ? "+" : "") + x.toFixed(2) + "%";
+const fmtUSD = x => (x == null || isNaN(x)) ? "–" : "$" + (x >= 1 ? x.toLocaleString("en-GB", {minimumFractionDigits: 2, maximumFractionDigits: 2}) : x.toPrecision(4));
+const ukTime = (iso, withDay = true) => {
+  if (!iso) return "–";
+  const d = new Date(iso);
+  return d.toLocaleString("en-GB", { timeZone: "Europe/London", hour: "2-digit", minute: "2-digit", ...(withDay ? { day: "numeric", month: "short" } : {}) });
+};
+const el = (tag, attrs = {}, text) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (text != null) e.textContent = text; return e; };
+const cls = x => x > 0 ? "up" : (x < 0 ? "down" : "");
+
+function table(cols, rows, emptyText) {
+  if (!rows.length) return el("div", { class: "empty" }, emptyText);
+  const t = el("table"), thead = el("thead"), tr = el("tr");
+  cols.forEach(c => tr.appendChild(el("th", c.num ? { class: "num" } : {}, c.label)));
+  thead.appendChild(tr); t.appendChild(thead);
+  const tb = el("tbody");
+  rows.forEach(r => {
+    const row = el("tr");
+    cols.forEach(c => {
+      const td = el("td", c.num ? { class: "num" } : {});
+      const v = c.get(r);
+      if (v instanceof Node) td.appendChild(v); else td.textContent = v;
+      if (c.cls) td.className += " " + c.cls(r);
+      row.appendChild(td);
+    });
+    tb.appendChild(row);
+  });
+  t.appendChild(tb);
+  return t;
+}
+
+function drawChart(points, start) {
+  const svg = document.getElementById("svg"), tip = document.getElementById("tip"), box = document.getElementById("chart");
+  svg.innerHTML = "";
+  const W = box.clientWidth || 800, H = 260, P = { l: 52, r: 12, t: 12, b: 26 };
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const ns = "http://www.w3.org/2000/svg";
+  const mk = (tag, a) => { const e = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); return e; };
+  if (points.length < 2) {
+    const t = mk("text", { x: W / 2, y: H / 2, "text-anchor": "middle", fill: "var(--text-muted)", "font-size": 13 });
+    t.textContent = points.length ? "One data point so far. The line fills in hour by hour." : "No balance history yet. It starts after the first hourly scan.";
+    svg.appendChild(t);
+    return;
+  }
+  const xs = points.map(p => new Date(p.t).getTime()), ys = points.map(p => p.b);
+  let lo = Math.min(start, ...ys), hi = Math.max(start, ...ys);
+  const pad = Math.max((hi - lo) * 0.15, 0.5); lo -= pad; hi += pad;
+  const x0 = xs[0], x1 = xs[xs.length - 1];
+  const X = t => P.l + (t - x0) / Math.max(x1 - x0, 1) * (W - P.l - P.r);
+  const Y = v => P.t + (hi - v) / (hi - lo) * (H - P.t - P.b);
+  for (let i = 0; i <= 4; i++) {
+    const v = lo + (hi - lo) * i / 4, y = Y(v);
+    svg.appendChild(mk("line", { x1: P.l, x2: W - P.r, y1: y, y2: y, stroke: "var(--grid)", "stroke-width": 1 }));
+    const t = mk("text", { x: P.l - 6, y: y + 4, "text-anchor": "end", fill: "var(--text-muted)", "font-size": 11 }); t.textContent = "£" + v.toFixed(v >= 1000 ? 0 : 2); svg.appendChild(t);
+  }
+  for (let i = 0; i <= 4; i++) {
+    const tt = x0 + (x1 - x0) * i / 4;
+    const t = mk("text", { x: X(tt), y: H - 6, "text-anchor": i === 0 ? "start" : (i === 4 ? "end" : "middle"), fill: "var(--text-muted)", "font-size": 11 });
+    t.textContent = new Date(tt).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "Europe/London" }); svg.appendChild(t);
+  }
+  svg.appendChild(mk("line", { x1: P.l, x2: W - P.r, y1: Y(start), y2: Y(start), stroke: "var(--text-muted)", "stroke-dasharray": "4 4", "stroke-width": 1 }));
+  const st = mk("text", { x: W - P.r, y: Y(start) - 5, "text-anchor": "end", fill: "var(--text-muted)", "font-size": 11 }); st.textContent = "start £" + start.toFixed(0); svg.appendChild(st);
+  const d = points.map((p, i) => (i ? "L" : "M") + X(xs[i]).toFixed(1) + " " + Y(p.b).toFixed(1)).join(" ");
+  svg.appendChild(mk("path", { d, fill: "none", stroke: "var(--series-1)", "stroke-width": 2, "stroke-linejoin": "round" }));
+  const hair = mk("line", { y1: P.t, y2: H - P.b, stroke: "var(--text-muted)", "stroke-width": 1, visibility: "hidden" });
+  const dot = mk("circle", { r: 4, fill: "var(--series-1)", stroke: "var(--surface-1)", "stroke-width": 2, visibility: "hidden" });
+  svg.appendChild(hair); svg.appendChild(dot);
+  const hit = mk("rect", { x: P.l, y: P.t, width: W - P.l - P.r, height: H - P.t - P.b, fill: "transparent" });
+  svg.appendChild(hit);
+  const show = ev => {
+    const r = svg.getBoundingClientRect(), mx = (ev.clientX - r.left) * (W / r.width);
+    let best = 0, bd = Infinity;
+    xs.forEach((t, i) => { const dd = Math.abs(X(t) - mx); if (dd < bd) { bd = dd; best = i; } });
+    const px = X(xs[best]), py = Y(ys[best]);
+    hair.setAttribute("x1", px); hair.setAttribute("x2", px); hair.setAttribute("visibility", "visible");
+    dot.setAttribute("cx", px); dot.setAttribute("cy", py); dot.setAttribute("visibility", "visible");
+    tip.textContent = "";
+    tip.appendChild(el("strong", {}, fmtGBP(ys[best])));
+    tip.appendChild(el("span", {}, ukTime(points[best].t) + " UK"));
+    tip.style.display = "block";
+    const left = px * (r.width / W);
+    tip.style.left = Math.min(Math.max(left - 50, 0), r.width - 130) + "px";
+    tip.style.top = Math.max(py * (r.height / H) - 52, 0) + "px";
+  };
+  hit.addEventListener("pointermove", show);
+  hit.addEventListener("pointerleave", () => { tip.style.display = "none"; hair.setAttribute("visibility", "hidden"); dot.setAttribute("visibility", "hidden"); });
+}
+
+function render(D) {
+  const test = D.mode === "PAPER";
+  document.getElementById("mode").textContent = test ? "TEST MODE · fake money, real prices, real fees" : (D.mode === "LIVE_AUTO" ? (D.trading_enabled ? "LIVE · real money" : "LIVE · orders switched off") : "SIGNALS ONLY · you place trades");
+  document.getElementById("updated").textContent = D.generated ? "Updated " + ukTime(D.generated) + " UK · refreshes every hour" : "Waiting for the first scan";
+  const banner = document.getElementById("banner");
+  if (D.halted) { banner.hidden = false; banner.textContent = "Bot halted: " + D.halt_reason + ". Run the Resume workflow on GitHub after checking why."; }
+
+  const pnl = D.balance_gbp - D.start_gbp;
+  document.getElementById("k-balance").textContent = fmtGBP(D.balance_gbp);
+  document.getElementById("k-balance-sub").textContent = "started with " + fmtGBP(D.start_gbp);
+  const kp = document.getElementById("k-pnl"); kp.textContent = fmtGBP(pnl, true); kp.className = "value " + cls(pnl);
+  document.getElementById("k-pnl-sub").textContent = fmtPct(pnl / D.start_gbp * 100) + " · fees paid " + fmtGBP(D.fees_paid_gbp);
+  document.getElementById("k-trades").textContent = D.closed_trades;
+  document.getElementById("k-trades-sub").textContent = D.closed_trades ? Math.round(D.wins / D.closed_trades * 100) + "% won · banked " + fmtGBP(D.realised_gbp, true) : "none closed yet";
+  document.getElementById("k-open").textContent = D.open.length;
+  document.getElementById("k-open-sub").textContent = D.open.length ? "now " + fmtGBP(D.open_pnl_gbp, true) + " · max " + D.risk.max_open_positions : "max " + D.risk.max_open_positions + " at a time";
+
+  drawChart(D.equity, D.start_gbp);
+
+  document.getElementById("open").appendChild(table([
+    { label: "Coin", get: r => r.coin },
+    { label: "Setup", get: r => r.setup + (r.unproven ? " (unproven)" : "") },
+    { label: "Bought", get: r => ukTime(r.entry_time) },
+    { label: "Entry", num: 1, get: r => fmtUSD(r.entry) },
+    { label: "Now", num: 1, get: r => fmtUSD(r.now) },
+    { label: "Size", num: 1, get: r => fmtGBP(r.size_gbp) },
+    { label: "P/L", num: 1, get: r => fmtGBP(r.pnl_gbp, true) + " (" + fmtPct(r.pnl_pct) + ")", cls: r => cls(r.pnl_gbp) },
+    { label: "Stop", num: 1, get: r => fmtUSD(r.stop) },
+    { label: "Target", num: 1, get: r => r.target ? fmtUSD(r.target) : "none" },
+    { label: "Sell by", get: r => ukTime(r.exit_by) },
+  ], D.open, "Nothing open right now."));
+
+  const dl = document.getElementById("decisions");
+  if (!D.decisions.length) dl.appendChild(el("li", { class: "empty" }, "No decisions yet. The first one lands after the next hourly scan."));
+  D.decisions.slice(0, 15).forEach(d => {
+    const li = el("li");
+    li.appendChild(el("span", { class: "muted" }, ukTime(d.time) + " · BTC " + d.btc_trend));
+    li.appendChild(el("span", {}, d.text));
+    dl.appendChild(li);
+  });
+
+  document.getElementById("trades").appendChild(table([
+    { label: "Time", get: r => ukTime(r.time) },
+    { label: "", get: r => el("span", { class: r.side === "BUY" ? "buy" : "sell" }, r.side) },
+    { label: "Coin", get: r => r.coin },
+    { label: "Price", num: 1, get: r => fmtUSD(r.price) },
+    { label: "Size", num: 1, get: r => fmtGBP(r.size_gbp) },
+    { label: "P/L", num: 1, get: r => r.side === "SELL" ? fmtGBP(r.pnl_gbp, true) + " · " + r.reason : "", cls: r => r.side === "SELL" ? cls(r.pnl_gbp) : "" },
+  ], D.trades.slice(0, 50), "No buys or sells yet."));
+
+  const sg = document.getElementById("setups");
+  if (!D.setups.length) sg.appendChild(el("div", { class: "empty" }, "No setups approved. The bot is watching and will rerun the backtest on the 1st of the month."));
+  D.setups.forEach(s => {
+    const c = el("div", { class: "card setup" });
+    const h = el("div"); h.appendChild(el("strong", {}, s.title + " ")); h.appendChild(el("span", { class: "tag" }, s.status === "validated" ? "Proven" : "Unproven · test only"));
+    c.appendChild(h);
+    c.appendChild(el("p", {}, s.rule + " Holds up to " + (s.hold >= 24 ? (s.hold / 24) + (s.hold === 24 ? " day" : " days") : s.hold + " hours") + "."));
+    const t = s.test || {};
+    c.appendChild(el("p", { class: "muted" }, (s.status === "validated" ? "Unseen test period: " : "Past year: ") + t.n + " trades, " + Math.round((t.win_rate || 0) * 100) + "% won, " + fmtPct(t.avg_net_pct) + " per trade after fees"));
+    sg.appendChild(c);
+  });
+
+  const r = D.research || {};
+  document.getElementById("footer").textContent =
+    "Every trade pays about " + D.round_trip_cost_pct + "% in Coinbase fees and slippage, in test mode too. " +
+    (r.data_from ? "Setups researched on " + r.coins + " coins, " + r.data_from + " to " + r.data_to + ". " : "") +
+    "Risk rules: max " + D.risk.max_risk_per_trade_pct + "% of the pot at risk per trade, " + D.risk.max_open_positions + " open at once, halt at £" + D.risk.pot_floor_gbp + ". Not financial advice.";
+}
+
+const s = document.createElement("script");
+s.src = "data.js?t=" + Date.now();
+s.onload = () => render(window.BOT_DATA);
+s.onerror = () => { document.getElementById("updated").textContent = "No data yet. The first hourly scan creates it."; };
+document.head.appendChild(s);
+window.addEventListener("resize", () => window.BOT_DATA && drawChart(window.BOT_DATA.equity, window.BOT_DATA.start_gbp));
+setTimeout(() => location.reload(), 10 * 60 * 1000);
+</script>
+</body>
+</html>
