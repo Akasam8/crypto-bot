@@ -209,7 +209,7 @@ def run_research(u: Universe, cfg: dict, log=print) -> dict:
     end = u.end_ns
     test_a = month_add(end, -bc["test_months"])
     max_hold = max(bc["hold_hours"]) * NS_HOUR
-    train = (warm, test_a - max_hold)  # training trades must be finished before the test year starts
+    train = (warm, test_a - max_hold)  # training trades must be finished before the test period starts
     # walk forward folds live entirely before the holdout year, so they're independent evidence
     folds = []
     f0 = warm
@@ -292,9 +292,9 @@ def run_research(u: Universe, cfg: dict, log=print) -> dict:
 
         reasons = []
         if test_stats.get("n", 0) < bc["min_test_trades"]:
-            reasons.append(f"only {test_stats.get('n', 0)} trades in the test year (need {bc['min_test_trades']})")
+            reasons.append(f"only {test_stats.get('n', 0)} trades in the test period (need {bc['min_test_trades']})")
         if test_stats.get("n", 0) and test_stats["avg_net_pct"] <= 0:
-            reasons.append(f"lost money after fees in the test year ({test_stats['avg_net_pct']:.2f}% per trade)")
+            reasons.append(f"lost money after fees in the test period ({test_stats['avg_net_pct']:.2f}% per trade)")
         if test_stats.get("n", 0) and test_stats["profit_factor"] < bc["min_profit_factor"]:
             reasons.append(f"profit factor {test_stats['profit_factor']:.2f} below {bc['min_profit_factor']}")
         if rb.get("trials") and test_stats.get("n", 0) and test_stats["avg_net_pct"] <= rb["random_cut_pct"]:
