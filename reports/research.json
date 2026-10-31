@@ -30,7 +30,7 @@
   "data_from": "2025-10-31",
   "data_to": "2026-10-31",
   "train_window": [
-    "2025-11-08",
+    "2025-11-09",
     "2026-06-23"
   ],
   "test_window": [
@@ -40,28 +40,28 @@
   "folds": [
     {
       "train": [
-        "2025-11-08",
-        "2026-03-01"
+        "2025-11-09",
+        "2026-03-02"
       ],
       "test": [
-        "2026-03-08",
-        "2026-05-08"
+        "2026-03-09",
+        "2026-05-09"
       ]
     },
     {
       "train": [
-        "2026-01-08",
-        "2026-05-01"
+        "2026-01-09",
+        "2026-05-02"
       ],
       "test": [
-        "2026-05-08",
+        "2026-05-09",
         "2026-06-23"
       ]
     }
   ],
   "benchmarks": {
-    "btc_hold_pct": 32.62,
-    "equal_weight_hold_pct": 69.58
+    "btc_hold_pct": 32.82,
+    "equal_weight_hold_pct": 71.07
   },
   "families": [
     {
@@ -415,7 +415,7 @@
             "win_rate": 0.397
           }
         },
-        "typical_stop_pct": 11.628449786161097,
+        "typical_stop_pct": 11.628449786161108,
         "typical_target_pct": null
       },
       "test_stats": {
@@ -472,7 +472,7 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 0.4001936969924661,
+        "random_mean_pct": 0.38824890939598955,
         "random_p90_pct": 2.573619031856581,
         "random_cut_pct": 5.383364083540662,
         "p_value": 0.0825
@@ -481,11 +481,11 @@
         {
           "fold": 1,
           "selected": "trend_breakout[btc_filter=True,days=10]|72h|timed",
-          "test_from": "2026-03-08",
-          "test_to": "2026-05-08",
-          "n": 106,
-          "avg_net_pct": -0.921,
-          "edge_vs_random_pct": -1.804,
+          "test_from": "2026-03-09",
+          "test_to": "2026-05-09",
+          "n": 107,
+          "avg_net_pct": -1.004,
+          "edge_vs_random_pct": -2.09,
           "positive": false
         },
         {
@@ -989,10 +989,10 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 3.9343332691965798,
+        "random_mean_pct": 3.917736130700283,
         "random_p90_pct": 11.735976336260999,
         "random_cut_pct": 17.435193384180632,
-        "p_value": 0.2125
+        "p_value": 0.2075
       },
       "walk_forward": [
         {
@@ -1004,12 +1004,12 @@
         },
         {
           "fold": 2,
-          "selected": "momentum_leader[top=3]|168h|runner",
-          "test_from": "2026-05-08",
+          "selected": "momentum_leader[top=3]|168h|timed",
+          "test_from": "2026-05-09",
           "test_to": "2026-06-23",
-          "n": 18,
-          "avg_net_pct": -2.454,
-          "edge_vs_random_pct": -1.328,
+          "n": 15,
+          "avg_net_pct": -1.02,
+          "edge_vs_random_pct": -1.321,
           "positive": false
         }
       ],

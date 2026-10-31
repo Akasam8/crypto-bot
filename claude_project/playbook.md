@@ -35,31 +35,31 @@ high volatility: no: average 24h move +0.10%, up 47% of days, a random 24h long 
 
 | Coin | Yearly volatility | Return over the period | Daily volume (USD m) |
 |---|---|---|---|
-| BTC-USD | 43% | -30% | 403.8 |
-| ETH-USD | 59% | -42% | 195.2 |
-| ZEC-USD | 134% | +233% | 106.1 |
-| XRP-USD | 64% | -51% | 61.9 |
-| SOL-USD | 65% | -49% | 49.3 |
-| NEAR-USD | 105% | +107% | 41.0 |
-| SUI-USD | 86% | -62% | 16.7 |
-| QNT-USD | 105% | +150% | 12.5 |
-| ADA-USD | 76% | -69% | 9.9 |
-| PUMP-USD | 124% | -6% | 8.3 |
-| LINK-USD | 69% | -34% | 7.7 |
-| UNI-USD | 97% | +22% | 7.3 |
+| BTC-USD | 43% | -29% | 403.8 |
+| ETH-USD | 59% | -41% | 195.2 |
+| ZEC-USD | 134% | +233% | 98.1 |
+| XRP-USD | 64% | -50% | 61.9 |
+| SOL-USD | 65% | -48% | 49.3 |
+| NEAR-USD | 105% | +116% | 41.0 |
+| SUI-USD | 86% | -61% | 15.5 |
+| QNT-USD | 105% | +155% | 12.5 |
+| ADA-USD | 76% | -68% | 9.9 |
+| PUMP-USD | 124% | +0% | 7.9 |
+| LINK-USD | 69% | -31% | 7.3 |
+| UNI-USD | 97% | +24% | 7.2 |
 | LTC-USD | 62% | -42% | 7.2 |
 | TAO-USD | 96% | -51% | 6.5 |
 | DOGE-USD | 68% | -59% | 6.2 |
-| XLM-USD | 80% | -45% | 6.1 |
+| XLM-USD | 80% | -43% | 6.1 |
 | HBAR-USD | 71% | -63% | 6.0 |
-| ENA-USD | 111% | -52% | 6.0 |
-| VVV-USD | 149% | +1402% | 6.0 |
-| AERO-USD | 106% | -42% | 5.9 |
-| AVAX-USD | 72% | -54% | 5.6 |
-| ONDO-USD | 94% | -41% | 5.4 |
-| ZRO-USD | 118% | +14% | 4.6 |
-| INJ-USD | 103% | -7% | 3.9 |
-| WLD-USD | 117% | -51% | 3.4 |
+| VVV-USD | 149% | +1437% | 6.0 |
+| AERO-USD | 106% | -41% | 5.9 |
+| ENA-USD | 111% | -51% | 5.8 |
+| AVAX-USD | 72% | -52% | 5.6 |
+| ONDO-USD | 94% | -39% | 5.4 |
+| ZRO-USD | 118% | +17% | 4.6 |
+| INJ-USD | 103% | -1% | 3.9 |
+| WLD-USD | 117% | -49% | 3.4 |
 
 ## Verdict from the latest backtest
 

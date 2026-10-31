@@ -1,11 +1,11 @@
 {
   "round_trip_cost_pct": 1.2,
   "median_move_pct": {
-    "1h": 0.42420715974733625,
-    "2h": 0.5982071677547385,
-    "4h": 0.8528432247276951,
+    "1h": 0.42417879083629373,
+    "2h": 0.5981443931354136,
+    "4h": 0.8527578135397729,
     "12h": 1.5748356968139365,
-    "24h": 2.3200063748927855
+    "24h": 2.319859602362573
   },
   "by_uk_hour": [
     {
@@ -115,24 +115,24 @@
     },
     {
       "group": 15,
-      "n": 8991,
-      "avg_ret_bp": -1.3777912712222167,
-      "avg_abs_move_bp": 93.89473109366735,
-      "up_share": 0.5028361695028362
+      "n": 9016,
+      "avg_ret_bp": -1.1035905523742913,
+      "avg_abs_move_bp": 93.90475556372176,
+      "up_share": 0.5042147293700089
     },
     {
       "group": 16,
       "n": 9000,
-      "avg_ret_bp": -3.007497088825722,
-      "avg_abs_move_bp": 88.21377147743195,
-      "up_share": 0.498
+      "avg_ret_bp": -2.494196544869562,
+      "avg_abs_move_bp": 87.79987152151564,
+      "up_share": 0.49944444444444447
     },
     {
       "group": 17,
-      "n": 8991,
-      "avg_ret_bp": -0.8851700725889038,
-      "avg_abs_move_bp": 73.98436799498351,
-      "up_share": 0.47569792014236456
+      "n": 8967,
+      "avg_ret_bp": -1.0024257429802923,
+      "avg_abs_move_bp": 74.02665662847168,
+      "up_share": 0.4746291959406714
     },
     {
       "group": 18,
@@ -208,17 +208,17 @@
     },
     {
       "group": "Fri",
-      "n": 30753,
-      "avg_ret_bp": 2.2798901491194803,
-      "avg_abs_move_bp": 72.05207515946618,
-      "up_share": 0.5043085227457483
+      "n": 30704,
+      "avg_ret_bp": 2.407263853319017,
+      "avg_abs_move_bp": 71.96429421614707,
+      "up_share": 0.5044293903074518
     },
     {
       "group": "Sat",
-      "n": 30922,
-      "avg_ret_bp": 1.4435870549020497,
-      "avg_abs_move_bp": 54.28256781913826,
-      "up_share": 0.5026518336459479
+      "n": 30972,
+      "avg_ret_bp": 1.5131957121124173,
+      "avg_abs_move_bp": 54.30929764014567,
+      "up_share": 0.5030672865814284
     },
     {
       "group": "Sun",
@@ -228,109 +228,109 @@
       "up_share": 0.4828003400693218
     }
   ],
-  "weekend_vs_weekday_move_ratio": 0.7954622399059883,
+  "weekend_vs_weekday_move_ratio": 0.7958527221429009,
   "btc_correlation": {
     "ETH-USD": {
-      "corr": 0.8885460334445561,
-      "beta": 1.2043170109006804
+      "corr": 0.8885706082248,
+      "beta": 1.2047140829174574
     },
     "ZEC-USD": {
-      "corr": 0.46941243812466305,
-      "beta": 1.4461114983901981
+      "corr": 0.4690872871132601,
+      "beta": 1.4453082748282375
     },
     "XRP-USD": {
-      "corr": 0.7806395720728107,
-      "beta": 1.1466696702970418
+      "corr": 0.780527903357888,
+      "beta": 1.146761433734482
     },
     "SOL-USD": {
-      "corr": 0.839274312475316,
-      "beta": 1.2529587377993903
+      "corr": 0.8391735651161066,
+      "beta": 1.2529423094038696
     },
     "NEAR-USD": {
-      "corr": 0.5622066569101118,
-      "beta": 1.3584951637680556
+      "corr": 0.5619262100584598,
+      "beta": 1.3581649590975362
     },
     "SUI-USD": {
-      "corr": 0.7425897250440088,
-      "beta": 1.4678171366907906
+      "corr": 0.7423599693217898,
+      "beta": 1.4673518682194109
     },
     "QNT-USD": {
-      "corr": 0.36361763733539365,
-      "beta": 0.8789652733819232
+      "corr": 0.36347844959116665,
+      "beta": 0.8790003907980346
     },
     "ADA-USD": {
-      "corr": 0.7556452694295621,
-      "beta": 1.327632150821851
+      "corr": 0.7555385286210767,
+      "beta": 1.3277325214516922
     },
     "PUMP-USD": {
-      "corr": 0.5717638657331842,
-      "beta": 1.6357190049439907
+      "corr": 0.5716547544702799,
+      "beta": 1.635743086591794
     },
     "LINK-USD": {
-      "corr": 0.8104887506060845,
-      "beta": 1.2869488662314337
+      "corr": 0.8103073926392197,
+      "beta": 1.2866297686252777
     },
     "LTC-USD": {
-      "corr": 0.6946048805658415,
-      "beta": 0.9890588347900462
+      "corr": 0.6945261566618162,
+      "beta": 0.9892679872788086
     },
     "UNI-USD": {
-      "corr": 0.6094767720803292,
-      "beta": 1.3615453928883663
+      "corr": 0.6093026306649859,
+      "beta": 1.361540193116225
     },
     "DOGE-USD": {
-      "corr": 0.7806865239262795,
-      "beta": 1.2171805518796033
+      "corr": 0.780589477921996,
+      "beta": 1.217331610556461
     },
     "TAO-USD": {
-      "corr": 0.6132774978013038,
-      "beta": 1.3634593399714812
+      "corr": 0.6130624140985663,
+      "beta": 1.3629156753009382
     },
     "XLM-USD": {
-      "corr": 0.6418897151015943,
-      "beta": 1.1784408511410958
+      "corr": 0.6415563970814813,
+      "beta": 1.178044312312988
     },
     "HBAR-USD": {
-      "corr": 0.6680785233679037,
-      "beta": 1.0995891784080896
+      "corr": 0.6678179256322031,
+      "beta": 1.0992772791098488
     },
     "VVV-USD": {
-      "corr": 0.4185403758158602,
-      "beta": 1.4419686135876812
+      "corr": 0.41847613345207674,
+      "beta": 1.4424251451615389
     },
     "AERO-USD": {
-      "corr": 0.6337600055941172,
-      "beta": 1.5543257146023948
+      "corr": 0.6335550736615698,
+      "beta": 1.5541707146435986
     },
     "ENA-USD": {
-      "corr": 0.609034383832446,
-      "beta": 1.5562805466351404
+      "corr": 0.6088234464948157,
+      "beta": 1.5563347646358578
     },
     "AVAX-USD": {
-      "corr": 0.7350848560164881,
-      "beta": 1.2268977449301879
+      "corr": 0.7349697852092267,
+      "beta": 1.2268409264492977
     },
     "ONDO-USD": {
-      "corr": 0.6730851743723795,
-      "beta": 1.4656900950165503
+      "corr": 0.6728506827049067,
+      "beta": 1.4654676449575428
     },
     "ZRO-USD": {
-      "corr": 0.4326169369294447,
-      "beta": 1.1764778565110783
+      "corr": 0.43228764826437843,
+      "beta": 1.1762923233335079
     },
     "INJ-USD": {
-      "corr": 0.5689748917873723,
-      "beta": 1.3575143725129675
+      "corr": 0.5683636489528703,
+      "beta": 1.3574029624014106
     },
     "WLD-USD": {
-      "corr": 0.5246517363576996,
-      "beta": 1.4107237726493143
+      "corr": 0.5244180136039398,
+      "beta": 1.4107252217777408
     }
   },
   "alt_follows_btc_lag_corr": {
-    "1h": 0.0017265109644062932,
-    "2h": -0.007437624590145284,
-    "3h": 0.003774289708891366
+    "1h": 0.0017749644372203506,
+    "2h": -0.007499876044241152,
+    "3h": 0.004379342792052217
   },
   "after_big_btc_days": {
     "BTC up 5%+ in a day": {
@@ -374,128 +374,128 @@
   },
   "coins": {
     "BTC-USD": {
-      "annual_vol_pct": 43.35014592869861,
-      "period_return_pct": -29.837374464383338,
+      "annual_vol_pct": 43.33067274296257,
+      "period_return_pct": -29.086242211443725,
       "median_daily_usd_volume_m": 403.80171189437374
     },
     "ETH-USD": {
-      "annual_vol_pct": 58.755895813940704,
-      "period_return_pct": -41.885813776342985,
+      "annual_vol_pct": 58.74724100994373,
+      "period_return_pct": -41.237819413659,
       "median_daily_usd_volume_m": 195.23066593896695
     },
     "ZEC-USD": {
-      "annual_vol_pct": 133.54811119797293,
-      "period_return_pct": 232.50734548480204,
-      "median_daily_usd_volume_m": 106.09607520051956
+      "annual_vol_pct": 133.50645304134454,
+      "period_return_pct": 233.2683104452767,
+      "median_daily_usd_volume_m": 98.09570442534239
     },
     "XRP-USD": {
-      "annual_vol_pct": 63.67637424195702,
-      "period_return_pct": -50.65664556962025,
+      "annual_vol_pct": 63.66197055304442,
+      "period_return_pct": -50.02395018361807,
       "median_daily_usd_volume_m": 61.940900432281644
     },
     "SOL-USD": {
-      "annual_vol_pct": 64.71774879662966,
-      "period_return_pct": -49.21866695014351,
+      "annual_vol_pct": 64.6955950847656,
+      "period_return_pct": -48.34026016084634,
       "median_daily_usd_volume_m": 49.3239544792831
     },
     "NEAR-USD": {
-      "annual_vol_pct": 104.74967321881475,
-      "period_return_pct": 106.85687558465857,
+      "annual_vol_pct": 104.7294116561888,
+      "period_return_pct": 116.43336529242573,
       "median_daily_usd_volume_m": 41.02505154253139
     },
     "SUI-USD": {
-      "annual_vol_pct": 85.68673242606386,
-      "period_return_pct": -62.14038640006749,
-      "median_daily_usd_volume_m": 16.688922431459996
+      "annual_vol_pct": 85.64759177232723,
+      "period_return_pct": -61.25893395332817,
+      "median_daily_usd_volume_m": 15.476446936960002
     },
     "QNT-USD": {
-      "annual_vol_pct": 104.78939675915429,
-      "period_return_pct": 150.33354310887347,
+      "annual_vol_pct": 104.78662027266294,
+      "period_return_pct": 155.35214848715998,
       "median_daily_usd_volume_m": 12.494508019480001
     },
     "ADA-USD": {
-      "annual_vol_pct": 76.16410742729339,
-      "period_return_pct": -68.6120182887002,
+      "annual_vol_pct": 76.14640577259752,
+      "period_return_pct": -67.87435599135783,
       "median_daily_usd_volume_m": 9.9017501358323
     },
     "PUMP-USD": {
-      "annual_vol_pct": 124.01738167161031,
-      "period_return_pct": -5.86097228532484,
-      "median_daily_usd_volume_m": 8.277544023638
+      "annual_vol_pct": 123.98715802224196,
+      "period_return_pct": 0.30798389007344884,
+      "median_daily_usd_volume_m": 7.909068372274
     },
     "LINK-USD": {
-      "annual_vol_pct": 68.8342942603293,
-      "period_return_pct": -33.69401689619257,
-      "median_daily_usd_volume_m": 7.694697874429999
+      "annual_vol_pct": 68.80170902066281,
+      "period_return_pct": -31.198579461379104,
+      "median_daily_usd_volume_m": 7.26139102478
     },
     "LTC-USD": {
-      "annual_vol_pct": 61.726955885034144,
-      "period_return_pct": -42.29417303065174,
+      "annual_vol_pct": 61.719270038579374,
+      "period_return_pct": -41.52293384062566,
       "median_daily_usd_volume_m": 7.160101264334139
     },
     "UNI-USD": {
-      "annual_vol_pct": 96.8423969116885,
-      "period_return_pct": 21.678577653826036,
-      "median_daily_usd_volume_m": 7.2984046618606575
+      "annual_vol_pct": 96.82619041037314,
+      "period_return_pct": 23.74074074074073,
+      "median_daily_usd_volume_m": 7.1790814148233535
     },
     "DOGE-USD": {
-      "annual_vol_pct": 67.58788954135616,
-      "period_return_pct": -59.48897256589565,
+      "annual_vol_pct": 67.57431291170522,
+      "period_return_pct": -58.96615317856369,
       "median_daily_usd_volume_m": 6.153864170006002
     },
     "TAO-USD": {
-      "annual_vol_pct": 96.3775151827935,
-      "period_return_pct": -51.48837785392841,
+      "annual_vol_pct": 96.32959343879124,
+      "period_return_pct": -51.24756135126809,
       "median_daily_usd_volume_m": 6.488726795432
     },
     "XLM-USD": {
-      "annual_vol_pct": 79.58623056800464,
-      "period_return_pct": -45.05112699998703,
+      "annual_vol_pct": 79.56502780699327,
+      "period_return_pct": -43.37846807380856,
       "median_daily_usd_volume_m": 6.080223114022344
     },
     "HBAR-USD": {
-      "annual_vol_pct": 71.3499232175715,
-      "period_return_pct": -63.3590516580655,
+      "annual_vol_pct": 71.3254649308657,
+      "period_return_pct": -62.542777144042304,
       "median_daily_usd_volume_m": 6.01739444911
     },
     "VVV-USD": {
-      "annual_vol_pct": 149.35130141692878,
-      "period_return_pct": 1401.8552631578948,
+      "annual_vol_pct": 149.35440022739667,
+      "period_return_pct": 1436.5099337748343,
       "median_daily_usd_volume_m": 5.9644187806385
     },
     "AERO-USD": {
-      "annual_vol_pct": 106.31823711497393,
-      "period_return_pct": -41.96322081380192,
+      "annual_vol_pct": 106.29425194831794,
+      "period_return_pct": -40.90419106031038,
       "median_daily_usd_volume_m": 5.885319650654001
     },
     "ENA-USD": {
-      "annual_vol_pct": 110.77369454593673,
-      "period_return_pct": -52.05314615191776,
-      "median_daily_usd_volume_m": 5.9942723255059995
+      "annual_vol_pct": 110.76615520178767,
+      "period_return_pct": -51.13381001021451,
+      "median_daily_usd_volume_m": 5.796185194111
     },
     "AVAX-USD": {
-      "annual_vol_pct": 72.35381853808984,
-      "period_return_pct": -53.57963875205254,
+      "annual_vol_pct": 72.32928994014944,
+      "period_return_pct": -52.25517627308338,
       "median_daily_usd_volume_m": 5.633115257644465
     },
     "ONDO-USD": {
-      "annual_vol_pct": 94.39797803370381,
-      "period_return_pct": -41.22093358721366,
+      "annual_vol_pct": 94.3741316926099,
+      "period_return_pct": -39.11014953491111,
       "median_daily_usd_volume_m": 5.4307698238108
     },
     "ZRO-USD": {
-      "annual_vol_pct": 117.88832661897244,
-      "period_return_pct": 13.711875405580788,
+      "annual_vol_pct": 117.90653264571509,
+      "period_return_pct": 16.532630191166795,
       "median_daily_usd_volume_m": 4.6058484920969995
     },
     "INJ-USD": {
-      "annual_vol_pct": 103.42889817840097,
-      "period_return_pct": -7.240171272868823,
+      "annual_vol_pct": 103.48512550460572,
+      "period_return_pct": -0.909334046536503,
       "median_daily_usd_volume_m": 3.9162341324100005
     },
     "WLD-USD": {
-      "annual_vol_pct": 116.56319263134469,
-      "period_return_pct": -50.65838509316771,
+      "annual_vol_pct": 116.56287795113857,
+      "period_return_pct": -49.49302915082383,
       "median_daily_usd_volume_m": 3.4354067490629996
     }
   }
