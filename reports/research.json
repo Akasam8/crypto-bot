@@ -60,8 +60,8 @@
     }
   ],
   "benchmarks": {
-    "btc_hold_pct": 32.57,
-    "equal_weight_hold_pct": 69.92
+    "btc_hold_pct": 32.62,
+    "equal_weight_hold_pct": 69.58
   },
   "families": [
     {
@@ -415,7 +415,7 @@
             "win_rate": 0.397
           }
         },
-        "typical_stop_pct": 11.628449786161102,
+        "typical_stop_pct": 11.628449786161097,
         "typical_target_pct": null
       },
       "test_stats": {
@@ -472,7 +472,7 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 0.40528583274225866,
+        "random_mean_pct": 0.4001936969924661,
         "random_p90_pct": 2.573619031856581,
         "random_cut_pct": 5.383364083540662,
         "p_value": 0.0825
@@ -483,9 +483,9 @@
           "selected": "trend_breakout[btc_filter=True,days=10]|72h|timed",
           "test_from": "2026-03-08",
           "test_to": "2026-05-08",
-          "n": 105,
-          "avg_net_pct": -0.934,
-          "edge_vs_random_pct": -1.822,
+          "n": 106,
+          "avg_net_pct": -0.921,
+          "edge_vs_random_pct": -1.804,
           "positive": false
         },
         {
@@ -989,7 +989,7 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 3.936427656386956,
+        "random_mean_pct": 3.9343332691965798,
         "random_p90_pct": 11.735976336260999,
         "random_cut_pct": 17.435193384180632,
         "p_value": 0.2125
