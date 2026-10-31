@@ -46,7 +46,7 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python -m bot.run_backtest --notify
       - name: Save reports
-        run: bash scripts/save_to_git.sh "backtest $(date -u +%Y-%m-%d)" reports claude_project docs
+        run: bash scripts/save_to_git.sh "backtest $(date -u +%Y-%m-%d)" reports claude_project
       - name: Alert on failure
         if: failure()
         env:
