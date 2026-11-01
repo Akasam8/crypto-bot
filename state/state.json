@@ -3,7 +3,7 @@
   "halt_reason": "",
   "last_daily_summary": "2026-10-31",
   "last_weekly_summary": "",
-  "last_run": "2026-11-01T12:11:15Z",
+  "last_run": "2026-11-01T12:41:53Z",
   "consecutive_errors": 0,
   "last_prices": {
     "BTC-USD": 77826.9,
@@ -32,6 +32,6 @@
     "INJ-USD": 7.232,
     "STRK-USD": 0.04348
   },
-  "gbp_per_usd": 0.74768,
+  "gbp_per_usd": 0.747645,
   "last_candle": "2026-11-01T11:00:00Z"
 }
