@@ -4,54 +4,54 @@
     "family": "momentum_leader",
     "title": "Momentum leader",
     "rule": "Once a day, buy a coin that's in the top 3 for 7 day gains, up on the week, while BTC is above its 50 day average.",
-    "key": "momentum_leader[top=3]|168h|timed",
+    "key": "momentum_leader[top=3]|168h|runner",
     "params": {
       "top": 3
     },
     "hold": 168,
-    "profile": "timed",
+    "profile": "runner",
     "test": {
-      "n": 142,
-      "win_rate": 0.4647887323943662,
-      "avg_net_pct": 4.020645545689379,
-      "profit_factor": 1.7656413686900576,
+      "n": 158,
+      "win_rate": 0.4873417721518987,
+      "avg_net_pct": 3.401642513806894,
+      "profit_factor": 1.692627865595057,
       "positive_month_share": 0.625,
       "typical_stop_pct": 15.0,
-      "typical_target_pct": null,
+      "typical_target_pct": 31.19760797961057,
       "worst_losing_streak": 7
     },
     "recent": {
-      "n": 76,
-      "win_rate": 0.4868421052631579,
-      "avg_net_pct": 5.601003694515611
+      "n": 86,
+      "win_rate": 0.5116279069767442,
+      "avg_net_pct": 4.699997893391212
     }
   },
   {
     "status": "candidate",
     "family": "trend_breakout",
     "title": "Trend breakout",
-    "rule": "Price breaks above its highest point of the last 20 days while above its 20 day average, with BTC above its 50 day average.",
-    "key": "trend_breakout[btc_filter=True,days=20]|168h|timed",
+    "rule": "Price breaks above its highest point of the last 10 days while above its 20 day average, with BTC above its 50 day average.",
+    "key": "trend_breakout[btc_filter=True,days=10]|72h|timed",
     "params": {
-      "days": 20,
+      "days": 10,
       "btc_filter": true
     },
-    "hold": 168,
+    "hold": 72,
     "profile": "timed",
     "test": {
-      "n": 200,
-      "win_rate": 0.41,
-      "avg_net_pct": 3.2602206931760342,
-      "profit_factor": 1.7005628385416287,
+      "n": 346,
+      "win_rate": 0.4479768786127168,
+      "avg_net_pct": 1.6663603064342194,
+      "profit_factor": 1.5118278943368295,
       "positive_month_share": 0.5,
-      "typical_stop_pct": 15.0,
+      "typical_stop_pct": 12.809323728954828,
       "typical_target_pct": null,
-      "worst_losing_streak": 13
+      "worst_losing_streak": 21
     },
     "recent": {
-      "n": 102,
-      "win_rate": 0.5098039215686274,
-      "avg_net_pct": 7.673764117824932
+      "n": 178,
+      "win_rate": 0.47752808988764045,
+      "avg_net_pct": 3.210218911492534
     }
   },
   {
@@ -68,9 +68,9 @@
     "profile": "timed",
     "test": {
       "n": 243,
-      "win_rate": 0.4279835390946502,
-      "avg_net_pct": 1.6497881993559473,
-      "profit_factor": 1.4057336218642558,
+      "win_rate": 0.42386831275720166,
+      "avg_net_pct": 1.4453829236064564,
+      "profit_factor": 1.3406237000098913,
       "positive_month_share": 0.3333333333333333,
       "typical_stop_pct": 15.0,
       "typical_target_pct": null,
@@ -79,7 +79,7 @@
     "recent": {
       "n": 89,
       "win_rate": 0.48314606741573035,
-      "avg_net_pct": 7.433167401464587
+      "avg_net_pct": 7.227903991487368
     }
   }
 ]
