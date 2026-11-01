@@ -3,7 +3,7 @@
   "halt_reason": "",
   "last_daily_summary": "2026-10-31",
   "last_weekly_summary": "",
-  "last_run": "2026-11-01T05:01:01Z",
+  "last_run": "2026-11-01T05:31:55Z",
   "consecutive_errors": 0,
   "last_prices": {
     "BTC-USD": 77664.36,
@@ -23,7 +23,7 @@
     "TAO-USD": 236.01,
     "XLM-USD": 0.16822,
     "HBAR-USD": 0.07194,
-    "VVV-USD": 23.6032,
+    "VVV-USD": 23.5033,
     "AERO-USD": 0.64171,
     "ENA-USD": 0.187,
     "AVAX-USD": 8.772,
@@ -32,6 +32,6 @@
     "INJ-USD": 7.342,
     "WLD-USD": 0.3982
   },
-  "gbp_per_usd": 0.747522,
+  "gbp_per_usd": 0.747451,
   "last_candle": "2026-11-01T04:00:00Z"
 }
