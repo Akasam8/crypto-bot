@@ -3,7 +3,7 @@
   "halt_reason": "",
   "last_daily_summary": "2026-11-01",
   "last_weekly_summary": "2026-10-26",
-  "last_run": "2026-11-02T01:00:36Z",
+  "last_run": "2026-11-02T01:29:49Z",
   "consecutive_errors": 0,
   "last_prices": {
     "BTC-USD": 78021.99,
@@ -29,9 +29,9 @@
     "AVAX-USD": 8.661,
     "ONDO-USD": 0.39926,
     "ZRO-USD": 1.782,
-    "INJ-USD": 7.233,
+    "INJ-USD": 7.235,
     "STRK-USD": 0.04249
   },
-  "gbp_per_usd": 0.746975,
+  "gbp_per_usd": 0.746989,
   "last_candle": "2026-11-02T00:00:00Z"
 }
