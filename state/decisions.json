@@ -466,5 +466,17 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-02T06:06:06Z",
+  "candle": "2026-11-02T05:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 3,
+  "text": "No trade: none of the 3 setups fired on the 05:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
