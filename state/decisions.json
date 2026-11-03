@@ -852,16 +852,14 @@
   "skipped": []
  },
  {
-  "time": "2026-11-03T15:02:04Z",
+  "time": "2026-11-03T15:32:56Z",
   "candle": "2026-11-03T14:00:00Z",
   "mode": "PAPER",
   "btc_trend": "down",
   "coins_checked": 25,
   "setups": 3,
-  "text": "Bought QNT (Moving average cross) at $193.89",
-  "opened": [
-   "ee3cbf8e05"
-  ],
+  "text": "No trade: none of the 3 setups fired on the 14:00 candle",
+  "opened": [],
   "closed": [],
   "skipped": []
  }
