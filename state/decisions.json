@@ -1140,16 +1140,14 @@
   "skipped": []
  },
  {
-  "time": "2026-11-04T15:11:03Z",
+  "time": "2026-11-04T15:41:56Z",
   "candle": "2026-11-04T14:00:00Z",
   "mode": "PAPER",
   "btc_trend": "down",
   "coins_checked": 25,
   "setups": 3,
-  "text": "Bought UNI (Moving average cross) at $7.54",
-  "opened": [
-   "436d22aa75"
-  ],
+  "text": "No trade: none of the 3 setups fired on the 14:00 candle",
+  "opened": [],
   "closed": [],
   "skipped": []
  }
