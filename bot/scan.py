@@ -21,12 +21,28 @@ from .journal import Journal, load_state, save_state
 from .notify import send
 from .project import write_journal_summary
 from .risk import gate, size_position
-from .strategies import EXIT_PROFILES, signal
+from .strategies import EXIT_PROFILES, FAMILIES, config_key, describe, signal
 
 HOURLY_BARS = 800
 DAILY_BARS = 420
 H1 = pd.Timedelta(hours=1)
 ACTIVE = ("open", "pending", "submitting")
+
+
+SETUP_LABEL = {"candidate": "Unproven setup, past year", "practice": "Practice setup, past year"}
+
+
+def practice_setups(cfg: dict) -> list[dict]:
+    """Short setups from config.toml that only test mode trades, for activity rather than a proven edge."""
+    out = []
+    for p in cfg.get("practice", []):
+        c = {"family": p["family"], "params": p["params"], "hold": p["hold"], "profile": p["profile"]}
+        out.append({
+            **c, "status": "practice", "key": "practice:" + config_key(c),
+            "title": "Practice: " + FAMILIES[p["family"]]["title"], "rule": describe(p["family"], p["params"]),
+            "test": {"n": p["n"], "win_rate": p["win_rate"], "avg_net_pct": p["avg_net_pct"]},
+        })
+    return out
 
 
 def iso(t) -> str:
@@ -130,6 +146,8 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
     survivors = load_json(reports_dir / "survivors.json", [])
     allow_candidates = mode == "PAPER" and cfg.get("paper_trades_candidates", True)
     setups = [s for s in survivors if s.get("status", "validated") == "validated" or (allow_candidates and s.get("status") == "candidate")]
+    if mode == "PAPER":
+        setups = setups + practice_setups(cfg)
     btc_pid = f"BTC-{cfg['data']['quote']}"
     pids = research.get("coins") or [btc_pid]
     live = bool(can_open_live and broker is not None and mode == "LIVE_AUTO")
@@ -260,7 +278,7 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
                 "entry_time": iso(entry_t), "entry_price": entry, "size_gbp": d.size_gbp,
                 "units": d.size_gbp / gbp / (entry * (1 + cost["a"][0])), "risk_gbp": d.risk_gbp, "sl_price": sl_px,
                 "tp_price": tp_px, "hold_hours": s["hold"], "exit_by": iso(exit_by), "status": "submitting" if live else "open",
-                "note": ("unproven setup; " if s.get("status") == "candidate" else "") + (f"caught up {c['late_h']}h late; " if c["late_h"] else "") + ("" if live else f"ask at scan {ask:.6g}"),
+                "note": {"candidate": "unproven setup; ", "practice": "unproven practice setup; "}.get(s.get("status"), "") + (f"caught up {c['late_h']}h late; " if c["late_h"] else "") + ("" if live else f"ask at scan {ask:.6g}"),
             }
             journal.add(rec)
             journal.save()  # written before any order goes out, so nothing can be lost
@@ -287,7 +305,7 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
             f"🟢 {tag}: BUY {sym(pid)} ({s['title']})\n"
             f"Entry {price(rec['entry_price'])} · £{d.size_gbp:.2f} position · £{d.risk_gbp:.2f} at risk\n"
             f"{tp_txt} · Stop {price(sl_px)} (-{c['sl_pct'] * 100:.1f}%) · Sell by {fmt_uk(exit_by, cfg)} UK\n"
-            f"{'Unproven setup, past year' if s.get('status') == 'candidate' else 'Backtest test period'}: {t['win_rate'] * 100:.0f}% wins, {t['avg_net_pct']:+.2f}% avg after fees, {t['n']} trades\n"
+            f"{SETUP_LABEL.get(s.get('status'), 'Backtest test period')}: {t['win_rate'] * 100:.0f}% wins, {t['avg_net_pct']:+.2f}% avg after fees, {t['n']} trades\n"
             f"BTC above its 50 day average: {'yes' if f_up(feats[btc_pid]) else 'no'}"
         )
     if log["skipped"]:
@@ -393,7 +411,7 @@ def daily_summary(cfg, journal, survivors, pot, last_px, cost, today, state, ord
     if state.get("halted"):
         L.append(f"🛑 HALTED: {state['halt_reason']}")
     if survivors:
-        tags = [s["title"] + (" (unproven, test only)" if s.get("status") == "candidate" else "") for s in survivors]
+        tags = [s["title"] + (" (unproven, test only)" if s.get("status") in SETUP_LABEL else "") for s in survivors]
         L.append("Setups being traded: " + ", ".join(tags) + ".")
     else:
         L.append("No setup is approved for this mode, so the bot is watching but not trading. It reruns the backtest on the 1st of each month.")
