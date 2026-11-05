@@ -42,6 +42,7 @@ class FakeAPI:
 def env(tmp_path):
     cfg = load_config()
     cfg["risk"].pop("paper_max_open_positions", None)  # tests set the limit they need directly
+    cfg.pop("practice", None)
     uni = synthetic_universe(n_coins=3, days=60, seed=2)
     rep = tmp_path / "reports"
     st = tmp_path / "state"
@@ -138,6 +139,42 @@ def test_paper_limit_does_not_apply_outside_test_mode(env):
     day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
     scan_at(env, day + pd.Timedelta(hours=10, minutes=7))
     assert len(Journal(st / "trades.csv").rows()) == 2
+
+
+PRACTICE = {"family": "session", "params": {"hour": 10}, "hold": 4, "profile": "tight", "n": 10, "win_rate": 0.4, "avg_net_pct": -0.5}
+
+
+def test_practice_setups_trade_in_test_mode(env):
+    cfg, uni, rep, st, msgs = env
+    cfg["risk"]["max_open_positions"] = 3
+    cfg["practice"] = [PRACTICE]
+    (rep / "survivors.json").write_text("[]")
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    scan_at(env, day + pd.Timedelta(hours=10, minutes=7))
+    rows = Journal(st / "trades.csv").rows()
+    assert len(rows) == 3
+    assert all(r["setup"].startswith("Practice: ") and "unproven practice" in r["note"] for r in rows)
+    assert any("Practice setup, past year" in m for m in msgs)
+
+
+@pytest.mark.parametrize("mode", ["LIVE_MANUAL", "LIVE_AUTO"])
+def test_practice_setups_never_trade_outside_test_mode(env, mode):
+    cfg, uni, rep, st, msgs = env
+    cfg["mode"] = mode
+    cfg["practice"] = [PRACTICE]
+    (rep / "survivors.json").write_text("[]")
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    scan_at(env, day + pd.Timedelta(hours=10, minutes=7))
+    assert len(Journal(st / "trades.csv").rows()) == 0
+
+
+def test_real_config_practice_setups_load():
+    from bot.scan import practice_setups
+    from bot.strategies import EXIT_PROFILES
+
+    setups = practice_setups(load_config())
+    assert len(setups) == 2
+    assert all(s["hold"] <= 24 and s["profile"] in EXIT_PROFILES for s in setups)
 
 
 def test_halted_bot_opens_nothing(env):
