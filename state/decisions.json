@@ -1320,5 +1320,17 @@
   "skipped": [
    "ZRO Moving average cross: already 2 open positions"
   ]
+ },
+ {
+  "time": "2026-11-05T06:02:35Z",
+  "candle": "2026-11-05T05:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 3,
+  "text": "No trade: none of the 3 setups fired on the 05:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
