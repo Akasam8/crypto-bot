@@ -226,11 +226,15 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
                 candidates.append({"s": s, "pid": pid, "tp_pct": tp_pct, "sl_pct": sl_pct, "sig_t": sig_t, "late_h": k})
                 break
 
+    gate_cfg = cfg
+    if mode == "PAPER" and "paper_max_open_positions" in cfg["risk"]:
+        gate_cfg = {**cfg, "risk": {**cfg["risk"], "max_open_positions": cfg["risk"]["paper_max_open_positions"]}}
+
     for c in candidates:
         s, pid = c["s"], c["pid"]
         try:
             active = [r for r in journal.rows() if r["status"] in ACTIVE]
-            d = gate(state, pot, active, trades_today, loss_today, pid, cfg)
+            d = gate(state, pot, active, trades_today, loss_today, pid, gate_cfg)
             if d.ok:
                 d = size_position(pot, free, c["sl_pct"], rt_cost, cfg)
             product = broker.product_id(pid) if live else pid
@@ -325,6 +329,9 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
         "opened": log["opened"], "closed": log["closed"], "skipped": log["skipped"],
     }
     decisions = load_json(state_dir / "decisions.json", [])
+    earlier = next((d for d in decisions if d.get("candle") == decision["candle"]), None)
+    if earlier:  # the scan runs twice an hour, so a later run must not wipe out what an earlier one did
+        decision = merge_decisions(earlier, decision)
     decisions = [d for d in decisions if d.get("candle") != decision["candle"]] + [decision]
     (state_dir / "decisions.json").write_text(json.dumps(decisions[-500:], indent=1))
     eq_path = state_dir / "equity.csv"
@@ -350,6 +357,20 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
     log["pot_gbp"] = round(balance, 2)
     log["decision"] = decision["text"]
     return log
+
+
+def merge_decisions(old: dict, new: dict) -> dict:
+    """Combine two runs on the same candle, keeping any buy or sell either of them made."""
+    old_acted = bool(old.get("opened") or old.get("closed"))
+    new_acted = bool(new.get("opened") or new.get("closed"))
+    if not old_acted:
+        return new
+    if not new_acted:
+        return {**new, "text": old["text"], "opened": old.get("opened", []), "closed": old.get("closed", [])}
+    return {
+        **new, "text": f"{old['text']}. {new['text']}",
+        "opened": old.get("opened", []) + new["opened"], "closed": old.get("closed", []) + new["closed"],
+    }
 
 
 def f_up(f: pd.DataFrame) -> bool:
