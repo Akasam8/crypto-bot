@@ -15,6 +15,8 @@ Everything runs free on GitHub Actions, so nothing needs to stay on at home.
 
 `BOT_MODE=PAPER` (the default) is test mode: a fake £100, real Coinbase prices, real fees and slippage on every buy and sell, and the same stops, targets and time exits a live trade would get. It trades proven setups and, while `paper_trades_candidates = true` in config.toml, the best unproven ones too, so you can watch how they really do. Live modes only ever trade proven setups.
 
+Test mode also runs two short **practice setups** from `config.toml`, held for up to 24 hours, so it stays active and gathers results. They are not proven and lost money after fees over the past year, so expect them to cost the fake pot. Their trades are named `Practice:` and live modes never take them.
+
 ## Files worth reading
 
 `reports/backtest_report.md` is the verdict. `reports/playbook.md` holds the market notes plus the strategy cards. `state/trades.csv` is the journal, `state/decisions.json` is every hourly decision, `state/equity.csv` is the balance history, and `state/state.json` shows whether the bot is halted.
