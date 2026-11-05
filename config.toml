@@ -59,3 +59,24 @@ wf_random_percentile = 75      # each fold must beat 75% of time shifted random 
 quote_currency = "USDC"         # what the bot trades against in live mode; check your account
 portfolio_uuid = ""             # the dedicated "bot" portfolio UUID, required for live modes
 entry_limit_buffer_pct = 0.20   # limit price this far above the ask so entries fill straight away
+
+# Practice setups: short trades for test mode only, so it stays active and gathers results.
+# Neither is proven: the numbers below are 5 Nov 2026, past year, after fees, and both lost money.
+# Live modes never trade these. Delete a block to switch that setup off.
+[[practice]]
+family = "volume_spike"         # can fire in any market
+params = { k = 2.5 }
+hold = 24
+profile = "timed"
+n = 1502
+win_rate = 0.36
+avg_net_pct = -0.81
+
+[[practice]]
+family = "oversold_bounce"      # only fires while BTC is above its 50 day average
+params = { threshold = 25, mode = "below" }
+hold = 24
+profile = "tight"
+n = 410
+win_rate = 0.43
+avg_net_pct = -0.77
