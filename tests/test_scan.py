@@ -41,6 +41,7 @@ class FakeAPI:
 @pytest.fixture()
 def env(tmp_path):
     cfg = load_config()
+    cfg["risk"].pop("paper_max_open_positions", None)  # tests set the limit they need directly
     uni = synthetic_universe(n_coins=3, days=60, seed=2)
     rep = tmp_path / "reports"
     st = tmp_path / "state"
@@ -100,6 +101,19 @@ def test_rerun_same_hour_does_not_duplicate(env):
     assert len(Journal(st / "trades.csv").rows()) == 3
 
 
+def test_rerun_same_hour_keeps_the_bought_decision(env):
+    cfg, uni, rep, st, msgs = env
+    cfg["risk"]["max_open_positions"] = 3
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    t = day + pd.Timedelta(hours=10, minutes=7)
+    scan_at(env, t)
+    scan_at(env, t + pd.Timedelta(minutes=30))
+    decisions = json.loads((st / "decisions.json").read_text())
+    assert len(decisions) == 1
+    assert decisions[0]["text"].startswith("Bought")
+    assert len(decisions[0]["opened"]) == 3
+
+
 def test_max_open_positions_respected(env):
     cfg, uni, rep, st, msgs = env
     cfg["risk"]["max_open_positions"] = 2
@@ -107,6 +121,23 @@ def test_max_open_positions_respected(env):
     scan_at(env, day + pd.Timedelta(hours=10, minutes=7))
     assert len(Journal(st / "trades.csv").rows()) == 2
     assert any("already 2 open positions" in m for m in msgs)
+
+
+def test_paper_limit_applies_in_test_mode(env):
+    cfg, uni, rep, st, msgs = env
+    cfg["risk"].update(max_open_positions=2, paper_max_open_positions=3)
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    scan_at(env, day + pd.Timedelta(hours=10, minutes=7))
+    assert len(Journal(st / "trades.csv").rows()) == 3
+
+
+def test_paper_limit_does_not_apply_outside_test_mode(env):
+    cfg, uni, rep, st, msgs = env
+    cfg["mode"] = "LIVE_MANUAL"
+    cfg["risk"].update(max_open_positions=2, paper_max_open_positions=3)
+    day = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D")
+    scan_at(env, day + pd.Timedelta(hours=10, minutes=7))
+    assert len(Journal(st / "trades.csv").rows()) == 2
 
 
 def test_halted_bot_opens_nothing(env):
