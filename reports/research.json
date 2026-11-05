@@ -60,8 +60,8 @@
     }
   ],
   "benchmarks": {
-    "btc_hold_pct": 21.12,
-    "equal_weight_hold_pct": 49.12
+    "btc_hold_pct": 21.61,
+    "equal_weight_hold_pct": 50.61
   },
   "families": [
     {
@@ -93,12 +93,12 @@
         "year_stats": {
           "n": 242,
           "win_rate": 0.384297520661157,
-          "avg_net_pct": 0.2913655098113908,
+          "avg_net_pct": 0.2913655098113912,
           "median_net_pct": -2.027120750688194,
           "avg_win_pct": 11.437868761190758,
           "avg_loss_pct": -6.665847928969021,
           "profit_factor": 1.0709923965163386,
-          "t_stat": 0.34610906325333524,
+          "t_stat": 0.34610906325333574,
           "max_drawdown_pct_of_stake": 362.2755199451945,
           "worst_losing_streak": 23,
           "months_with_trades": 8,
@@ -119,7 +119,7 @@
               "avg_net_pct": 0.291
             }
           },
-          "avg_net_pct_maker_entry": 0.6415099280501393,
+          "avg_net_pct_maker_entry": 0.6415099280501397,
           "avg_hold_hours": 163.62396694214877,
           "exit_mix": {
             "target": 0.0,
@@ -149,13 +149,13 @@
         "recent_stats": {
           "n": 129,
           "win_rate": 0.4806201550387597,
-          "avg_net_pct": 2.782157646500614,
+          "avg_net_pct": 2.782157646500615,
           "median_net_pct": -0.33516460172648976,
           "avg_win_pct": 12.034460548265752,
           "avg_loss_pct": -5.779674889461154,
-          "profit_factor": 1.9268153815720779,
-          "t_stat": 2.3245497459970315,
-          "max_drawdown_pct_of_stake": 161.05863780464432,
+          "profit_factor": 1.926815381572078,
+          "t_stat": 2.3245497459970323,
+          "max_drawdown_pct_of_stake": 161.0586378046444,
           "worst_losing_streak": 15,
           "months_with_trades": 4,
           "positive_month_share": 0.5,
@@ -171,7 +171,7 @@
               "avg_net_pct": 2.782
             }
           },
-          "avg_net_pct_maker_entry": 3.140998097136781,
+          "avg_net_pct_maker_entry": 3.1409980971367815,
           "avg_hold_hours": 164.3798449612403,
           "exit_mix": {
             "target": 0.0,
@@ -233,13 +233,13 @@
         "year_stats": {
           "n": 548,
           "win_rate": 0.3886861313868613,
-          "avg_net_pct": 0.12055250733312421,
+          "avg_net_pct": 0.12055250733312439,
           "median_net_pct": -2.672153885518985,
           "avg_win_pct": 14.59429423664765,
           "avg_loss_pct": -9.082154920559397,
           "profit_factor": 1.0217131630354301,
-          "t_stat": 0.15894105892349936,
-          "max_drawdown_pct_of_stake": 1114.1508058372756,
+          "t_stat": 0.15894105892349958,
+          "max_drawdown_pct_of_stake": 1114.1508058372754,
           "worst_losing_streak": 24,
           "months_with_trades": 12,
           "positive_month_share": 0.5,
@@ -398,7 +398,7 @@
           "avg_loss_pct": -8.022020803134948,
           "profit_factor": 1.6562243775525765,
           "t_stat": 2.09862261182819,
-          "max_drawdown_pct_of_stake": 217.04251507587387,
+          "max_drawdown_pct_of_stake": 217.0425150758738,
           "worst_losing_streak": 11,
           "months_with_trades": 12,
           "positive_month_share": 0.4166666666666667,
@@ -426,7 +426,7 @@
               "avg_net_pct": 3.243
             }
           },
-          "avg_net_pct_maker_entry": 3.383361927347659,
+          "avg_net_pct_maker_entry": 3.38336192734766,
           "avg_hold_hours": 158.72314049586777,
           "exit_mix": {
             "target": 0.0,
@@ -571,7 +571,7 @@
             "win_rate": 0.378
           }
         },
-        "typical_stop_pct": 11.652245684502487,
+        "typical_stop_pct": 11.652245684502493,
         "typical_target_pct": null
       },
       "test_stats": {
@@ -628,7 +628,7 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 0.22593488638529116,
+        "random_mean_pct": 0.22781574146744452,
         "random_p90_pct": 2.7345041347889376,
         "random_cut_pct": 5.433744236752781,
         "p_value": 0.08
@@ -641,7 +641,7 @@
           "test_to": "2026-05-14",
           "n": 123,
           "avg_net_pct": -1.041,
-          "edge_vs_random_pct": -1.541,
+          "edge_vs_random_pct": -1.521,
           "positive": false
         },
         {
@@ -931,12 +931,12 @@
         "year_stats": {
           "n": 156,
           "win_rate": 0.4807692307692308,
-          "avg_net_pct": 2.6349120006422657,
+          "avg_net_pct": 2.6349120006422666,
           "median_net_pct": -1.3366425695973794,
           "avg_win_pct": 15.982743388034857,
-          "avg_loss_pct": -9.724191135832351,
-          "profit_factor": 1.5218578351335466,
-          "t_stat": 2.1190881358767846,
+          "avg_loss_pct": -9.724191135832353,
+          "profit_factor": 1.521857835133546,
+          "t_stat": 2.1190881358767855,
           "max_drawdown_pct_of_stake": 152.93742316861784,
           "worst_losing_streak": 7,
           "months_with_trades": 8,
@@ -957,7 +957,7 @@
               "avg_net_pct": 2.635
             }
           },
-          "avg_net_pct_maker_entry": 2.9932383767043635,
+          "avg_net_pct_maker_entry": 2.9932383767043644,
           "avg_hold_hours": 130.21153846153845,
           "exit_mix": {
             "target": 0.1987179487179487,
@@ -987,12 +987,12 @@
         "recent_stats": {
           "n": 85,
           "win_rate": 0.49411764705882355,
-          "avg_net_pct": 3.247386143614982,
+          "avg_net_pct": 3.2473861436149805,
           "median_net_pct": -0.6196816567183183,
-          "avg_win_pct": 17.211091726812654,
-          "avg_loss_pct": -10.391582100438558,
-          "profit_factor": 1.6177357419875464,
-          "t_stat": 1.808964934778071,
+          "avg_win_pct": 17.211091726812658,
+          "avg_loss_pct": -10.391582100438562,
+          "profit_factor": 1.6177357419875462,
+          "t_stat": 1.80896493477807,
           "max_drawdown_pct_of_stake": 152.93742316861815,
           "worst_losing_streak": 7,
           "months_with_trades": 4,
@@ -1034,7 +1034,7 @@
             }
           },
           "typical_stop_pct": 15.0,
-          "typical_target_pct": 32.59313726144822
+          "typical_target_pct": 32.59313726144823
         }
       },
       "selected": "momentum_leader[top=3]|168h|timed",
@@ -1148,7 +1148,7 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 3.876600025863123,
+        "random_mean_pct": 3.8744767226888888,
         "random_p90_pct": 11.826458148934368,
         "random_cut_pct": 17.70631685139581,
         "p_value": 0.2825

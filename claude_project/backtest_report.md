@@ -6,7 +6,7 @@ Data: 25 coins, hourly candles from 2025-11-05 to 2026-11-05. Setups were picked
 
 Every trade pays 0.5% Coinbase taker fee plus 0.1% slippage on the way in and again on the way out, so a round trip costs about 1.20%. A trade has to move that much just to break even.
 
-For comparison, over the test period simply holding BTC returned +21.12% and holding all the coins equally returned +49.12%.
+For comparison, over the test period simply holding BTC returned +21.61% and holding all the coins equally returned +50.61%.
 
 ## Results by setup
 
@@ -49,11 +49,11 @@ Training: 125 trades, +0.006% per trade, win rate 36%.
 
 Unseen test period: 141 trades, +3.322% per trade after fees (+3.683% if entries filled as maker), win rate 45%, average win +15.02%, average loss -6.13%, profit factor 1.98, worst losing streak 8, 50% of months positive. Exits: target 0%, stop 9%, time 91%.
 
-The same trades slid to random times averaged +0.226%. To pass, the setup had to beat +5.434%, which only 2.5% of random runs reach. Share of random runs that did at least as well as the setup: 8.0%.
+The same trades slid to random times averaged +0.228%. To pass, the setup had to beat +5.434%, which only 2.5% of random runs reach. Share of random runs that did at least as well as the setup: 8.0%.
 
 By market regime: BTC above 50d avg: yes: 141 trades, +3.322%; high volatility: yes: 73 trades, +3.177%; high volatility: no: 68 trades, +3.478%.
 
-Walk forward inside the training period (picked on 4 months, tested on the next 2): 2026-03-14 to 2026-05-14: 123 trades, -1.041% per trade, -1.541% vs the 75th percentile of random timing; 2026-05-14 to 2026-06-28: 11 trades, -3.805% per trade, -4.147% vs the 75th percentile of random timing.
+Walk forward inside the training period (picked on 4 months, tested on the next 2): 2026-03-14 to 2026-05-14: 123 trades, -1.041% per trade, -1.521% vs the 75th percentile of random timing; 2026-05-14 to 2026-06-28: 11 trades, -3.805% per trade, -4.147% vs the 75th percentile of random timing.
 
 **Failed because:** didn't clearly beat random entries (3.32% vs 5.43% for the top 2.5% of random runs); only 50% of test months were positive; walk forward: only 0 of 2 unseen periods made money and beat random timing.
 
@@ -69,7 +69,7 @@ Training: 63 trades, +2.867% per trade, win rate 46%.
 
 Unseen test period: 76 trades, +5.155% per trade after fees (+5.522% if entries filled as maker), win rate 49%, average win +21.75%, average loss -10.58%, profit factor 1.95, worst losing streak 7, 50% of months positive. Exits: target 0%, stop 20%, time 80%.
 
-The same trades slid to random times averaged +3.877%. To pass, the setup had to beat +17.706%, which only 2.5% of random runs reach. Share of random runs that did at least as well as the setup: 28.2%.
+The same trades slid to random times averaged +3.874%. To pass, the setup had to beat +17.706%, which only 2.5% of random runs reach. Share of random runs that did at least as well as the setup: 28.2%.
 
 By market regime: BTC above 50d avg: yes: 76 trades, +5.155%; high volatility: yes: 31 trades, +11.158%; high volatility: no: 45 trades, +1.019%.
 

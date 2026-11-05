@@ -41,8 +41,8 @@
     "test": {
       "n": 156,
       "win_rate": 0.4807692307692308,
-      "avg_net_pct": 2.6349120006422657,
-      "profit_factor": 1.5218578351335466,
+      "avg_net_pct": 2.6349120006422666,
+      "profit_factor": 1.521857835133546,
       "positive_month_share": 0.625,
       "typical_stop_pct": 15.0,
       "typical_target_pct": 30.593091984202935,
@@ -51,7 +51,7 @@
     "recent": {
       "n": 85,
       "win_rate": 0.49411764705882355,
-      "avg_net_pct": 3.247386143614982
+      "avg_net_pct": 3.2473861436149805
     }
   },
   {
