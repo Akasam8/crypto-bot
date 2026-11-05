@@ -1,502 +1,502 @@
 {
   "round_trip_cost_pct": 1.2,
   "median_move_pct": {
-    "1h": 0.42851086852415676,
-    "2h": 0.6060971153043937,
-    "4h": 0.8664701413170439,
-    "12h": 1.5957457241087603,
-    "24h": 2.348444523306892
+    "1h": 0.42181442477227105,
+    "2h": 0.594178812875093,
+    "4h": 0.8453041504726921,
+    "12h": 1.552542074299268,
+    "24h": 2.2846695396174788
   },
   "by_uk_hour": [
     {
       "group": 0,
-      "n": 8808,
-      "avg_ret_bp": -0.8292632415777782,
-      "avg_abs_move_bp": 60.85971326299431,
-      "up_share": 0.5171435059037239
+      "n": 8872,
+      "avg_ret_bp": 0.16899840715156103,
+      "avg_abs_move_bp": 58.22950735591943,
+      "up_share": 0.5202885482416592
     },
     {
       "group": 1,
-      "n": 8840,
-      "avg_ret_bp": 6.850140519790557,
-      "avg_abs_move_bp": 64.68510056770738,
-      "up_share": 0.5313348416289593
+      "n": 8922,
+      "avg_ret_bp": 6.6140812148053145,
+      "avg_abs_move_bp": 62.834723541321054,
+      "up_share": 0.5320555929163865
     },
     {
       "group": 2,
-      "n": 8853,
-      "avg_ret_bp": -1.8243445088352352,
-      "avg_abs_move_bp": 70.2416008793145,
-      "up_share": 0.4766745735908732
+      "n": 8934,
+      "avg_ret_bp": -3.2809582944807083,
+      "avg_abs_move_bp": 67.50428321629057,
+      "up_share": 0.4748153122901276
     },
     {
       "group": 3,
-      "n": 8825,
-      "avg_ret_bp": 1.1039806864175394,
-      "avg_abs_move_bp": 67.11641281981687,
-      "up_share": 0.491671388101983
+      "n": 8893,
+      "avg_ret_bp": 2.3946091488360626,
+      "avg_abs_move_bp": 64.06143085611193,
+      "up_share": 0.4942089283706286
     },
     {
       "group": 4,
-      "n": 8825,
-      "avg_ret_bp": -2.2410519343299193,
-      "avg_abs_move_bp": 60.283860030288274,
-      "up_share": 0.4628895184135977
+      "n": 8885,
+      "avg_ret_bp": -1.8016512556554103,
+      "avg_abs_move_bp": 57.50934426813636,
+      "up_share": 0.46381541924592007
     },
     {
       "group": 5,
-      "n": 8788,
-      "avg_ret_bp": -2.820819065346314,
-      "avg_abs_move_bp": 61.523667131470695,
-      "up_share": 0.47553482020937643
+      "n": 8841,
+      "avg_ret_bp": -1.44858902607395,
+      "avg_abs_move_bp": 57.829380910771576,
+      "up_share": 0.4760773668137089
     },
     {
       "group": 6,
-      "n": 8834,
-      "avg_ret_bp": -3.1341048177573128,
-      "avg_abs_move_bp": 63.406691178390226,
-      "up_share": 0.5076975322617161
+      "n": 8898,
+      "avg_ret_bp": -4.026947312437656,
+      "avg_abs_move_bp": 61.224300085196916,
+      "up_share": 0.50472016183412
     },
     {
       "group": 7,
-      "n": 8793,
-      "avg_ret_bp": 2.3916507137971776,
-      "avg_abs_move_bp": 58.103527367221254,
-      "up_share": 0.5134766291368134
+      "n": 8852,
+      "avg_ret_bp": 2.7682639672220177,
+      "avg_abs_move_bp": 55.69365431091205,
+      "up_share": 0.5142340713962946
     },
     {
       "group": 8,
-      "n": 8845,
-      "avg_ret_bp": -2.2022117108032586,
-      "avg_abs_move_bp": 60.440165426846924,
-      "up_share": 0.4749576031656303
+      "n": 8892,
+      "avg_ret_bp": -1.3790938174486589,
+      "avg_abs_move_bp": 57.852131192784455,
+      "up_share": 0.48043184885290147
     },
     {
       "group": 9,
-      "n": 8803,
-      "avg_ret_bp": 2.158759914293236,
-      "avg_abs_move_bp": 63.04632225050683,
-      "up_share": 0.5023287515619675
+      "n": 8887,
+      "avg_ret_bp": 1.8049465716539568,
+      "avg_abs_move_bp": 60.49774747770673,
+      "up_share": 0.501068977157646
     },
     {
       "group": 10,
-      "n": 8804,
-      "avg_ret_bp": -3.66031770201677,
-      "avg_abs_move_bp": 57.925217825420965,
-      "up_share": 0.4725124943207633
+      "n": 8876,
+      "avg_ret_bp": -3.320131919648687,
+      "avg_abs_move_bp": 55.05631588245503,
+      "up_share": 0.4748760703019378
     },
     {
       "group": 11,
-      "n": 8842,
-      "avg_ret_bp": -2.255346707082927,
-      "avg_abs_move_bp": 58.553436282639666,
-      "up_share": 0.4711603709567971
+      "n": 8880,
+      "avg_ret_bp": -2.338253103824441,
+      "avg_abs_move_bp": 55.271136694925836,
+      "up_share": 0.467454954954955
     },
     {
       "group": 12,
-      "n": 8815,
-      "avg_ret_bp": 4.3635582936519715,
-      "avg_abs_move_bp": 60.216725016987965,
-      "up_share": 0.5089052750992626
+      "n": 8885,
+      "avg_ret_bp": 4.026447494870796,
+      "avg_abs_move_bp": 58.41234564210265,
+      "up_share": 0.5069217782779967
     },
     {
       "group": 13,
-      "n": 8883,
-      "avg_ret_bp": 1.878407489660581,
-      "avg_abs_move_bp": 71.36122232352908,
-      "up_share": 0.48789823257908366
+      "n": 8958,
+      "avg_ret_bp": 1.8504534445373109,
+      "avg_abs_move_bp": 68.904931979635,
+      "up_share": 0.49095780308104486
     },
     {
       "group": 14,
-      "n": 8922,
-      "avg_ret_bp": -0.12402646683228961,
-      "avg_abs_move_bp": 85.84906861044365,
-      "up_share": 0.4847567809908092
+      "n": 8970,
+      "avg_ret_bp": 0.5448382259582758,
+      "avg_abs_move_bp": 83.35936287665182,
+      "up_share": 0.4866220735785953
     },
     {
       "group": 15,
-      "n": 8914,
-      "avg_ret_bp": -0.17022629158101502,
-      "avg_abs_move_bp": 95.79133306326085,
-      "up_share": 0.5053847879739736
+      "n": 8974,
+      "avg_ret_bp": -0.6569299726099362,
+      "avg_abs_move_bp": 92.89371529743481,
+      "up_share": 0.5025629596612436
     },
     {
       "group": 16,
-      "n": 8887,
-      "avg_ret_bp": -2.41724660505761,
-      "avg_abs_move_bp": 89.3580241550384,
-      "up_share": 0.4981433554630359
+      "n": 8957,
+      "avg_ret_bp": -2.860090673272189,
+      "avg_abs_move_bp": 86.3594043781068,
+      "up_share": 0.49570168583230995
     },
     {
       "group": 17,
-      "n": 8872,
-      "avg_ret_bp": -1.5080766405704507,
-      "avg_abs_move_bp": 75.590053851213,
-      "up_share": 0.47249774571686204
+      "n": 8951,
+      "avg_ret_bp": -1.7219500486603263,
+      "avg_abs_move_bp": 73.56655852246729,
+      "up_share": 0.470897106468551
     },
     {
       "group": 18,
-      "n": 8884,
-      "avg_ret_bp": 2.1856378173988302,
-      "avg_abs_move_bp": 70.97598593312891,
-      "up_share": 0.5032642953624493
+      "n": 8951,
+      "avg_ret_bp": 2.1573396365954074,
+      "avg_abs_move_bp": 68.27462767486954,
+      "up_share": 0.5020668081778572
     },
     {
       "group": 19,
-      "n": 8878,
-      "avg_ret_bp": -3.4849991265394644,
-      "avg_abs_move_bp": 69.02836047332285,
-      "up_share": 0.4779229556206353
+      "n": 8897,
+      "avg_ret_bp": -3.061550907397885,
+      "avg_abs_move_bp": 66.14459254797866,
+      "up_share": 0.4793750702483983
     },
     {
       "group": 20,
-      "n": 8840,
-      "avg_ret_bp": -3.089550339494096,
-      "avg_abs_move_bp": 65.01560845505595,
-      "up_share": 0.49638009049773757
+      "n": 8892,
+      "avg_ret_bp": -2.2072166220035214,
+      "avg_abs_move_bp": 62.77755332499144,
+      "up_share": 0.49898785425101216
     },
     {
       "group": 21,
-      "n": 8859,
-      "avg_ret_bp": 8.849661672789717,
-      "avg_abs_move_bp": 62.0755882998644,
-      "up_share": 0.5366294164126877
+      "n": 8910,
+      "avg_ret_bp": 9.132905739010186,
+      "avg_abs_move_bp": 59.581357987726314,
+      "up_share": 0.5379349046015712
     },
     {
       "group": 22,
-      "n": 8844,
-      "avg_ret_bp": 2.2707966252145124,
-      "avg_abs_move_bp": 68.32002946302777,
-      "up_share": 0.4960425146992311
+      "n": 8924,
+      "avg_ret_bp": 2.5963584223248346,
+      "avg_abs_move_bp": 66.00167622446382,
+      "up_share": 0.4951815329448678
     },
     {
       "group": 23,
-      "n": 8841,
-      "avg_ret_bp": -9.597256890111423,
-      "avg_abs_move_bp": 67.76018405576845,
-      "up_share": 0.4323040380047506
+      "n": 8905,
+      "avg_ret_bp": -11.345896364026604,
+      "avg_abs_move_bp": 65.7499375436352,
+      "up_share": 0.42346996069623805
     }
   ],
   "by_uk_weekday": [
     {
       "group": "Mon",
-      "n": 30338,
-      "avg_ret_bp": 0.7088802731043895,
-      "avg_abs_move_bp": 73.19861806724711,
-      "up_share": 0.5017469839804866
+      "n": 30556,
+      "avg_ret_bp": 1.691752749918829,
+      "avg_abs_move_bp": 69.48857639567969,
+      "up_share": 0.5020290613954707
     },
     {
       "group": "Tue",
-      "n": 30274,
-      "avg_ret_bp": -0.9147985146496387,
-      "avg_abs_move_bp": 69.73468268677038,
-      "up_share": 0.4821629120697628
+      "n": 30479,
+      "avg_ret_bp": -0.18668607728018505,
+      "avg_abs_move_bp": 66.25291293002445,
+      "up_share": 0.48377571442632633
     },
     {
       "group": "Wed",
-      "n": 30361,
-      "avg_ret_bp": -1.020510118724545,
-      "avg_abs_move_bp": 70.3094598863751,
-      "up_share": 0.48766509667007013
+      "n": 30684,
+      "avg_ret_bp": -1.413338014171722,
+      "avg_abs_move_bp": 68.45675633585762,
+      "up_share": 0.48644244557424066
     },
     {
       "group": "Thu",
-      "n": 30327,
-      "avg_ret_bp": -4.2303785863130505,
-      "avg_abs_move_bp": 72.29720870107825,
-      "up_share": 0.48013321462722985
+      "n": 31009,
+      "avg_ret_bp": -4.650423004606419,
+      "avg_abs_move_bp": 70.40453725985859,
+      "up_share": 0.4791189654616402
     },
     {
       "group": "Fri",
-      "n": 30147,
-      "avg_ret_bp": 2.562124006998548,
-      "avg_abs_move_bp": 73.9174317349437,
-      "up_share": 0.5036653730056059
+      "n": 30389,
+      "avg_ret_bp": 2.4933204478722506,
+      "avg_abs_move_bp": 71.7558293801389,
+      "up_share": 0.5039323439402416
     },
     {
       "group": "Sat",
-      "n": 30453,
-      "avg_ret_bp": 1.3469944881892344,
-      "avg_abs_move_bp": 56.401502691870746,
-      "up_share": 0.5022822053656454
+      "n": 30314,
+      "avg_ret_bp": 1.3086133974715755,
+      "avg_abs_move_bp": 53.84347011833474,
+      "up_share": 0.5015504387411757
     },
     {
       "group": "Sun",
-      "n": 30399,
-      "avg_ret_bp": -0.5708367268465563,
-      "avg_abs_move_bp": 59.166890640569484,
-      "up_share": 0.48330537188723316
+      "n": 30375,
+      "avg_ret_bp": -0.7146599738321109,
+      "avg_abs_move_bp": 56.470177572127874,
+      "up_share": 0.48358847736625515
     }
   ],
-  "weekend_vs_weekday_move_ratio": 0.8037697442476107,
+  "weekend_vs_weekday_move_ratio": 0.7962386654501417,
   "btc_correlation": {
     "ETH-USD": {
-      "corr": 0.8886252122262658,
-      "beta": 1.2045757277134774
+      "corr": 0.8900018996118177,
+      "beta": 1.1998193744418064
     },
     "ZEC-USD": {
-      "corr": 0.47022898063082874,
-      "beta": 1.4454841136855672
+      "corr": 0.47609074561618614,
+      "beta": 1.441626363835183
     },
     "XRP-USD": {
-      "corr": 0.780516926111542,
-      "beta": 1.1463660992310707
+      "corr": 0.7796872135907714,
+      "beta": 1.137528537959378
     },
     "SOL-USD": {
-      "corr": 0.8392291401906644,
-      "beta": 1.252727346703432
+      "corr": 0.8403713526761527,
+      "beta": 1.2436920551901987
     },
     "NEAR-USD": {
-      "corr": 0.561757026166986,
-      "beta": 1.3577425778149648
+      "corr": 0.5595548544624362,
+      "beta": 1.351075574250148
     },
     "SUI-USD": {
-      "corr": 0.7424424063586736,
-      "beta": 1.4666802268438206
+      "corr": 0.7423941313675181,
+      "beta": 1.456639708276797
     },
     "QNT-USD": {
-      "corr": 0.3632939869434811,
-      "beta": 0.8788376830752698
+      "corr": 0.36182028239018726,
+      "beta": 0.874880542532966
     },
     "ADA-USD": {
-      "corr": 0.7554483088564539,
-      "beta": 1.3273733318804168
-    },
-    "PUMP-USD": {
-      "corr": 0.5727834010489684,
-      "beta": 1.6335135934608442
+      "corr": 0.7549139907719463,
+      "beta": 1.320280057677255
     },
     "LINK-USD": {
-      "corr": 0.8100655162959924,
-      "beta": 1.2863353545852558
+      "corr": 0.8115676600130303,
+      "beta": 1.2760391901280652
     },
     "UNI-USD": {
-      "corr": 0.6092423970233605,
-      "beta": 1.3613956870739692
+      "corr": 0.607936126613122,
+      "beta": 1.358774750607697
+    },
+    "PUMP-USD": {
+      "corr": 0.5724038614412342,
+      "beta": 1.6207017493749716
     },
     "LTC-USD": {
-      "corr": 0.6951224253393954,
-      "beta": 0.9891745327673922
-    },
-    "TAO-USD": {
-      "corr": 0.6139425210070351,
-      "beta": 1.3629073264108538
-    },
-    "XLM-USD": {
-      "corr": 0.6413978545019365,
-      "beta": 1.1775907008390567
-    },
-    "DOGE-USD": {
-      "corr": 0.7805930558909334,
-      "beta": 1.2170700014439566
-    },
-    "HBAR-USD": {
-      "corr": 0.6681518575919788,
-      "beta": 1.098557616002253
-    },
-    "VVV-USD": {
-      "corr": 0.4186054606940366,
-      "beta": 1.4425225588135346
+      "corr": 0.6960481859954948,
+      "beta": 0.9825670214614722
     },
     "ENA-USD": {
-      "corr": 0.608794300329755,
-      "beta": 1.5561096326485626
+      "corr": 0.6085954120452297,
+      "beta": 1.5514664025741043
     },
-    "AERO-USD": {
-      "corr": 0.6334146985731034,
-      "beta": 1.5537730049761083
+    "DOGE-USD": {
+      "corr": 0.780774229340519,
+      "beta": 1.2058738329637548
     },
-    "AVAX-USD": {
-      "corr": 0.7344808256746305,
-      "beta": 1.226440032949028
+    "VVV-USD": {
+      "corr": 0.41669115663632667,
+      "beta": 1.4374790173113072
+    },
+    "TAO-USD": {
+      "corr": 0.6187092660809806,
+      "beta": 1.3594427841904335
+    },
+    "XLM-USD": {
+      "corr": 0.6408007881338756,
+      "beta": 1.173560924917188
+    },
+    "HBAR-USD": {
+      "corr": 0.666722014811542,
+      "beta": 1.0881767060845833
     },
     "ONDO-USD": {
-      "corr": 0.6727619225762602,
-      "beta": 1.4650706877601718
+      "corr": 0.671574388848131,
+      "beta": 1.4577715485493836
     },
-    "ZRO-USD": {
-      "corr": 0.4319100485166229,
-      "beta": 1.175743248113731
+    "AERO-USD": {
+      "corr": 0.6319031060682425,
+      "beta": 1.5429034322807142
+    },
+    "AVAX-USD": {
+      "corr": 0.7343796487310109,
+      "beta": 1.213213886771308
     },
     "INJ-USD": {
-      "corr": 0.5682170346072498,
-      "beta": 1.3566833717289142
+      "corr": 0.5642239810164879,
+      "beta": 1.3365107251017188
     },
-    "STRK-USD": {
-      "corr": 0.31762956953107974,
-      "beta": 1.2186590353981572
+    "ZRO-USD": {
+      "corr": 0.4293024258480977,
+      "beta": 1.1671002213877584
+    },
+    "PEPE-USD": {
+      "corr": 0.6748792814259261,
+      "beta": 1.4436074393929874
     }
   },
   "alt_follows_btc_lag_corr": {
-    "1h": 0.0025651787063377574,
-    "2h": -0.00766949132217666,
-    "3h": 0.004131845615791661
+    "1h": 0.0058903256252170015,
+    "2h": -0.00498084413085938,
+    "3h": 0.001735589321457092
   },
   "after_big_btc_days": {
     "BTC up 5%+ in a day": {
       "days": 11,
       "btc_next_day_avg_pct": 0.5458802649638202,
       "btc_next_day_up_share": 0.36363636363636365,
-      "alts_next_day_avg_pct": 1.6988083041119637
+      "alts_next_day_avg_pct": 1.8262993414203121
     },
     "BTC down 5%+ in a day": {
-      "days": 6,
+      "days": 7,
       "btc_next_day_avg_pct": 0.8490519212295525,
       "btc_next_day_up_share": 0.3333333333333333,
-      "alts_next_day_avg_pct": 0.8823501829545969
+      "alts_next_day_avg_pct": 0.7957349695179176
     }
   },
   "regimes": {
     "BTC above its 50 day average: yes": {
       "n": 3600,
-      "avg_24h_move_pct": 0.521126103073508,
-      "up_share": 0.49472222222222223,
-      "random_24h_long_after_fees_pct": -0.6779330552136521
+      "avg_24h_move_pct": 0.5007961350806229,
+      "up_share": 0.4961111111111111,
+      "random_24h_long_after_fees_pct": -0.6980205186181528
     },
     "BTC above its 50 day average: no": {
       "n": 1775,
-      "avg_24h_move_pct": -0.14686496696443224,
-      "up_share": 0.4580281690140845,
-      "random_24h_long_after_fees_pct": -1.3379560409171443
+      "avg_24h_move_pct": -0.107909266558916,
+      "up_share": 0.4540845070422535,
+      "random_24h_long_after_fees_pct": -1.2994650208345566
     },
     "high volatility: yes": {
       "n": 1525,
-      "avg_24h_move_pct": 0.8135245558968452,
-      "up_share": 0.5160655737704918,
-      "random_24h_long_after_fees_pct": -0.38902245669834695
+      "avg_24h_move_pct": 0.6379488581921954,
+      "up_share": 0.4977049180327869,
+      "random_24h_long_after_fees_pct": -0.5625038120844524
     },
     "high volatility: no": {
       "n": 3850,
-      "avg_24h_move_pct": 0.09733602778183703,
-      "up_share": 0.46935064935064935,
-      "random_24h_long_after_fees_pct": -1.096667980501844
+      "avg_24h_move_pct": 0.16583250114417392,
+      "up_share": 0.4761038961038961,
+      "random_24h_long_after_fees_pct": -1.028988562487766
     }
   },
   "coins": {
     "BTC-USD": {
-      "annual_vol_pct": 43.3278281381999,
-      "period_return_pct": -29.166723438656728,
-      "median_daily_usd_volume_m": 403.80171189437374
+      "annual_vol_pct": 43.2713784926345,
+      "period_return_pct": -26.96261394669025,
+      "median_daily_usd_volume_m": 416.6385528996091
     },
     "ETH-USD": {
-      "annual_vol_pct": 58.73302871866676,
-      "period_return_pct": -41.47566540709079,
-      "median_daily_usd_volume_m": 195.23066593896695
+      "annual_vol_pct": 58.334525237431244,
+      "period_return_pct": -34.918333145194204,
+      "median_daily_usd_volume_m": 203.25203924797125
     },
     "ZEC-USD": {
-      "annual_vol_pct": 133.18976463391627,
-      "period_return_pct": 194.9609652235628,
-      "median_daily_usd_volume_m": 98.09570442534239
+      "annual_vol_pct": 131.02787779194287,
+      "period_return_pct": 148.4556807797746,
+      "median_daily_usd_volume_m": 104.82983663264254
     },
     "XRP-USD": {
-      "annual_vol_pct": 63.63674081789774,
-      "period_return_pct": -50.101727370646664,
-      "median_daily_usd_volume_m": 61.940900432281644
+      "annual_vol_pct": 63.130992857410625,
+      "period_return_pct": -46.92787944025834,
+      "median_daily_usd_volume_m": 61.58533108318688
     },
     "SOL-USD": {
-      "annual_vol_pct": 64.67596581507888,
-      "period_return_pct": -48.75033593120129,
-      "median_daily_usd_volume_m": 53.383961976802524
+      "annual_vol_pct": 64.03867704085849,
+      "period_return_pct": -44.936007875953734,
+      "median_daily_usd_volume_m": 53.424644896405596
     },
     "NEAR-USD": {
-      "annual_vol_pct": 104.72149759991834,
-      "period_return_pct": 104.23255813953492,
+      "annual_vol_pct": 104.48109256722806,
+      "period_return_pct": 89.16881775942178,
       "median_daily_usd_volume_m": 40.02906462353819
     },
     "SUI-USD": {
-      "annual_vol_pct": 85.59326387895605,
-      "period_return_pct": -61.951445281272356,
-      "median_daily_usd_volume_m": 15.476446936960002
+      "annual_vol_pct": 84.90208297867444,
+      "period_return_pct": -58.08580858085809,
+      "median_daily_usd_volume_m": 13.75432260667
     },
     "QNT-USD": {
-      "annual_vol_pct": 104.81353796693311,
-      "period_return_pct": 147.27587914809308,
-      "median_daily_usd_volume_m": 11.71732672388
+      "annual_vol_pct": 104.63008552671475,
+      "period_return_pct": 125.67695961995251,
+      "median_daily_usd_volume_m": 10.178613568120001
     },
     "ADA-USD": {
-      "annual_vol_pct": 76.1298991932387,
-      "period_return_pct": -68.43006194978807,
-      "median_daily_usd_volume_m": 9.9017501358323
-    },
-    "PUMP-USD": {
-      "annual_vol_pct": 123.56607420757635,
-      "period_return_pct": -4.555605180884326,
-      "median_daily_usd_volume_m": 7.909068372274
+      "annual_vol_pct": 75.67794317020207,
+      "period_return_pct": -66.37769188293761,
+      "median_daily_usd_volume_m": 7.786121423318112
     },
     "LINK-USD": {
-      "annual_vol_pct": 68.80198706198908,
-      "period_return_pct": -32.55304428044281,
-      "median_daily_usd_volume_m": 7.795156137090001
+      "annual_vol_pct": 68.0361940082479,
+      "period_return_pct": -29.733805402570155,
+      "median_daily_usd_volume_m": 7.26139102478
     },
     "UNI-USD": {
-      "annual_vol_pct": 96.81912921002075,
-      "period_return_pct": 23.69673113126818,
-      "median_daily_usd_volume_m": 7.1790814148233535
+      "annual_vol_pct": 96.71420063048379,
+      "period_return_pct": 24.81196110805357,
+      "median_daily_usd_volume_m": 6.768318103644916
+    },
+    "PUMP-USD": {
+      "annual_vol_pct": 122.51838875492828,
+      "period_return_pct": -4.178674351585032,
+      "median_daily_usd_volume_m": 6.803357519874999
     },
     "LTC-USD": {
-      "annual_vol_pct": 61.65645444901857,
-      "period_return_pct": -43.40259476991689,
-      "median_daily_usd_volume_m": 7.160101264334139
-    },
-    "TAO-USD": {
-      "annual_vol_pct": 96.1845977212357,
-      "period_return_pct": -54.70152388954666,
-      "median_daily_usd_volume_m": 6.488726795432
-    },
-    "XLM-USD": {
-      "annual_vol_pct": 79.54882783746974,
-      "period_return_pct": -44.7212663454921,
-      "median_daily_usd_volume_m": 6.080223114022344
-    },
-    "DOGE-USD": {
-      "annual_vol_pct": 67.55504607267535,
-      "period_return_pct": -59.546596802651976,
-      "median_daily_usd_volume_m": 6.153864170006002
-    },
-    "HBAR-USD": {
-      "annual_vol_pct": 71.23846928690728,
-      "period_return_pct": -64.06742359825938,
-      "median_daily_usd_volume_m": 6.01739444911
-    },
-    "VVV-USD": {
-      "annual_vol_pct": 149.30853842690826,
-      "period_return_pct": 1348.7763975155278,
-      "median_daily_usd_volume_m": 5.4646133400853
+      "annual_vol_pct": 61.08345705869718,
+      "period_return_pct": -41.52083567336853,
+      "median_daily_usd_volume_m": 6.317784121105005
     },
     "ENA-USD": {
-      "annual_vol_pct": 110.74816352760615,
-      "period_return_pct": -52.330368487928844,
-      "median_daily_usd_volume_m": 5.522788294994
+      "annual_vol_pct": 110.30988501668297,
+      "period_return_pct": -51.708185053380774,
+      "median_daily_usd_volume_m": 6.373660608653002
     },
-    "AERO-USD": {
-      "annual_vol_pct": 106.28362410445315,
-      "period_return_pct": -40.02146723912637,
-      "median_daily_usd_volume_m": 5.775764278976001
+    "DOGE-USD": {
+      "annual_vol_pct": 66.83087258734474,
+      "period_return_pct": -57.05231689088192,
+      "median_daily_usd_volume_m": 5.655813635726
     },
-    "AVAX-USD": {
-      "annual_vol_pct": 72.34904045400344,
-      "period_return_pct": -52.62083780880774,
-      "median_daily_usd_volume_m": 5.633115257644465
+    "VVV-USD": {
+      "annual_vol_pct": 149.27530292557975,
+      "period_return_pct": 1454.6492537313432,
+      "median_daily_usd_volume_m": 5.7566589619246
+    },
+    "TAO-USD": {
+      "annual_vol_pct": 95.0769068425196,
+      "period_return_pct": -44.94401811548623,
+      "median_daily_usd_volume_m": 5.819626309255999
+    },
+    "XLM-USD": {
+      "annual_vol_pct": 79.2470919303061,
+      "period_return_pct": -45.18327000542811,
+      "median_daily_usd_volume_m": 5.511483778521638
+    },
+    "HBAR-USD": {
+      "annual_vol_pct": 70.62449577154585,
+      "period_return_pct": -61.41871471745453,
+      "median_daily_usd_volume_m": 5.416024946043
     },
     "ONDO-USD": {
-      "annual_vol_pct": 94.35482128135978,
-      "period_return_pct": -40.82841938731483,
-      "median_daily_usd_volume_m": 5.4307698238108
+      "annual_vol_pct": 93.92821626397526,
+      "period_return_pct": -39.984746697822345,
+      "median_daily_usd_volume_m": 5.2198894580652
     },
-    "ZRO-USD": {
-      "annual_vol_pct": 117.94678443782499,
-      "period_return_pct": 16.184789440603396,
-      "median_daily_usd_volume_m": 4.323708871159
+    "AERO-USD": {
+      "annual_vol_pct": 105.65474003002207,
+      "period_return_pct": -34.813041075704554,
+      "median_daily_usd_volume_m": 5.278420324232999
+    },
+    "AVAX-USD": {
+      "annual_vol_pct": 71.4854195343181,
+      "period_return_pct": -50.55423122765197,
+      "median_daily_usd_volume_m": 4.42718512496378
     },
     "INJ-USD": {
-      "annual_vol_pct": 103.45016144905621,
-      "period_return_pct": -7.996451653782788,
-      "median_daily_usd_volume_m": 3.9162341324100005
+      "annual_vol_pct": 102.49947430655529,
+      "period_return_pct": 20.230953809238137,
+      "median_daily_usd_volume_m": 4.031429940350001
     },
-    "STRK-USD": {
-      "annual_vol_pct": 166.23719675327376,
-      "period_return_pct": -59.324074074074076,
-      "median_daily_usd_volume_m": 3.4353960935513
+    "ZRO-USD": {
+      "annual_vol_pct": 117.63743314224038,
+      "period_return_pct": 12.378048780487806,
+      "median_daily_usd_volume_m": 3.3595747992
+    },
+    "PEPE-USD": {
+      "annual_vol_pct": 92.5600853722654,
+      "period_return_pct": -16.46447140381283,
+      "median_daily_usd_volume_m": 3.3719911839985497
     }
   }
 }
