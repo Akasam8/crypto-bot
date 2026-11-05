@@ -52,7 +52,7 @@ On every run the bot checks the key. If it can move money out, isn't scoped to t
 
 ## Risk rules (config.toml)
 
-The bot never risks more than 2% of the pot on one trade (stop distance plus fees), with positions capped at £40. It allows at most 2 open positions and 3 new trades a day, stops for the day after losing £5, and halts completely if the pot falls to £80. It trades spot only and long only, with no leverage, margin, futures or perpetuals.
+The bot never risks more than 2% of the pot on one trade (stop distance plus fees), with positions capped at £40. It allows at most 2 open positions in live modes (4 in test mode) and 3 new trades a day, stops for the day after losing £5, and halts completely if the pot falls to £80. It trades spot only and long only, with no leverage, margin, futures or perpetuals.
 
 ## Stopping it
 
