@@ -266,8 +266,8 @@ def run(cfg: dict, api, now: pd.Timestamp, notify=send, broker=None, can_open_li
             if not d.ok:
                 log["skipped"].append(f"{sym(pid)} {s['title']}: {d.reason}")
                 continue
-            # paper uses the forming candle's open, exactly like the backtest; live uses the real fill
-            entry = ask if live else next_open.get(pid, ask)
+            # buy at the live ask in every mode: a scan can land late in the hour, when the candle's open is long gone
+            entry = ask
             sl_px = entry * (1 - c["sl_pct"])
             tp_px = entry * (1 + c["tp_pct"]) if np.isfinite(c["tp_pct"]) else None
             entry_t = last_closed + H1
