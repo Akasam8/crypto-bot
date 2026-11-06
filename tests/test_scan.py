@@ -177,6 +177,26 @@ def test_real_config_practice_setups_load():
     assert all(s["hold"] <= 24 and s["profile"] in EXIT_PROFILES for s in setups)
 
 
+def test_paper_entry_uses_the_live_ask(env):
+    cfg, uni, rep, st, msgs = env
+    now = (uni["BTC-USD"].index[-1] - pd.Timedelta(days=3)).floor("D") + pd.Timedelta(hours=10, minutes=50)
+    api = FakeAPI(uni, now)
+    open_price = api.ticker("BTC-USD")["ask"]
+    api.ticker = lambda pid, real=api.ticker: {**real(pid), "bid": real(pid)["ask"] * 1.01, "ask": real(pid)["ask"] * 1.01}
+    run(cfg, api, now, notify=msgs.append, reports_dir=rep, state_dir=st, docs_dir=st.parent / "docs")
+    row = next(r for r in Journal(st / "trades.csv").rows() if r["coin"] == "BTC-USD")
+    assert row["entry_price"] == pytest.approx(open_price * 1.01)
+
+
+def test_dashboard_lists_practice_setups_in_test_mode(env):
+    from bot.dashboard import build
+
+    cfg, uni, rep, st, msgs = env
+    cfg["practice"] = [PRACTICE]
+    data = build(cfg, reports_dir=rep, state_dir=st)
+    assert any(s["title"].startswith("Practice: ") for s in data["setups"])
+
+
 def test_halted_bot_opens_nothing(env):
     cfg, uni, rep, st, msgs = env
     save_state(st / "state.json", {"halted": True, "halt_reason": "test"})
