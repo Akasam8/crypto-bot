@@ -49,6 +49,10 @@ def build(cfg: dict, reports_dir=REPORTS_DIR, state_dir=STATE_DIR) -> dict:
     rows = Journal(state_dir / "trades.csv").rows()
     research = _load_json(reports_dir / "research.json", {})
     setups = _load_json(reports_dir / "survivors.json", [])
+    if cfg["mode"] == "PAPER":
+        from .scan import practice_setups
+
+        setups = setups + practice_setups(cfg)
     decisions = _load_json(state_dir / "decisions.json", [])
     equity = _equity(state_dir)
     prices = state.get("last_prices", {})
