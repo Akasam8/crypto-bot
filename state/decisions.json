@@ -1780,5 +1780,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-06T20:28:51Z",
+  "candle": "2026-11-06T19:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold VVV (time, -\u00a30.61)",
+  "opened": [],
+  "closed": [
+   "dafc5f06d9"
+  ],
+  "skipped": []
  }
 ]
