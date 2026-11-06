@@ -1,85 +1,85 @@
 [
   {
     "status": "candidate",
-    "family": "trend_breakout",
-    "title": "Trend breakout",
-    "rule": "Price breaks above its highest point of the last 20 days while above its 20 day average.",
-    "key": "trend_breakout[btc_filter=False,days=20]|168h|timed",
-    "params": {
-      "days": 20,
-      "btc_filter": false
-    },
-    "hold": 168,
-    "profile": "timed",
-    "test": {
-      "n": 242,
-      "win_rate": 0.4256198347107438,
-      "avg_net_pct": 3.02367826259048,
-      "profit_factor": 1.6562243775525765,
-      "positive_month_share": 0.4166666666666667,
-      "typical_stop_pct": 15.0,
-      "typical_target_pct": null,
-      "worst_losing_streak": 11
-    },
-    "recent": {
-      "n": 105,
-      "win_rate": 0.5619047619047619,
-      "avg_net_pct": 8.082755194025884
-    }
-  },
-  {
-    "status": "candidate",
     "family": "momentum_leader",
     "title": "Momentum leader",
     "rule": "Once a day, buy a coin that's in the top 3 for 7 day gains, up on the week, while BTC is above its 50 day average.",
-    "key": "momentum_leader[top=3]|168h|runner",
+    "key": "momentum_leader[top=3]|168h|timed",
     "params": {
       "top": 3
     },
     "hold": 168,
-    "profile": "runner",
+    "profile": "timed",
     "test": {
-      "n": 156,
-      "win_rate": 0.4807692307692308,
-      "avg_net_pct": 2.6349120006422666,
-      "profit_factor": 1.521857835133546,
-      "positive_month_share": 0.625,
+      "n": 142,
+      "win_rate": 0.43661971830985913,
+      "avg_net_pct": 3.4491992447818762,
+      "profit_factor": 1.6514814141064482,
+      "positive_month_share": 0.5,
       "typical_stop_pct": 15.0,
-      "typical_target_pct": 30.593091984202935,
-      "worst_losing_streak": 7
+      "typical_target_pct": null,
+      "worst_losing_streak": 8
     },
     "recent": {
-      "n": 85,
-      "win_rate": 0.49411764705882355,
-      "avg_net_pct": 3.2473861436149805
+      "n": 80,
+      "win_rate": 0.4375,
+      "avg_net_pct": 4.517542797389558
+    }
+  },
+  {
+    "status": "candidate",
+    "family": "trend_breakout",
+    "title": "Trend breakout",
+    "rule": "Price breaks above its highest point of the last 10 days while above its 20 day average, with BTC above its 50 day average.",
+    "key": "trend_breakout[btc_filter=True,days=10]|72h|timed",
+    "params": {
+      "days": 10,
+      "btc_filter": true
+    },
+    "hold": 72,
+    "profile": "timed",
+    "test": {
+      "n": 341,
+      "win_rate": 0.44574780058651026,
+      "avg_net_pct": 1.4595023623736554,
+      "profit_factor": 1.4599087432856144,
+      "positive_month_share": 0.5,
+      "typical_stop_pct": 12.429234423857398,
+      "typical_target_pct": null,
+      "worst_losing_streak": 22
+    },
+    "recent": {
+      "n": 172,
+      "win_rate": 0.4883720930232558,
+      "avg_net_pct": 3.1809639851134213
     }
   },
   {
     "status": "candidate",
     "family": "ma_cross",
     "title": "Moving average cross",
-    "rule": "The 5 day average crosses above the 20 day average.",
-    "key": "ma_cross[fast=120,slow=480]|168h|timed",
+    "rule": "The 2 day average crosses above the 10 day average.",
+    "key": "ma_cross[fast=48,slow=240]|168h|timed",
     "params": {
-      "fast": 120,
-      "slow": 480
+      "fast": 48,
+      "slow": 240
     },
     "hold": 168,
     "profile": "timed",
     "test": {
-      "n": 245,
-      "win_rate": 0.42857142857142855,
-      "avg_net_pct": 1.8488580193839494,
-      "profit_factor": 1.4559106924693928,
-      "positive_month_share": 0.4166666666666667,
+      "n": 489,
+      "win_rate": 0.4233128834355828,
+      "avg_net_pct": 0.9203126568817804,
+      "profit_factor": 1.2214369562190197,
+      "positive_month_share": 0.5,
       "typical_stop_pct": 15.0,
       "typical_target_pct": null,
-      "worst_losing_streak": 17
+      "worst_losing_streak": 24
     },
     "recent": {
-      "n": 82,
-      "win_rate": 0.5,
-      "avg_net_pct": 8.185013508948046
+      "n": 160,
+      "win_rate": 0.475,
+      "avg_net_pct": 4.45613592189712
     }
   }
 ]

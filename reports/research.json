@@ -11,57 +11,57 @@
     "QNT-USD",
     "ADA-USD",
     "LINK-USD",
-    "UNI-USD",
     "PUMP-USD",
-    "LTC-USD",
+    "UNI-USD",
     "ENA-USD",
-    "DOGE-USD",
-    "VVV-USD",
+    "LTC-USD",
     "TAO-USD",
+    "VVV-USD",
     "XLM-USD",
+    "DOGE-USD",
     "HBAR-USD",
     "ONDO-USD",
     "AERO-USD",
     "AVAX-USD",
     "INJ-USD",
-    "ZRO-USD",
-    "PEPE-USD"
+    "PEPE-USD",
+    "AAVE-USD"
   ],
-  "data_from": "2025-11-05",
-  "data_to": "2026-11-05",
+  "data_from": "2025-11-06",
+  "data_to": "2026-11-06",
   "train_window": [
-    "2025-11-14",
-    "2026-06-28"
+    "2025-11-15",
+    "2026-06-29"
   ],
   "test_window": [
-    "2026-07-05",
-    "2026-11-05"
+    "2026-07-06",
+    "2026-11-06"
   ],
   "folds": [
     {
       "train": [
-        "2025-11-14",
-        "2026-03-07"
+        "2025-11-15",
+        "2026-03-08"
       ],
       "test": [
-        "2026-03-14",
-        "2026-05-14"
+        "2026-03-15",
+        "2026-05-15"
       ]
     },
     {
       "train": [
-        "2026-01-14",
-        "2026-05-07"
+        "2026-01-15",
+        "2026-05-08"
       ],
       "test": [
-        "2026-05-14",
-        "2026-06-28"
+        "2026-05-15",
+        "2026-06-29"
       ]
     }
   ],
   "benchmarks": {
-    "btc_hold_pct": 21.61,
-    "equal_weight_hold_pct": 50.61
+    "btc_hold_pct": 18.88,
+    "equal_weight_hold_pct": 49.35
   },
   "families": [
     {
@@ -92,35 +92,35 @@
         "rule": "RSI(14) drops below 25 while BTC is above its 50 day average.",
         "year_stats": {
           "n": 242,
-          "win_rate": 0.384297520661157,
-          "avg_net_pct": 0.2913655098113912,
+          "win_rate": 0.38016528925619836,
+          "avg_net_pct": 0.17473860206110517,
           "median_net_pct": -2.027120750688194,
-          "avg_win_pct": 11.437868761190758,
-          "avg_loss_pct": -6.665847928969021,
-          "profit_factor": 1.0709923965163386,
-          "t_stat": 0.34610906325333574,
-          "max_drawdown_pct_of_stake": 362.2755199451945,
-          "worst_losing_streak": 23,
+          "avg_win_pct": 11.457027729097117,
+          "avg_loss_pct": -6.745065395854316,
+          "profit_factor": 1.0417952376708637,
+          "t_stat": 0.2067555640966301,
+          "max_drawdown_pct_of_stake": 405.89434058147964,
+          "worst_losing_streak": 24,
           "months_with_trades": 8,
           "positive_month_share": 0.375,
           "monthly_net_pct": {
-            "2026-01": -181.58,
-            "2026-03": -108.55,
-            "2026-04": 93.97,
-            "2026-05": -92.22,
-            "2026-07": -1.01,
-            "2026-08": 116.81,
-            "2026-09": 390.47,
-            "2026-10": -147.37
+            "2026-01": -191.27,
+            "2026-03": -116.09,
+            "2026-04": 104.16,
+            "2026-05": -105.13,
+            "2026-07": -24.69,
+            "2026-08": 119.28,
+            "2026-09": 411.38,
+            "2026-10": -155.36
           },
           "by_year": {
             "2026": {
               "n": 242,
-              "avg_net_pct": 0.291
+              "avg_net_pct": 0.175
             }
           },
-          "avg_net_pct_maker_entry": 0.6415099280501397,
-          "avg_hold_hours": 163.62396694214877,
+          "avg_net_pct_maker_entry": 0.5244758440633185,
+          "avg_hold_hours": 163.69421487603304,
           "exit_mix": {
             "target": 0.0,
             "stop": 0.0743801652892562,
@@ -129,69 +129,69 @@
           "by_regime": {
             "BTC above 50d avg: yes": {
               "n": 242,
-              "avg_net_pct": 0.291,
-              "win_rate": 0.384
+              "avg_net_pct": 0.175,
+              "win_rate": 0.38
             },
             "high volatility: yes": {
-              "n": 38,
-              "avg_net_pct": 10.309,
-              "win_rate": 0.711
+              "n": 39,
+              "avg_net_pct": 10.581,
+              "win_rate": 0.718
             },
             "high volatility: no": {
-              "n": 141,
-              "avg_net_pct": -0.221,
-              "win_rate": 0.39
+              "n": 139,
+              "avg_net_pct": -0.453,
+              "win_rate": 0.388
             }
           },
           "typical_stop_pct": 15.0,
           "typical_target_pct": null
         },
         "recent_stats": {
-          "n": 129,
-          "win_rate": 0.4806201550387597,
-          "avg_net_pct": 2.782157646500615,
-          "median_net_pct": -0.33516460172648976,
-          "avg_win_pct": 12.034460548265752,
-          "avg_loss_pct": -5.779674889461154,
-          "profit_factor": 1.926815381572078,
-          "t_stat": 2.3245497459970323,
-          "max_drawdown_pct_of_stake": 161.0586378046444,
+          "n": 130,
+          "win_rate": 0.4846153846153846,
+          "avg_net_pct": 2.6970158725538798,
+          "median_net_pct": -0.285519166563003,
+          "avg_win_pct": 11.774513750413625,
+          "avg_loss_pct": -5.838541833493341,
+          "profit_factor": 1.8962881523088153,
+          "t_stat": 2.2633574660004716,
+          "max_drawdown_pct_of_stake": 164.1304454047803,
           "worst_losing_streak": 15,
           "months_with_trades": 4,
           "positive_month_share": 0.5,
           "monthly_net_pct": {
-            "2026-07": -1.01,
-            "2026-08": 116.81,
-            "2026-09": 390.47,
-            "2026-10": -147.37
+            "2026-07": -24.69,
+            "2026-08": 119.28,
+            "2026-09": 411.38,
+            "2026-10": -155.36
           },
           "by_year": {
             "2026": {
-              "n": 129,
-              "avg_net_pct": 2.782
+              "n": 130,
+              "avg_net_pct": 2.697
             }
           },
-          "avg_net_pct_maker_entry": 3.1409980971367815,
-          "avg_hold_hours": 164.3798449612403,
+          "avg_net_pct_maker_entry": 3.0555590701139232,
+          "avg_hold_hours": 164.41538461538462,
           "exit_mix": {
             "target": 0.0,
-            "stop": 0.05426356589147287,
-            "time": 0.9457364341085271
+            "stop": 0.05384615384615385,
+            "time": 0.9461538461538461
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 129,
-              "avg_net_pct": 2.782,
-              "win_rate": 0.481
+              "n": 130,
+              "avg_net_pct": 2.697,
+              "win_rate": 0.485
             },
             "high volatility: yes": {
-              "n": 38,
-              "avg_net_pct": 10.309,
-              "win_rate": 0.711
+              "n": 39,
+              "avg_net_pct": 10.581,
+              "win_rate": 0.718
             },
             "high volatility: no": {
               "n": 91,
-              "avg_net_pct": -0.361,
+              "avg_net_pct": -0.682,
               "win_rate": 0.385
             }
           },
@@ -231,126 +231,126 @@
         },
         "rule": "BTC jumps strongly over the last 4h while this coin has moved less than half as much.",
         "year_stats": {
-          "n": 548,
-          "win_rate": 0.3886861313868613,
-          "avg_net_pct": 0.12055250733312439,
+          "n": 542,
+          "win_rate": 0.3892988929889299,
+          "avg_net_pct": 0.13314843924886263,
           "median_net_pct": -2.672153885518985,
-          "avg_win_pct": 14.59429423664765,
-          "avg_loss_pct": -9.082154920559397,
-          "profit_factor": 1.0217131630354301,
-          "t_stat": 0.15894105892349958,
-          "max_drawdown_pct_of_stake": 1114.1508058372754,
-          "worst_losing_streak": 24,
+          "avg_win_pct": 14.495567558579605,
+          "avg_loss_pct": -9.02235136189551,
+          "profit_factor": 1.0241650465893501,
+          "t_stat": 0.17387272982058433,
+          "max_drawdown_pct_of_stake": 1141.5911403967723,
+          "worst_losing_streak": 27,
           "months_with_trades": 12,
           "positive_month_share": 0.5,
           "monthly_net_pct": {
-            "2025-11": -136.4,
-            "2025-12": 209.76,
-            "2026-01": -540.53,
-            "2026-02": 61.91,
-            "2026-03": -155.41,
-            "2026-04": 21.72,
-            "2026-05": 193.14,
-            "2026-06": -487.28,
-            "2026-07": -33.69,
-            "2026-08": 582.89,
-            "2026-09": 615.03,
-            "2026-10": -265.08
+            "2025-11": -91.5,
+            "2025-12": 238.62,
+            "2026-01": -578.72,
+            "2026-02": 29.19,
+            "2026-03": -178.64,
+            "2026-04": 33.9,
+            "2026-05": 197.15,
+            "2026-06": -461.54,
+            "2026-07": -10.9,
+            "2026-08": 561.13,
+            "2026-09": 586.08,
+            "2026-10": -252.6
           },
           "by_year": {
             "2025": {
-              "n": 54,
-              "avg_net_pct": 1.358
+              "n": 52,
+              "avg_net_pct": 2.829
             },
             "2026": {
-              "n": 494,
-              "avg_net_pct": -0.015
+              "n": 490,
+              "avg_net_pct": -0.153
             }
           },
-          "avg_net_pct_maker_entry": 0.47010057094975427,
-          "avg_hold_hours": 150.7919708029197,
+          "avg_net_pct_maker_entry": 0.482740478687642,
+          "avg_hold_hours": 151.21586715867159,
           "exit_mix": {
             "target": 0.0,
-            "stop": 0.20985401459854014,
-            "time": 0.7901459854014599
+            "stop": 0.2047970479704797,
+            "time": 0.7952029520295203
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 254,
-              "avg_net_pct": 2.47,
-              "win_rate": 0.433
+              "n": 255,
+              "avg_net_pct": 2.218,
+              "win_rate": 0.424
             },
             "BTC above 50d avg: no": {
-              "n": 260,
-              "avg_net_pct": -1.376,
-              "win_rate": 0.346
+              "n": 255,
+              "avg_net_pct": -1.375,
+              "win_rate": 0.349
             },
             "high volatility: yes": {
-              "n": 80,
-              "avg_net_pct": 1.345,
-              "win_rate": 0.438
+              "n": 81,
+              "avg_net_pct": 0.953,
+              "win_rate": 0.432
             },
             "high volatility: no": {
               "n": 247,
-              "avg_net_pct": 1.991,
-              "win_rate": 0.393
+              "avg_net_pct": 2.221,
+              "win_rate": 0.401
             }
           },
           "typical_stop_pct": 15.0,
           "typical_target_pct": null
         },
         "recent_stats": {
-          "n": 189,
-          "win_rate": 0.4603174603174603,
-          "avg_net_pct": 4.8023327415772785,
-          "median_net_pct": -0.5092638730066601,
-          "avg_win_pct": 18.91437808441665,
-          "avg_loss_pct": -7.234411815550425,
-          "profit_factor": 2.230015695381642,
-          "t_stat": 2.9337573266656563,
-          "max_drawdown_pct_of_stake": 300.61166334516025,
+          "n": 174,
+          "win_rate": 0.47701149425287354,
+          "avg_net_pct": 5.444784524078257,
+          "median_net_pct": -0.14638102695007094,
+          "avg_win_pct": 19.2102494849049,
+          "avg_loss_pct": -7.11052967096143,
+          "profit_factor": 2.4641534673472067,
+          "t_stat": 3.078621718183544,
+          "max_drawdown_pct_of_stake": 301.9104715335754,
           "worst_losing_streak": 24,
           "months_with_trades": 4,
-          "positive_month_share": 0.5,
+          "positive_month_share": 0.75,
           "monthly_net_pct": {
-            "2026-07": -25.19,
-            "2026-08": 582.89,
-            "2026-09": 615.03,
-            "2026-10": -265.08
+            "2026-07": 52.78,
+            "2026-08": 561.13,
+            "2026-09": 586.08,
+            "2026-10": -252.6
           },
           "by_year": {
             "2026": {
-              "n": 189,
-              "avg_net_pct": 4.802
+              "n": 174,
+              "avg_net_pct": 5.445
             }
           },
-          "avg_net_pct_maker_entry": 5.168226172595258,
-          "avg_hold_hours": 164.25925925925927,
+          "avg_net_pct_maker_entry": 5.81292092890048,
+          "avg_hold_hours": 165.367816091954,
           "exit_mix": {
             "target": 0.0,
-            "stop": 0.08465608465608465,
-            "time": 0.9153439153439153
+            "stop": 0.07471264367816093,
+            "time": 0.9252873563218391
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 129,
-              "avg_net_pct": 5.344,
-              "win_rate": 0.473
+              "n": 131,
+              "avg_net_pct": 4.916,
+              "win_rate": 0.458
             },
             "BTC above 50d avg: no": {
-              "n": 60,
-              "avg_net_pct": 3.637,
-              "win_rate": 0.433
+              "n": 43,
+              "avg_net_pct": 7.057,
+              "win_rate": 0.535
             },
             "high volatility: yes": {
-              "n": 56,
-              "avg_net_pct": 4.784,
-              "win_rate": 0.554
+              "n": 57,
+              "avg_net_pct": 3.842,
+              "win_rate": 0.526
             },
             "high volatility: no": {
-              "n": 133,
-              "avg_net_pct": 4.81,
-              "win_rate": 0.421
+              "n": 117,
+              "avg_net_pct": 6.226,
+              "win_rate": 0.453
             }
           },
           "typical_stop_pct": 15.0,
@@ -378,390 +378,130 @@
       "title": "Trend breakout",
       "configs_tested": 48,
       "candidate": {
-        "key": "trend_breakout[btc_filter=False,days=20]|168h|timed",
+        "key": "trend_breakout[btc_filter=True,days=10]|72h|timed",
         "config": {
           "family": "trend_breakout",
           "params": {
-            "days": 20,
-            "btc_filter": false
+            "days": 10,
+            "btc_filter": true
           },
-          "hold": 168,
+          "hold": 72,
           "profile": "timed"
         },
-        "rule": "Price breaks above its highest point of the last 20 days while above its 20 day average.",
+        "rule": "Price breaks above its highest point of the last 10 days while above its 20 day average, with BTC above its 50 day average.",
         "year_stats": {
-          "n": 242,
-          "win_rate": 0.4256198347107438,
-          "avg_net_pct": 3.02367826259048,
-          "median_net_pct": -2.090843195915615,
-          "avg_win_pct": 17.93001001148208,
-          "avg_loss_pct": -8.022020803134948,
-          "profit_factor": 1.6562243775525765,
-          "t_stat": 2.09862261182819,
-          "max_drawdown_pct_of_stake": 217.0425150758738,
-          "worst_losing_streak": 11,
-          "months_with_trades": 12,
-          "positive_month_share": 0.4166666666666667,
+          "n": 341,
+          "win_rate": 0.44574780058651026,
+          "avg_net_pct": 1.4595023623736554,
+          "median_net_pct": -1.12099625479265,
+          "avg_win_pct": 10.393687065167791,
+          "avg_loss_pct": -5.725662054688295,
+          "profit_factor": 1.4599087432856144,
+          "t_stat": 2.169241383423675,
+          "max_drawdown_pct_of_stake": 283.3055296007896,
+          "worst_losing_streak": 22,
+          "months_with_trades": 8,
+          "positive_month_share": 0.5,
           "monthly_net_pct": {
-            "2025-11": -6.97,
-            "2025-12": -13.68,
-            "2026-01": -81.51,
-            "2026-02": 15.7,
-            "2026-03": -101.54,
-            "2026-04": 1.55,
-            "2026-05": 121.73,
-            "2026-06": -24.72,
-            "2026-07": -22.46,
-            "2026-08": 368.86,
-            "2026-09": 543.1,
-            "2026-10": -68.33
+            "2026-01": 49.78,
+            "2026-03": -157.43,
+            "2026-04": -78.85,
+            "2026-05": 137.06,
+            "2026-07": -113.31,
+            "2026-08": 355.48,
+            "2026-09": 383.4,
+            "2026-10": -78.44
           },
           "by_year": {
-            "2025": {
-              "n": 10,
-              "avg_net_pct": -2.066
-            },
             "2026": {
-              "n": 232,
-              "avg_net_pct": 3.243
+              "n": 341,
+              "avg_net_pct": 1.46
             }
           },
-          "avg_net_pct_maker_entry": 3.38336192734766,
-          "avg_hold_hours": 158.72314049586777,
+          "avg_net_pct_maker_entry": 1.8137250638881826,
+          "avg_hold_hours": 71.37536656891496,
           "exit_mix": {
             "target": 0.0,
-            "stop": 0.12396694214876033,
-            "time": 0.8760330578512396
+            "stop": 0.04985337243401759,
+            "time": 0.9501466275659824
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 186,
-              "avg_net_pct": 4.114,
-              "win_rate": 0.43
-            },
-            "BTC above 50d avg: no": {
-              "n": 48,
-              "avg_net_pct": 0.274,
-              "win_rate": 0.458
+              "n": 341,
+              "avg_net_pct": 1.46,
+              "win_rate": 0.446
             },
             "high volatility: yes": {
-              "n": 49,
-              "avg_net_pct": 11.059,
-              "win_rate": 0.51
+              "n": 82,
+              "avg_net_pct": 4.135,
+              "win_rate": 0.549
             },
             "high volatility: no": {
-              "n": 119,
-              "avg_net_pct": 3.185,
-              "win_rate": 0.479
+              "n": 197,
+              "avg_net_pct": 1.352,
+              "win_rate": 0.421
             }
           },
-          "typical_stop_pct": 15.0,
+          "typical_stop_pct": 12.429234423857398,
           "typical_target_pct": null
         },
         "recent_stats": {
-          "n": 105,
-          "win_rate": 0.5619047619047619,
-          "avg_net_pct": 8.082755194025884,
-          "median_net_pct": 2.930426628589866,
-          "avg_win_pct": 20.68266875537606,
-          "avg_loss_pct": -8.078003504227603,
-          "profit_factor": 3.2839513849004422,
-          "t_stat": 2.8569694513206323,
-          "max_drawdown_pct_of_stake": 102.80019447870217,
-          "worst_losing_streak": 9,
+          "n": 172,
+          "win_rate": 0.4883720930232558,
+          "avg_net_pct": 3.1809639851134213,
+          "median_net_pct": -0.28053126522531446,
+          "avg_win_pct": 12.830361574601337,
+          "avg_loss_pct": -6.029824623034134,
+          "profit_factor": 2.0310977659989957,
+          "t_stat": 2.8430519210742164,
+          "max_drawdown_pct_of_stake": 154.1821810238568,
+          "worst_losing_streak": 11,
           "months_with_trades": 4,
-          "positive_month_share": 0.75,
+          "positive_month_share": 0.5,
           "monthly_net_pct": {
-            "2026-07": 5.05,
-            "2026-08": 368.86,
-            "2026-09": 543.1,
-            "2026-10": -68.33
+            "2026-07": -113.31,
+            "2026-08": 355.48,
+            "2026-09": 383.4,
+            "2026-10": -78.44
           },
           "by_year": {
             "2026": {
-              "n": 105,
-              "avg_net_pct": 8.083
+              "n": 172,
+              "avg_net_pct": 3.181
             }
           },
-          "avg_net_pct_maker_entry": 8.460101471511265,
-          "avg_hold_hours": 158.56190476190477,
+          "avg_net_pct_maker_entry": 3.541196777081404,
+          "avg_hold_hours": 70.62790697674419,
           "exit_mix": {
             "target": 0.0,
-            "stop": 0.08571428571428572,
-            "time": 0.9142857142857143
+            "stop": 0.06976744186046512,
+            "time": 0.9302325581395349
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 96,
-              "avg_net_pct": 8.532,
-              "win_rate": 0.531
-            },
-            "BTC above 50d avg: no": {
-              "n": 9,
-              "avg_net_pct": 3.289,
-              "win_rate": 0.889
+              "n": 172,
+              "avg_net_pct": 3.181,
+              "win_rate": 0.488
             },
             "high volatility: yes": {
-              "n": 46,
-              "avg_net_pct": 11.644,
-              "win_rate": 0.522
+              "n": 82,
+              "avg_net_pct": 4.135,
+              "win_rate": 0.549
             },
             "high volatility: no": {
-              "n": 59,
-              "avg_net_pct": 5.306,
-              "win_rate": 0.593
+              "n": 90,
+              "avg_net_pct": 2.312,
+              "win_rate": 0.433
             }
           },
-          "typical_stop_pct": 15.0,
+          "typical_stop_pct": 14.231930531940584,
           "typical_target_pct": null
         }
       },
-      "selected": "trend_breakout[btc_filter=True,days=20]|72h|timed",
-      "config": {
-        "family": "trend_breakout",
-        "params": {
-          "days": 20,
-          "btc_filter": true
-        },
-        "hold": 72,
-        "profile": "timed"
-      },
-      "rule": "Price breaks above its highest point of the last 20 days while above its 20 day average, with BTC above its 50 day average.",
-      "train_stats": {
-        "n": 125,
-        "win_rate": 0.36,
-        "avg_net_pct": 0.005989994853194869,
-        "median_net_pct": -2.2214925304150146,
-        "avg_win_pct": 9.591579560097049,
-        "avg_loss_pct": -5.385904135596474,
-        "profit_factor": 1.0017377522366686,
-        "t_stat": 0.0063483215121284105,
-        "max_drawdown_pct_of_stake": 175.43823543892597,
-        "worst_losing_streak": 14,
-        "months_with_trades": 4,
-        "positive_month_share": 0.5,
-        "monthly_net_pct": {
-          "2026-01": 36.93,
-          "2026-03": -93.79,
-          "2026-04": -71.84,
-          "2026-05": 129.45
-        },
-        "by_year": {
-          "2026": {
-            "n": 125,
-            "avg_net_pct": 0.006
-          }
-        },
-        "avg_net_pct_maker_entry": 0.3551380895983232,
-        "avg_hold_hours": 72.896,
-        "exit_mix": {
-          "target": 0.0,
-          "stop": 0.016,
-          "time": 0.984
-        },
-        "by_regime": {
-          "BTC above 50d avg: yes": {
-            "n": 125,
-            "avg_net_pct": 0.006,
-            "win_rate": 0.36
-          },
-          "high volatility: no": {
-            "n": 74,
-            "avg_net_pct": 0.779,
-            "win_rate": 0.378
-          }
-        },
-        "typical_stop_pct": 11.652245684502493,
-        "typical_target_pct": null
-      },
-      "test_stats": {
-        "n": 141,
-        "win_rate": 0.44680851063829785,
-        "avg_net_pct": 3.3220018824431277,
-        "median_net_pct": -1.1078759622657697,
-        "avg_win_pct": 15.01989768690191,
-        "avg_loss_pct": -6.12629857500435,
-        "profit_factor": 1.9802260166576267,
-        "t_stat": 2.2322829689322767,
-        "max_drawdown_pct_of_stake": 114.38771064656467,
-        "worst_losing_streak": 8,
-        "months_with_trades": 4,
-        "positive_month_share": 0.5,
-        "monthly_net_pct": {
-          "2026-07": -77.14,
-          "2026-08": 300.16,
-          "2026-09": 300.17,
-          "2026-10": -54.78
-        },
-        "by_year": {
-          "2026": {
-            "n": 141,
-            "avg_net_pct": 3.322
-          }
-        },
-        "avg_net_pct_maker_entry": 3.6827270760476725,
-        "avg_hold_hours": 69.1418439716312,
-        "exit_mix": {
-          "target": 0.0,
-          "stop": 0.09219858156028368,
-          "time": 0.9078014184397163
-        },
-        "by_regime": {
-          "BTC above 50d avg: yes": {
-            "n": 141,
-            "avg_net_pct": 3.322,
-            "win_rate": 0.447
-          },
-          "high volatility: yes": {
-            "n": 73,
-            "avg_net_pct": 3.177,
-            "win_rate": 0.452
-          },
-          "high volatility: no": {
-            "n": 68,
-            "avg_net_pct": 3.478,
-            "win_rate": 0.441
-          }
-        },
-        "typical_stop_pct": 15.0,
-        "typical_target_pct": null
-      },
-      "random_baseline": {
-        "trials": 400,
-        "random_mean_pct": 0.22781574146744452,
-        "random_p90_pct": 2.7345041347889376,
-        "random_cut_pct": 5.433744236752781,
-        "p_value": 0.08
-      },
-      "walk_forward": [
-        {
-          "fold": 1,
-          "selected": "trend_breakout[btc_filter=True,days=10]|72h|timed",
-          "test_from": "2026-03-14",
-          "test_to": "2026-05-14",
-          "n": 123,
-          "avg_net_pct": -1.041,
-          "edge_vs_random_pct": -1.521,
-          "positive": false
-        },
-        {
-          "fold": 2,
-          "selected": "trend_breakout[btc_filter=False,days=20]|168h|timed",
-          "test_from": "2026-05-14",
-          "test_to": "2026-06-28",
-          "n": 11,
-          "avg_net_pct": -3.805,
-          "edge_vs_random_pct": -4.147,
-          "positive": false
-        }
-      ],
-      "coin_breakdown": {
-        "PUMP-USD": {
-          "n": 11,
-          "avg_net_pct": -0.054
-        },
-        "UNI-USD": {
-          "n": 9,
-          "avg_net_pct": 1.048
-        },
-        "ZRO-USD": {
-          "n": 9,
-          "avg_net_pct": 1.564
-        },
-        "LINK-USD": {
-          "n": 8,
-          "avg_net_pct": -1.349
-        },
-        "ZEC-USD": {
-          "n": 7,
-          "avg_net_pct": 6.262
-        },
-        "NEAR-USD": {
-          "n": 7,
-          "avg_net_pct": 1.784
-        },
-        "ENA-USD": {
-          "n": 7,
-          "avg_net_pct": 8.294
-        },
-        "AERO-USD": {
-          "n": 7,
-          "avg_net_pct": -1.552
-        },
-        "INJ-USD": {
-          "n": 7,
-          "avg_net_pct": 0.353
-        },
-        "ADA-USD": {
-          "n": 6,
-          "avg_net_pct": -1.889
-        },
-        "VVV-USD": {
-          "n": 6,
-          "avg_net_pct": 7.672
-        },
-        "TAO-USD": {
-          "n": 6,
-          "avg_net_pct": -3.025
-        },
-        "ONDO-USD": {
-          "n": 6,
-          "avg_net_pct": -3.147
-        },
-        "BTC-USD": {
-          "n": 5,
-          "avg_net_pct": 1.271
-        },
-        "SOL-USD": {
-          "n": 5,
-          "avg_net_pct": 3.734
-        },
-        "LTC-USD": {
-          "n": 5,
-          "avg_net_pct": 1.795
-        },
-        "ETH-USD": {
-          "n": 4,
-          "avg_net_pct": 2.045
-        },
-        "QNT-USD": {
-          "n": 4,
-          "avg_net_pct": 41.693
-        },
-        "XLM-USD": {
-          "n": 4,
-          "avg_net_pct": -0.638
-        },
-        "AVAX-USD": {
-          "n": 4,
-          "avg_net_pct": 5.626
-        },
-        "PEPE-USD": {
-          "n": 4,
-          "avg_net_pct": 6.167
-        },
-        "SUI-USD": {
-          "n": 3,
-          "avg_net_pct": 10.094
-        },
-        "HBAR-USD": {
-          "n": 3,
-          "avg_net_pct": 3.477
-        },
-        "XRP-USD": {
-          "n": 2,
-          "avg_net_pct": 17.817
-        },
-        "DOGE-USD": {
-          "n": 2,
-          "avg_net_pct": 11.355
-        }
-      },
+      "selected": null,
       "survived": false,
       "fail_reasons": [
-        "didn't clearly beat random entries (3.32% vs 5.43% for the top 2.5% of random runs)",
-        "only 50% of test months were positive",
-        "walk forward: only 0 of 2 unseen periods made money and beat random timing"
+        "nothing was profitable after fees on the training data"
       ]
     },
     {
@@ -769,138 +509,138 @@
       "title": "Moving average cross",
       "configs_tested": 24,
       "candidate": {
-        "key": "ma_cross[fast=120,slow=480]|168h|timed",
+        "key": "ma_cross[fast=48,slow=240]|168h|timed",
         "config": {
           "family": "ma_cross",
           "params": {
-            "fast": 120,
-            "slow": 480
+            "fast": 48,
+            "slow": 240
           },
           "hold": 168,
           "profile": "timed"
         },
-        "rule": "The 5 day average crosses above the 20 day average.",
+        "rule": "The 2 day average crosses above the 10 day average.",
         "year_stats": {
-          "n": 245,
-          "win_rate": 0.42857142857142855,
-          "avg_net_pct": 1.8488580193839494,
-          "median_net_pct": -1.8088476621567318,
-          "avg_win_pct": 13.776386052638365,
-          "avg_loss_pct": -7.096788005556864,
-          "profit_factor": 1.4559106924693928,
-          "t_stat": 1.4064871332853097,
-          "max_drawdown_pct_of_stake": 298.8932396163229,
-          "worst_losing_streak": 17,
+          "n": 489,
+          "win_rate": 0.4233128834355828,
+          "avg_net_pct": 0.9203126568817804,
+          "median_net_pct": -1.6821891597177063,
+          "avg_win_pct": 11.992089506569686,
+          "avg_loss_pct": -7.206842690229556,
+          "profit_factor": 1.2214369562190197,
+          "t_stat": 1.4452781775293324,
+          "max_drawdown_pct_of_stake": 404.5613640285044,
+          "worst_losing_streak": 24,
           "months_with_trades": 12,
-          "positive_month_share": 0.4166666666666667,
+          "positive_month_share": 0.5,
           "monthly_net_pct": {
-            "2025-11": -12.21,
-            "2025-12": 9.77,
-            "2026-01": -30.52,
-            "2026-02": -93.08,
-            "2026-03": -99.23,
-            "2026-04": 139.7,
-            "2026-05": 43.29,
-            "2026-06": -167.59,
-            "2026-07": -41.58,
-            "2026-08": 212.29,
-            "2026-09": 501.5,
-            "2026-10": -9.37
+            "2025-11": -28.29,
+            "2025-12": -28.23,
+            "2026-01": -326.15,
+            "2026-02": 35.31,
+            "2026-03": 35.98,
+            "2026-04": 2.04,
+            "2026-05": 159.69,
+            "2026-06": -94.14,
+            "2026-07": -45.75,
+            "2026-08": 383.06,
+            "2026-09": 583.99,
+            "2026-10": -227.49
           },
           "by_year": {
             "2025": {
-              "n": 24,
-              "avg_net_pct": -0.102
+              "n": 67,
+              "avg_net_pct": -0.844
             },
             "2026": {
-              "n": 221,
-              "avg_net_pct": 2.061
+              "n": 422,
+              "avg_net_pct": 1.2
             }
           },
-          "avg_net_pct_maker_entry": 2.2044400673319293,
-          "avg_hold_hours": 161.39591836734695,
+          "avg_net_pct_maker_entry": 1.2726529005716474,
+          "avg_hold_hours": 160.95501022494886,
           "exit_mix": {
             "target": 0.0,
-            "stop": 0.10204081632653061,
-            "time": 0.8979591836734694
+            "stop": 0.11451942740286299,
+            "time": 0.885480572597137
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 129,
-              "avg_net_pct": 4.992,
-              "win_rate": 0.535
+              "n": 243,
+              "avg_net_pct": 2.372,
+              "win_rate": 0.432
             },
             "BTC above 50d avg: no": {
-              "n": 96,
-              "avg_net_pct": -0.963,
-              "win_rate": 0.354
+              "n": 195,
+              "avg_net_pct": 0.462,
+              "win_rate": 0.441
             },
             "high volatility: yes": {
-              "n": 43,
-              "avg_net_pct": 7.086,
-              "win_rate": 0.419
+              "n": 94,
+              "avg_net_pct": 5.995,
+              "win_rate": 0.564
             },
             "high volatility: no": {
-              "n": 111,
-              "avg_net_pct": 2.909,
-              "win_rate": 0.523
+              "n": 202,
+              "avg_net_pct": 0.953,
+              "win_rate": 0.421
             }
           },
           "typical_stop_pct": 15.0,
           "typical_target_pct": null
         },
         "recent_stats": {
-          "n": 82,
-          "win_rate": 0.5,
-          "avg_net_pct": 8.185013508948046,
-          "median_net_pct": 0.07045470080985772,
-          "avg_win_pct": 21.712665472428977,
-          "avg_loss_pct": -5.342638454532882,
-          "profit_factor": 4.064034214032804,
-          "t_stat": 2.419552571062579,
-          "max_drawdown_pct_of_stake": 68.17604322048271,
-          "worst_losing_streak": 11,
+          "n": 160,
+          "win_rate": 0.475,
+          "avg_net_pct": 4.45613592189712,
+          "median_net_pct": -0.35110776383622255,
+          "avg_win_pct": 16.179780657093858,
+          "avg_loss_pct": -6.150971219471358,
+          "profit_factor": 2.3799248352197933,
+          "t_stat": 3.483279306920079,
+          "max_drawdown_pct_of_stake": 229.48420662223984,
+          "worst_losing_streak": 16,
           "months_with_trades": 4,
           "positive_month_share": 0.5,
           "monthly_net_pct": {
-            "2026-07": -33.25,
-            "2026-08": 212.29,
-            "2026-09": 501.5,
-            "2026-10": -9.37
+            "2026-07": -26.59,
+            "2026-08": 383.06,
+            "2026-09": 583.99,
+            "2026-10": -227.49
           },
           "by_year": {
             "2026": {
-              "n": 82,
-              "avg_net_pct": 8.185
+              "n": 160,
+              "avg_net_pct": 4.456
             }
           },
-          "avg_net_pct_maker_entry": 8.562716798006724,
-          "avg_hold_hours": 165.85365853658536,
+          "avg_net_pct_maker_entry": 4.8208206857142235,
+          "avg_hold_hours": 164.40625,
           "exit_mix": {
             "target": 0.0,
-            "stop": 0.024390243902439025,
-            "time": 0.975609756097561
+            "stop": 0.05625,
+            "time": 0.94375
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 65,
-              "avg_net_pct": 9.128,
-              "win_rate": 0.554
+              "n": 141,
+              "avg_net_pct": 4.745,
+              "win_rate": 0.482
             },
             "BTC above 50d avg: no": {
-              "n": 17,
-              "avg_net_pct": 4.579,
-              "win_rate": 0.294
+              "n": 19,
+              "avg_net_pct": 2.315,
+              "win_rate": 0.421
             },
             "high volatility: yes": {
-              "n": 24,
-              "avg_net_pct": 19.421,
-              "win_rate": 0.667
+              "n": 50,
+              "avg_net_pct": 11.68,
+              "win_rate": 0.66
             },
             "high volatility: no": {
-              "n": 58,
-              "avg_net_pct": 3.536,
-              "win_rate": 0.431
+              "n": 110,
+              "avg_net_pct": 1.173,
+              "win_rate": 0.391
             }
           },
           "typical_stop_pct": 15.0,
@@ -918,123 +658,123 @@
       "title": "Momentum leader",
       "configs_tested": 24,
       "candidate": {
-        "key": "momentum_leader[top=3]|168h|runner",
+        "key": "momentum_leader[top=3]|168h|timed",
         "config": {
           "family": "momentum_leader",
           "params": {
             "top": 3
           },
           "hold": 168,
-          "profile": "runner"
+          "profile": "timed"
         },
         "rule": "Once a day, buy a coin that's in the top 3 for 7 day gains, up on the week, while BTC is above its 50 day average.",
         "year_stats": {
-          "n": 156,
-          "win_rate": 0.4807692307692308,
-          "avg_net_pct": 2.6349120006422666,
-          "median_net_pct": -1.3366425695973794,
-          "avg_win_pct": 15.982743388034857,
-          "avg_loss_pct": -9.724191135832353,
-          "profit_factor": 1.521857835133546,
-          "t_stat": 2.1190881358767855,
-          "max_drawdown_pct_of_stake": 152.93742316861784,
-          "worst_losing_streak": 7,
+          "n": 142,
+          "win_rate": 0.43661971830985913,
+          "avg_net_pct": 3.4491992447818762,
+          "median_net_pct": -2.2307292958507863,
+          "avg_win_pct": 20.025648885685605,
+          "avg_loss_pct": -9.397549226918512,
+          "profit_factor": 1.6514814141064482,
+          "t_stat": 1.7967046010824024,
+          "max_drawdown_pct_of_stake": 181.76058697929705,
+          "worst_losing_streak": 8,
           "months_with_trades": 8,
-          "positive_month_share": 0.625,
+          "positive_month_share": 0.5,
           "monthly_net_pct": {
-            "2026-01": 32.9,
-            "2026-03": -57.16,
-            "2026-04": 78.5,
-            "2026-05": 80.78,
-            "2026-07": -13.81,
-            "2026-08": 186.28,
-            "2026-09": 240.99,
-            "2026-10": -137.44
+            "2026-01": -36.1,
+            "2026-03": -54.09,
+            "2026-04": 99.63,
+            "2026-05": 118.94,
+            "2026-07": -17.2,
+            "2026-08": 204.67,
+            "2026-09": 316.5,
+            "2026-10": -142.57
           },
           "by_year": {
             "2026": {
-              "n": 156,
-              "avg_net_pct": 2.635
+              "n": 142,
+              "avg_net_pct": 3.449
             }
           },
-          "avg_net_pct_maker_entry": 2.9932383767043644,
-          "avg_hold_hours": 130.21153846153845,
+          "avg_net_pct_maker_entry": 3.8103685189531897,
+          "avg_hold_hours": 152.59859154929578,
           "exit_mix": {
-            "target": 0.1987179487179487,
-            "stop": 0.25,
-            "time": 0.5512820512820513
+            "target": 0.0,
+            "stop": 0.19718309859154928,
+            "time": 0.8028169014084507
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 156,
-              "avg_net_pct": 2.635,
-              "win_rate": 0.481
+              "n": 142,
+              "avg_net_pct": 3.449,
+              "win_rate": 0.437
             },
             "high volatility: yes": {
-              "n": 38,
-              "avg_net_pct": 5.406,
-              "win_rate": 0.5
+              "n": 32,
+              "avg_net_pct": 10.329,
+              "win_rate": 0.438
             },
             "high volatility: no": {
-              "n": 94,
-              "avg_net_pct": 2.446,
-              "win_rate": 0.5
+              "n": 87,
+              "avg_net_pct": 2.867,
+              "win_rate": 0.471
             }
           },
           "typical_stop_pct": 15.0,
-          "typical_target_pct": 30.593091984202935
+          "typical_target_pct": null
         },
         "recent_stats": {
-          "n": 85,
-          "win_rate": 0.49411764705882355,
-          "avg_net_pct": 3.2473861436149805,
-          "median_net_pct": -0.6196816567183183,
-          "avg_win_pct": 17.211091726812658,
-          "avg_loss_pct": -10.391582100438562,
-          "profit_factor": 1.6177357419875462,
-          "t_stat": 1.80896493477807,
-          "max_drawdown_pct_of_stake": 152.93742316861815,
-          "worst_losing_streak": 7,
+          "n": 80,
+          "win_rate": 0.4375,
+          "avg_net_pct": 4.517542797389558,
+          "median_net_pct": -2.2307292958507863,
+          "avg_win_pct": 22.283471599459226,
+          "avg_loss_pct": -9.300401826442407,
+          "profit_factor": 1.863531204912606,
+          "t_stat": 1.583525348128688,
+          "max_drawdown_pct_of_stake": 181.76058697929727,
+          "worst_losing_streak": 8,
           "months_with_trades": 4,
           "positive_month_share": 0.5,
           "monthly_net_pct": {
-            "2026-07": -13.81,
-            "2026-08": 186.28,
-            "2026-09": 240.99,
-            "2026-10": -137.44
+            "2026-07": -17.2,
+            "2026-08": 204.67,
+            "2026-09": 316.5,
+            "2026-10": -142.57
           },
           "by_year": {
             "2026": {
-              "n": 85,
-              "avg_net_pct": 3.247
+              "n": 80,
+              "avg_net_pct": 4.518
             }
           },
-          "avg_net_pct_maker_entry": 3.607850833393194,
-          "avg_hold_hours": 130.56470588235294,
+          "avg_net_pct_maker_entry": 4.882441949300649,
+          "avg_hold_hours": 153.1625,
           "exit_mix": {
-            "target": 0.2,
-            "stop": 0.25882352941176473,
-            "time": 0.5411764705882353
+            "target": 0.0,
+            "stop": 0.1625,
+            "time": 0.8375
           },
           "by_regime": {
             "BTC above 50d avg: yes": {
-              "n": 85,
-              "avg_net_pct": 3.247,
-              "win_rate": 0.494
+              "n": 80,
+              "avg_net_pct": 4.518,
+              "win_rate": 0.438
             },
             "high volatility: yes": {
-              "n": 38,
-              "avg_net_pct": 5.406,
-              "win_rate": 0.5
+              "n": 32,
+              "avg_net_pct": 10.329,
+              "win_rate": 0.438
             },
             "high volatility: no": {
-              "n": 47,
-              "avg_net_pct": 1.502,
-              "win_rate": 0.489
+              "n": 48,
+              "avg_net_pct": 0.643,
+              "win_rate": 0.438
             }
           },
           "typical_stop_pct": 15.0,
-          "typical_target_pct": 32.59313726144823
+          "typical_target_pct": null
         }
       },
       "selected": "momentum_leader[top=3]|168h|timed",
@@ -1048,99 +788,99 @@
       },
       "rule": "Once a day, buy a coin that's in the top 3 for 7 day gains, up on the week, while BTC is above its 50 day average.",
       "train_stats": {
-        "n": 63,
-        "win_rate": 0.4603174603174603,
-        "avg_net_pct": 2.8673047511500567,
-        "median_net_pct": -2.064556618569846,
-        "avg_win_pct": 16.908429412111296,
-        "avg_loss_pct": -9.108948636140411,
-        "profit_factor": 1.5832667688800215,
-        "t_stat": 1.2105111084452396,
-        "max_drawdown_pct_of_stake": 80.80655205193717,
-        "worst_losing_streak": 5,
+        "n": 62,
+        "win_rate": 0.43548387096774194,
+        "avg_net_pct": 2.070691434965514,
+        "median_net_pct": -2.438227119001213,
+        "avg_win_pct": 17.098841664127207,
+        "avg_loss_pct": -9.522453027530647,
+        "profit_factor": 1.3852034722466406,
+        "t_stat": 0.8557680505336064,
+        "max_drawdown_pct_of_stake": 137.90273816469818,
+        "worst_losing_streak": 6,
         "months_with_trades": 4,
-        "positive_month_share": 0.75,
+        "positive_month_share": 0.5,
         "monthly_net_pct": {
-          "2026-01": 29.03,
+          "2026-01": -36.1,
           "2026-03": -54.09,
-          "2026-04": 86.76,
+          "2026-04": 99.63,
           "2026-05": 118.94
         },
         "by_year": {
           "2026": {
-            "n": 63,
-            "avg_net_pct": 2.867
+            "n": 62,
+            "avg_net_pct": 2.071
           }
         },
-        "avg_net_pct_maker_entry": 3.226442473473278,
-        "avg_hold_hours": 153.9206349206349,
+        "avg_net_pct_maker_entry": 2.427047963666145,
+        "avg_hold_hours": 151.8709677419355,
         "exit_mix": {
           "target": 0.0,
-          "stop": 0.19047619047619047,
-          "time": 0.8095238095238095
+          "stop": 0.24193548387096775,
+          "time": 0.7580645161290323
         },
         "by_regime": {
           "BTC above 50d avg: yes": {
-            "n": 63,
-            "avg_net_pct": 2.867,
-            "win_rate": 0.46
+            "n": 62,
+            "avg_net_pct": 2.071,
+            "win_rate": 0.435
           },
           "high volatility: no": {
-            "n": 41,
-            "avg_net_pct": 5.017,
-            "win_rate": 0.488
+            "n": 39,
+            "avg_net_pct": 5.604,
+            "win_rate": 0.513
           }
         },
         "typical_stop_pct": 15.0,
         "typical_target_pct": null
       },
       "test_stats": {
-        "n": 76,
-        "win_rate": 0.4868421052631579,
-        "avg_net_pct": 5.15474813927094,
-        "median_net_pct": -0.7909411545068579,
-        "avg_win_pct": 21.745231146377286,
-        "avg_loss_pct": -10.58494086747098,
-        "profit_factor": 1.9490039052544825,
-        "t_stat": 1.7136086862016207,
-        "max_drawdown_pct_of_stake": 150.45837007703278,
-        "worst_losing_streak": 7,
+        "n": 80,
+        "win_rate": 0.4375,
+        "avg_net_pct": 4.517542797389558,
+        "median_net_pct": -2.2307292958507863,
+        "avg_win_pct": 22.283471599459226,
+        "avg_loss_pct": -9.300401826442407,
+        "profit_factor": 1.863531204912606,
+        "t_stat": 1.583525348128688,
+        "max_drawdown_pct_of_stake": 181.76058697929727,
+        "worst_losing_streak": 8,
         "months_with_trades": 4,
         "positive_month_share": 0.5,
         "monthly_net_pct": {
-          "2026-07": -18.93,
-          "2026-08": 189.41,
-          "2026-09": 354.4,
-          "2026-10": -133.12
+          "2026-07": -17.2,
+          "2026-08": 204.67,
+          "2026-09": 316.5,
+          "2026-10": -142.57
         },
         "by_year": {
           "2026": {
-            "n": 76,
-            "avg_net_pct": 5.155
+            "n": 80,
+            "avg_net_pct": 4.518
           }
         },
-        "avg_net_pct_maker_entry": 5.521871948235981,
-        "avg_hold_hours": 152.72368421052633,
+        "avg_net_pct_maker_entry": 4.882441949300649,
+        "avg_hold_hours": 153.1625,
         "exit_mix": {
           "target": 0.0,
-          "stop": 0.19736842105263158,
-          "time": 0.8026315789473685
+          "stop": 0.1625,
+          "time": 0.8375
         },
         "by_regime": {
           "BTC above 50d avg: yes": {
-            "n": 76,
-            "avg_net_pct": 5.155,
-            "win_rate": 0.487
+            "n": 80,
+            "avg_net_pct": 4.518,
+            "win_rate": 0.438
           },
           "high volatility: yes": {
-            "n": 31,
-            "avg_net_pct": 11.158,
-            "win_rate": 0.484
+            "n": 32,
+            "avg_net_pct": 10.329,
+            "win_rate": 0.438
           },
           "high volatility: no": {
-            "n": 45,
-            "avg_net_pct": 1.019,
-            "win_rate": 0.489
+            "n": 48,
+            "avg_net_pct": 0.643,
+            "win_rate": 0.438
           }
         },
         "typical_stop_pct": 15.0,
@@ -1148,9 +888,9 @@
       },
       "random_baseline": {
         "trials": 400,
-        "random_mean_pct": 3.8744767226888888,
-        "random_p90_pct": 11.826458148934368,
-        "random_cut_pct": 17.70631685139581,
+        "random_mean_pct": 3.6195008076505673,
+        "random_p90_pct": 11.721459849162237,
+        "random_cut_pct": 16.50559595677244,
         "p_value": 0.2825
       },
       "walk_forward": [
@@ -1164,12 +904,12 @@
         {
           "fold": 2,
           "selected": "momentum_leader[top=3]|168h|runner",
-          "test_from": "2026-05-14",
-          "test_to": "2026-06-28",
-          "n": 11,
-          "avg_net_pct": -0.16,
-          "edge_vs_random_pct": -0.318,
-          "positive": false
+          "test_from": "2026-05-15",
+          "test_to": "2026-06-29",
+          "n": 10,
+          "avg_net_pct": 1.425,
+          "edge_vs_random_pct": 0.747,
+          "positive": true
         }
       ],
       "coin_breakdown": {
@@ -1177,45 +917,57 @@
           "n": 11,
           "avg_net_pct": 4.657
         },
+        "ZEC-USD": {
+          "n": 7,
+          "avg_net_pct": 4.994
+        },
         "VVV-USD": {
           "n": 7,
           "avg_net_pct": 5.249
         },
-        "ZRO-USD": {
-          "n": 7,
-          "avg_net_pct": -3.797
-        },
-        "ZEC-USD": {
-          "n": 6,
-          "avg_net_pct": 6.615
-        },
         "ENA-USD": {
           "n": 6,
-          "avg_net_pct": 6.729
+          "avg_net_pct": 8.744
         },
-        "ADA-USD": {
+        "NEAR-USD": {
           "n": 5,
-          "avg_net_pct": -6.218
+          "avg_net_pct": 16.781
+        },
+        "AERO-USD": {
+          "n": 5,
+          "avg_net_pct": -3.807
         },
         "INJ-USD": {
           "n": 5,
           "avg_net_pct": -7.915
         },
-        "NEAR-USD": {
+        "ADA-USD": {
           "n": 4,
-          "avg_net_pct": 23.121
+          "avg_net_pct": -5.625
         },
         "UNI-USD": {
           "n": 4,
           "avg_net_pct": 16.667
         },
+        "ONDO-USD": {
+          "n": 4,
+          "avg_net_pct": -5.911
+        },
+        "AAVE-USD": {
+          "n": 4,
+          "avg_net_pct": -5.594
+        },
         "QNT-USD": {
           "n": 3,
           "avg_net_pct": 55.698
         },
-        "AERO-USD": {
+        "HBAR-USD": {
           "n": 3,
-          "avg_net_pct": -4.433
+          "avg_net_pct": -12.009
+        },
+        "SOL-USD": {
+          "n": 2,
+          "avg_net_pct": -1.72
         },
         "LINK-USD": {
           "n": 2,
@@ -1224,14 +976,6 @@
         "TAO-USD": {
           "n": 2,
           "avg_net_pct": -2.562
-        },
-        "HBAR-USD": {
-          "n": 2,
-          "avg_net_pct": -16.014
-        },
-        "ONDO-USD": {
-          "n": 2,
-          "avg_net_pct": 4.192
         },
         "PEPE-USD": {
           "n": 2,
@@ -1245,10 +989,6 @@
           "n": 1,
           "avg_net_pct": 13.274
         },
-        "SOL-USD": {
-          "n": 1,
-          "avg_net_pct": -3.271
-        },
         "SUI-USD": {
           "n": 1,
           "avg_net_pct": -5.187
@@ -1260,9 +1000,9 @@
       },
       "survived": false,
       "fail_reasons": [
-        "didn't clearly beat random entries (5.15% vs 17.71% for the top 2.5% of random runs)",
+        "didn't clearly beat random entries (4.52% vs 16.51% for the top 2.5% of random runs)",
         "only 50% of test months were positive",
-        "walk forward: only 0 of 2 unseen periods made money and beat random timing"
+        "walk forward: only 1 of 2 unseen periods made money and beat random timing"
       ]
     }
   ]
