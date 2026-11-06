@@ -1,6 +1,6 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 0. Open: 3. Pot after closed trades: £100.00 (started £100).
+Mode: PAPER. Closed trades: 0. Open: 4. Pot after closed trades: £100.00 (started £100).
 
 ## Last 40 trades
 
@@ -9,3 +9,4 @@ Mode: PAPER. Closed trades: 0. Open: 3. Pot after closed trades: £100.00 (start
 | ee3cbf8e05 | PAPER  | QNT-USD | Moving average cross                | 2026-11-03T15:00:00Z |      193.89   |      12.35 |         nan |           nan |       nan |       nan | open     |
 | 436d22aa75 | PAPER  | UNI-USD | Moving average cross                | 2026-11-04T15:00:00Z |        7.54   |      12.42 |         nan |           nan |       nan |       nan | open     |
 | dafc5f06d9 | PAPER  | VVV-USD | Practice: Volume spike continuation | 2026-11-05T20:00:00Z |       21.6008 |      13.6  |         nan |           nan |       nan |       nan | open     |
+| 9366b02a89 | PAPER  | ZEC-USD | Practice: Volume spike continuation | 2026-11-06T15:00:00Z |     1357.74   |      15.46 |         nan |           nan |       nan |       nan | open     |

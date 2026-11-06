@@ -1718,5 +1718,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-06T15:21:41Z",
+  "candle": "2026-11-06T14:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought ZEC (Practice: Volume spike continuation) at $1,357.74",
+  "opened": [
+   "9366b02a89"
+  ],
+  "closed": [],
+  "skipped": []
  }
 ]
