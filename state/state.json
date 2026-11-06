@@ -3,7 +3,7 @@
   "halt_reason": "",
   "last_daily_summary": "2026-11-05",
   "last_weekly_summary": "2026-10-26",
-  "last_run": "2026-11-06T07:41:01Z",
+  "last_run": "2026-11-06T07:54:40Z",
   "consecutive_errors": 0,
   "last_prices": {
     "BTC-USD": 75586.34,
@@ -32,6 +32,6 @@
     "ZRO-USD": 1.6036,
     "PEPE-USD": 4.93e-06
   },
-  "gbp_per_usd": 0.746395,
+  "gbp_per_usd": 0.746459,
   "last_candle": "2026-11-06T06:00:00Z"
 }
