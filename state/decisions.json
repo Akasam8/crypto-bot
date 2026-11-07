@@ -2048,5 +2048,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-07T18:29:34Z",
+  "candle": "2026-11-07T17:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought AAVE (Moving average cross) at $131.17",
+  "opened": [
+   "29eead7032"
+  ],
+  "closed": [],
+  "skipped": []
  }
 ]
