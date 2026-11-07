@@ -2024,5 +2024,17 @@
    "9366b02a89"
   ],
   "skipped": []
+ },
+ {
+  "time": "2026-11-07T16:26:53Z",
+  "candle": "2026-11-07T15:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 15:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
