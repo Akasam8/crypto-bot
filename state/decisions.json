@@ -2010,5 +2010,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-07T15:25:33Z",
+  "candle": "2026-11-07T14:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold ZEC (time, -\u00a31.16)",
+  "opened": [],
+  "closed": [
+   "9366b02a89"
+  ],
+  "skipped": []
  }
 ]
