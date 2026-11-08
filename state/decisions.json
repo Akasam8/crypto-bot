@@ -2290,5 +2290,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-08T14:26:24Z",
+  "candle": "2026-11-08T13:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: 1 signal(s) skipped (already holding QNT-USD)",
+  "opened": [],
+  "closed": [],
+  "skipped": [
+   "QNT Moving average cross: already holding QNT-USD"
+  ]
  }
 ]
