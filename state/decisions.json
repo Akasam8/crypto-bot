@@ -2520,5 +2520,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-09T09:23:24Z",
+  "candle": "2026-11-09T08:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought ENA (Practice: Volume spike continuation) at $0.1501",
+  "opened": [
+   "3488165b03"
+  ],
+  "closed": [],
+  "skipped": []
  }
 ]
