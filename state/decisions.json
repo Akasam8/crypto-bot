@@ -2585,5 +2585,19 @@
    "TAO Practice: Volume spike continuation: already 4 open positions",
    "AVAX Practice: Volume spike continuation: already 4 open positions"
   ]
+ },
+ {
+  "time": "2026-11-09T14:30:44Z",
+  "candle": "2026-11-09T13:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: 1 signal(s) skipped (Volume spike continuation: already 4 open positions)",
+  "opened": [],
+  "closed": [],
+  "skipped": [
+   "AVAX Practice: Volume spike continuation: already 4 open positions"
+  ]
  }
 ]
