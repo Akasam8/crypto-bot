@@ -2611,5 +2611,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-09T16:02:47Z",
+  "candle": "2026-11-09T15:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: 1 signal(s) skipped (Volume spike continuation: already 4 open positions)",
+  "opened": [],
+  "closed": [],
+  "skipped": [
+   "ONDO Practice: Volume spike continuation: already 4 open positions"
+  ]
  }
 ]
