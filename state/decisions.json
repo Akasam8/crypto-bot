@@ -2817,5 +2817,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-10T09:28:23Z",
+  "candle": "2026-11-10T08:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold ENA (time, +\u00a30.10)",
+  "opened": [],
+  "closed": [
+   "3488165b03"
+  ],
+  "skipped": []
  }
 ]

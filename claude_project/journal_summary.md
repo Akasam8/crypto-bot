@@ -1,12 +1,12 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 2. Open: 4. Pot after closed trades: £98.23 (started £100).
+Mode: PAPER. Closed trades: 3. Open: 3. Pot after closed trades: £98.33 (started £100).
 
-Win rate 0%, total £-1.77, average -5.99% per trade after fees.
+Win rate 33%, total £-1.67, average -3.78% per trade after fees.
 
 | Setup | Trades | Win rate | Avg % | Total £ |
 |---|---|---|---|---|
-| Practice: Volume spike continuation | 2 | 0% | -5.99% | £-1.77 |
+| Practice: Volume spike continuation | 3 | 33% | -3.78% | £-1.67 |
 
 ## Last 40 trades
 
@@ -17,4 +17,4 @@ Win rate 0%, total £-1.77, average -5.99% per trade after fees.
 | dafc5f06d9 | PAPER  | VVV-USD  | Practice: Volume spike continuation | 2026-11-05T20:00:00Z |      21.6008  |      13.6  | 2026-11-06T20:00:00Z | time          |   -0.6088 |   -4.4767 | closed   |
 | 9366b02a89 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-06T15:00:00Z |    1357.74    |      15.46 | 2026-11-07T15:00:00Z | time          |   -1.1595 |   -7.5001 | closed   |
 | 29eead7032 | PAPER  | AAVE-USD | Moving average cross                | 2026-11-07T18:00:00Z |     131.17    |      12.02 | nan                  | nan           |  nan      |  nan      | open     |
-| 3488165b03 | PAPER  | ENA-USD  | Practice: Volume spike continuation | 2026-11-09T09:00:00Z |       0.15009 |      15.45 | nan                  | nan           |  nan      |  nan      | open     |
+| 3488165b03 | PAPER  | ENA-USD  | Practice: Volume spike continuation | 2026-11-09T09:00:00Z |       0.15009 |      15.45 | 2026-11-10T09:00:00Z | time          |    0.0985 |    0.6373 | closed   |
