@@ -2907,5 +2907,17 @@
    "ee3cbf8e05"
   ],
   "skipped": []
+ },
+ {
+  "time": "2026-11-10T16:08:07Z",
+  "candle": "2026-11-10T15:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 15:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
