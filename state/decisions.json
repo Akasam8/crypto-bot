@@ -2891,5 +2891,21 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-10T15:06:25Z",
+  "candle": "2026-11-10T14:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold QNT (time, -\u00a30.82). Bought PEPE (Practice: Volume spike continuation) at $5.55e-06",
+  "opened": [
+   "009b4ef0c6"
+  ],
+  "closed": [
+   "ee3cbf8e05"
+  ],
+  "skipped": []
  }
 ]
