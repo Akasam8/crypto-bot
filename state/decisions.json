@@ -2943,5 +2943,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-10T19:13:31Z",
+  "candle": "2026-11-10T18:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought INJ (Practice: Volume spike continuation) at $7.95",
+  "opened": [
+   "d49432bd19"
+  ],
+  "closed": [],
+  "skipped": []
  }
 ]
