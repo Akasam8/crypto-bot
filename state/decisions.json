@@ -3153,5 +3153,21 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-11T12:06:55Z",
+  "candle": "2026-11-11T11:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold PEPE (stop, -\u00a31.90)",
+  "opened": [],
+  "closed": [
+   "009b4ef0c6"
+  ],
+  "skipped": [
+   "NEAR Practice: Volume spike continuation: daily loss limit hit (\u00a3-5.17 today)"
+  ]
  }
 ]
