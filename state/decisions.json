@@ -3241,5 +3241,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-11T19:17:25Z",
+  "candle": "2026-11-11T18:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold INJ (time, -\u00a30.16)",
+  "opened": [],
+  "closed": [
+   "d49432bd19"
+  ],
+  "skipped": []
  }
 ]
