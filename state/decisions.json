@@ -3101,5 +3101,21 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-11T08:01:24Z",
+  "candle": "2026-11-11T07:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold UNI (stop, -\u00a31.99). Bought AVAX (Moving average cross) at $8.58",
+  "opened": [
+   "a254b9cd92"
+  ],
+  "closed": [
+   "436d22aa75"
+  ],
+  "skipped": []
  }
 ]
