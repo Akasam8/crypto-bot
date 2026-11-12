@@ -3425,5 +3425,17 @@
    "29eead7032"
   ],
   "skipped": []
+ },
+ {
+  "time": "2026-11-12T15:18:54Z",
+  "candle": "2026-11-12T14:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 14:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
