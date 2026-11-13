@@ -3707,5 +3707,20 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-13T14:22:50Z",
+  "candle": "2026-11-13T13:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: 2 signal(s) skipped (Volume spike continuation: already 4 open positions)",
+  "opened": [],
+  "closed": [],
+  "skipped": [
+   "INJ Practice: Volume spike continuation: already 4 open positions",
+   "AAVE Practice: Volume spike continuation: already 4 open positions"
+  ]
  }
 ]
