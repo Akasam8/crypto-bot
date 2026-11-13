@@ -3,7 +3,7 @@
   "halt_reason": "",
   "last_daily_summary": "2026-11-13",
   "last_weekly_summary": "2026-11-02",
-  "last_run": "2026-11-13T19:00:13Z",
+  "last_run": "2026-11-13T19:31:04Z",
   "consecutive_errors": 0,
   "last_prices": {
     "BTC-USD": 68921.07,
@@ -16,7 +16,7 @@
     "QNT-USD": 162.73,
     "ADA-USD": 0.17172,
     "LINK-USD": 10.009,
-    "PUMP-USD": 0.003492,
+    "PUMP-USD": 0.003489,
     "UNI-USD": 5.8182,
     "ENA-USD": 0.13665,
     "LTC-USD": 49.758,
@@ -32,6 +32,6 @@
     "PEPE-USD": 4.46e-06,
     "AAVE-USD": 112.31
   },
-  "gbp_per_usd": 0.757248,
+  "gbp_per_usd": 0.757322,
   "last_candle": "2026-11-13T18:00:00Z"
 }
