@@ -1,6 +1,6 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 8. Open: 1. Pot after closed trades: £91.55 (started £100).
+Mode: PAPER. Closed trades: 8. Open: 4. Pot after closed trades: £91.55 (started £100).
 
 Win rate 12%, total £-8.45, average -7.85% per trade after fees.
 
@@ -22,3 +22,6 @@ Win rate 12%, total £-8.45, average -7.85% per trade after fees.
 | 009b4ef0c6 | PAPER  | PEPE-USD | Practice: Volume spike continuation | 2026-11-10T15:00:00Z |      5.55e-06 |      16.01 | 2026-11-11T12:00:00Z | stop          |   -1.8965 |  -11.8455 | closed   |
 | d49432bd19 | PAPER  | INJ-USD  | Practice: Volume spike continuation | 2026-11-10T19:00:00Z |      7.951    |      16.39 | 2026-11-11T19:00:00Z | time          |   -0.1568 |   -0.9567 | closed   |
 | a254b9cd92 | PAPER  | AVAX-USD | Moving average cross                | 2026-11-11T08:00:00Z |      8.578    |      11.62 | nan                  | nan           |  nan      |  nan      | open     |
+| 594d868fb1 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |    951.99     |      11.65 | nan                  | nan           |  nan      |  nan      | open     |
+| ab55dd908c | PAPER  | SOL-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |     80.34     |      25.52 | nan                  | nan           |  nan      |  nan      | open     |
+| 69e498a09c | PAPER  | SUI-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |      0.7985   |      21.74 | nan                  | nan           |  nan      |  nan      | open     |

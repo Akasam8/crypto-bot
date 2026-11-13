@@ -3617,5 +3617,23 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-13T07:12:24Z",
+  "candle": "2026-11-13T06:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought ZEC (Practice: Volume spike continuation) at $951.99. Bought SOL (Practice: Volume spike continuation) at $80.34. Bought SUI (Practice: Volume spike continuation) at $0.7985",
+  "opened": [
+   "594d868fb1",
+   "ab55dd908c",
+   "69e498a09c"
+  ],
+  "closed": [],
+  "skipped": [
+   "VVV Practice: Volume spike continuation: already 4 open positions"
+  ]
  }
 ]
