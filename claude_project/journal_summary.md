@@ -1,13 +1,13 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 9. Open: 3. Pot after closed trades: £89.75 (started £100).
+Mode: PAPER. Closed trades: 11. Open: 1. Pot after closed trades: £88.30 (started £100).
 
-Win rate 11%, total £-10.25, average -7.76% per trade after fees.
+Win rate 9%, total £-11.70, average -7.17% per trade after fees.
 
 | Setup | Trades | Win rate | Avg % | Total £ |
 |---|---|---|---|---|
 | Moving average cross | 3 | 0% | -12.88% | £-4.73 |
-| Practice: Volume spike continuation | 6 | 17% | -5.20% | £-5.52 |
+| Practice: Volume spike continuation | 8 | 12% | -5.03% | £-6.97 |
 
 ## Last 40 trades
 
@@ -22,6 +22,6 @@ Win rate 11%, total £-10.25, average -7.76% per trade after fees.
 | 009b4ef0c6 | PAPER  | PEPE-USD | Practice: Volume spike continuation | 2026-11-10T15:00:00Z |      5.55e-06 |      16.01 | 2026-11-11T12:00:00Z | stop          |   -1.8965 |  -11.8455 | closed   |
 | d49432bd19 | PAPER  | INJ-USD  | Practice: Volume spike continuation | 2026-11-10T19:00:00Z |      7.951    |      16.39 | 2026-11-11T19:00:00Z | time          |   -0.1568 |   -0.9567 | closed   |
 | a254b9cd92 | PAPER  | AVAX-USD | Moving average cross                | 2026-11-11T08:00:00Z |      8.578    |      11.62 | nan                  | nan           |  nan      |  nan      | open     |
-| 594d868fb1 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |    951.99     |      11.65 | nan                  | nan           |  nan      |  nan      | open     |
+| 594d868fb1 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |    951.99     |      11.65 | 2026-11-14T07:00:00Z | time          |   -0.59   |   -5.0642 | closed   |
 | ab55dd908c | PAPER  | SOL-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |     80.34     |      25.52 | 2026-11-14T03:00:00Z | stop          |   -1.7999 |   -7.0531 | closed   |
-| 69e498a09c | PAPER  | SUI-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |      0.7985   |      21.74 | nan                  | nan           |  nan      |  nan      | open     |
+| 69e498a09c | PAPER  | SUI-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |      0.7985   |      21.74 | 2026-11-14T07:00:00Z | time          |   -0.8619 |   -3.9646 | closed   |

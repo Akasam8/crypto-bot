@@ -3916,5 +3916,20 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-14T07:19:06Z",
+  "candle": "2026-11-14T06:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold ZEC (time, -\u00a30.59). Sold SUI (time, -\u00a30.86)",
+  "opened": [],
+  "closed": [
+   "594d868fb1",
+   "69e498a09c"
+  ],
+  "skipped": []
  }
 ]
