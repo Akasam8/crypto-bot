@@ -3866,5 +3866,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-14T03:13:05Z",
+  "candle": "2026-11-14T02:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold SOL (stop, -\u00a31.80)",
+  "opened": [],
+  "closed": [
+   "ab55dd908c"
+  ],
+  "skipped": []
  }
 ]
