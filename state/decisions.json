@@ -4087,5 +4087,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-14T21:08:39Z",
+  "candle": "2026-11-14T20:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold AVAX (stop, -\u00a31.86)",
+  "opened": [],
+  "closed": [
+   "a254b9cd92"
+  ],
+  "skipped": []
  }
 ]
