@@ -4125,5 +4125,23 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-15T00:13:09Z",
+  "candle": "2026-11-14T23:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought SUI (Practice: Volume spike continuation) at $0.705. Bought UNI (Practice: Volume spike continuation) at $4.89. Bought XLM (Practice: Volume spike continuation) at $0.1367",
+  "opened": [
+   "f204613821",
+   "11a709b3f5",
+   "7d7e13e7fe"
+  ],
+  "closed": [],
+  "skipped": [
+   "DOGE Practice: Volume spike continuation: already 3 trades today"
+  ]
  }
 ]
