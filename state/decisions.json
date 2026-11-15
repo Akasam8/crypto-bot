@@ -4143,5 +4143,17 @@
   "skipped": [
    "DOGE Practice: Volume spike continuation: already 3 trades today"
   ]
+ },
+ {
+  "time": "2026-11-15T01:14:43Z",
+  "candle": "2026-11-15T00:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 00:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
