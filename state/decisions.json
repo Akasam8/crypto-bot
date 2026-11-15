@@ -4213,5 +4213,17 @@
   "skipped": [
    "VVV Practice: Volume spike continuation: already 3 trades today"
   ]
+ },
+ {
+  "time": "2026-11-15T05:21:18Z",
+  "candle": "2026-11-15T04:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 04:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
