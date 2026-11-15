@@ -4167,5 +4167,37 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-15T03:02:26Z",
+  "candle": "2026-11-15T02:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: 19 signal(s) skipped (Volume spike continuation: already 3 trades today)",
+  "opened": [],
+  "closed": [],
+  "skipped": [
+   "BTC Practice: Volume spike continuation: already 3 trades today",
+   "ETH Practice: Volume spike continuation: already 3 trades today",
+   "ZEC Practice: Volume spike continuation: already 3 trades today",
+   "XRP Practice: Volume spike continuation: already 3 trades today",
+   "SOL Practice: Volume spike continuation: already 3 trades today",
+   "NEAR Practice: Volume spike continuation: already 3 trades today",
+   "SUI Practice: Volume spike continuation: already 3 trades today",
+   "QNT Practice: Volume spike continuation: already 3 trades today",
+   "ADA Practice: Volume spike continuation: already 3 trades today",
+   "LINK Practice: Volume spike continuation: already 3 trades today",
+   "UNI Practice: Volume spike continuation: already 3 trades today",
+   "ENA Practice: Volume spike continuation: already 3 trades today",
+   "TAO Practice: Volume spike continuation: already 3 trades today",
+   "VVV Practice: Volume spike continuation: already 3 trades today",
+   "DOGE Practice: Volume spike continuation: already 3 trades today",
+   "HBAR Practice: Volume spike continuation: already 3 trades today",
+   "AVAX Practice: Volume spike continuation: already 3 trades today",
+   "INJ Practice: Volume spike continuation: already 3 trades today",
+   "AAVE Practice: Volume spike continuation: already 3 trades today"
+  ]
  }
 ]
