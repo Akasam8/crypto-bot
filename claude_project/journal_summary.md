@@ -1,6 +1,6 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 15. Open: 0. Pot after closed trades: £88.15 (started £100).
+Mode: PAPER. Closed trades: 15. Open: 2. Pot after closed trades: £88.15 (started £100).
 
 Win rate 27%, total £-11.85, average -5.63% per trade after fees.
 
@@ -28,3 +28,5 @@ Win rate 27%, total £-11.85, average -5.63% per trade after fees.
 | f204613821 | PAPER  | SUI-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      0.705    |      17.29 | 2026-11-16T00:00:00Z | time          |    0.5862 |    3.3901 | closed   |
 | 11a709b3f5 | PAPER  | UNI-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      4.8861   |      14.46 | 2026-11-16T00:00:00Z | time          |    0.6954 |    4.8091 | closed   |
 | 7d7e13e7fe | PAPER  | XLM-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      0.136735 |      19.21 | 2026-11-16T00:00:00Z | time          |    0.4351 |    2.2649 | closed   |
+| 74f700bdcd | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-16T15:00:00Z |   1810.93     |      19.49 | nan                  | nan           |  nan      |  nan      | open     |
+| be651a9ad7 | PAPER  | AERO-USD | Practice: Volume spike continuation | 2026-11-16T15:00:00Z |      0.42875  |      14.82 | nan                  | nan           |  nan      |  nan      | open     |

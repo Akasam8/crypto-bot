@@ -4625,5 +4625,20 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-16T15:20:09Z",
+  "candle": "2026-11-16T14:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought ETH (Practice: Volume spike continuation) at $1,810.93. Bought AERO (Practice: Volume spike continuation) at $0.4288",
+  "opened": [
+   "74f700bdcd",
+   "be651a9ad7"
+  ],
+  "closed": [],
+  "skipped": []
  }
 ]
