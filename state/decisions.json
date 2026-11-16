@@ -4457,5 +4457,17 @@
    "7d7e13e7fe"
   ],
   "skipped": []
+ },
+ {
+  "time": "2026-11-16T01:21:11Z",
+  "candle": "2026-11-16T00:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 00:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
