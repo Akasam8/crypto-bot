@@ -1,13 +1,13 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 12. Open: 3. Pot after closed trades: £86.44 (started £100).
+Mode: PAPER. Closed trades: 15. Open: 0. Pot after closed trades: £88.15 (started £100).
 
-Win rate 8%, total £-13.56, average -7.91% per trade after fees.
+Win rate 27%, total £-11.85, average -5.63% per trade after fees.
 
 | Setup | Trades | Win rate | Avg % | Total £ |
 |---|---|---|---|---|
 | Moving average cross | 4 | 0% | -13.66% | £-6.59 |
-| Practice: Volume spike continuation | 8 | 12% | -5.03% | £-6.97 |
+| Practice: Volume spike continuation | 11 | 36% | -2.71% | £-5.26 |
 
 ## Last 40 trades
 
@@ -25,6 +25,6 @@ Win rate 8%, total £-13.56, average -7.91% per trade after fees.
 | 594d868fb1 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |    951.99     |      11.65 | 2026-11-14T07:00:00Z | time          |   -0.59   |   -5.0642 | closed   |
 | ab55dd908c | PAPER  | SOL-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |     80.34     |      25.52 | 2026-11-14T03:00:00Z | stop          |   -1.7999 |   -7.0531 | closed   |
 | 69e498a09c | PAPER  | SUI-USD  | Practice: Volume spike continuation | 2026-11-13T07:00:00Z |      0.7985   |      21.74 | 2026-11-14T07:00:00Z | time          |   -0.8619 |   -3.9646 | closed   |
-| f204613821 | PAPER  | SUI-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      0.705    |      17.29 | nan                  | nan           |  nan      |  nan      | open     |
-| 11a709b3f5 | PAPER  | UNI-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      4.8861   |      14.46 | nan                  | nan           |  nan      |  nan      | open     |
-| 7d7e13e7fe | PAPER  | XLM-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      0.136735 |      19.21 | nan                  | nan           |  nan      |  nan      | open     |
+| f204613821 | PAPER  | SUI-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      0.705    |      17.29 | 2026-11-16T00:00:00Z | time          |    0.5862 |    3.3901 | closed   |
+| 11a709b3f5 | PAPER  | UNI-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      4.8861   |      14.46 | 2026-11-16T00:00:00Z | time          |    0.6954 |    4.8091 | closed   |
+| 7d7e13e7fe | PAPER  | XLM-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      0.136735 |      19.21 | 2026-11-16T00:00:00Z | time          |    0.4351 |    2.2649 | closed   |
