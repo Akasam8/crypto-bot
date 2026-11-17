@@ -4882,5 +4882,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-17T12:25:10Z",
+  "candle": "2026-11-17T11:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought AAVE (Practice: Volume spike continuation) at $113.79",
+  "opened": [
+   "d0b040da5d"
+  ],
+  "closed": [],
+  "skipped": []
  }
 ]
