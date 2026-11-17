@@ -4736,5 +4736,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-17T00:04:40Z",
+  "candle": "2026-11-16T23:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought VVV (Moving average cross) at $20.11",
+  "opened": [
+   "631c77803d"
+  ],
+  "closed": [],
+  "skipped": []
  }
 ]
