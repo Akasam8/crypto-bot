@@ -4920,5 +4920,20 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-17T15:30:27Z",
+  "candle": "2026-11-17T14:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold ETH (time, -\u00a30.21). Sold AERO (time, +\u00a30.58)",
+  "opened": [],
+  "closed": [
+   "74f700bdcd",
+   "be651a9ad7"
+  ],
+  "skipped": []
  }
 ]
