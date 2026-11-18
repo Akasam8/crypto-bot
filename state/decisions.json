@@ -5175,5 +5175,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-18T12:02:04Z",
+  "candle": "2026-11-18T11:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold AAVE (time, -\u00a30.51)",
+  "opened": [],
+  "closed": [
+   "d0b040da5d"
+  ],
+  "skipped": []
  }
 ]
