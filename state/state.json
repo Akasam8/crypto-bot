@@ -3,7 +3,7 @@
   "halt_reason": "",
   "last_daily_summary": "2026-11-18",
   "last_weekly_summary": "2026-11-09",
-  "last_run": "2026-11-18T18:11:23Z",
+  "last_run": "2026-11-18T18:42:05Z",
   "consecutive_errors": 0,
   "last_prices": {
     "BTC-USD": 63037.3,
@@ -32,6 +32,6 @@
     "PEPE-USD": 3.73e-06,
     "AAVE-USD": 108.46
   },
-  "gbp_per_usd": 0.760372,
+  "gbp_per_usd": 0.760147,
   "last_candle": "2026-11-18T17:00:00Z"
 }
