@@ -1,6 +1,6 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 18. Open: 1. Pot after closed trades: £88.02 (started £100).
+Mode: PAPER. Closed trades: 18. Open: 2. Pot after closed trades: £88.02 (started £100).
 
 Win rate 28%, total £-11.98, average -4.70% per trade after fees.
 
@@ -32,3 +32,4 @@ Win rate 28%, total £-11.98, average -4.70% per trade after fees.
 | be651a9ad7 | PAPER  | AERO-USD | Practice: Volume spike continuation | 2026-11-16T15:00:00Z |      0.42875  |      14.82 | 2026-11-17T15:00:00Z | time          |    0.5801 |    3.914  | closed   |
 | 631c77803d | PAPER  | VVV-USD  | Moving average cross                | 2026-11-17T00:00:00Z |     20.1074   |      10.88 | nan                  | nan           |  nan      |  nan      | open     |
 | d0b040da5d | PAPER  | AAVE-USD | Practice: Volume spike continuation | 2026-11-17T12:00:00Z |    113.79     |      16.97 | 2026-11-18T12:00:00Z | time          |   -0.5089 |   -2.999  | closed   |
+| 197aee2f94 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-20T22:00:00Z |      0.9121   |      17.62 | nan                  | nan           |  nan      |  nan      | open     |
