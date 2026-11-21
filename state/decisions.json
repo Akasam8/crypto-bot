@@ -6079,5 +6079,23 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-21T14:18:26Z",
+  "candle": "2026-11-21T13:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: 5 signal(s) skipped (Volume spike continuation: already 4 open positions)",
+  "opened": [],
+  "closed": [],
+  "skipped": [
+   "BTC Practice: Volume spike continuation: already 4 open positions",
+   "ZEC Practice: Volume spike continuation: already 4 open positions",
+   "NEAR Practice: Volume spike continuation: already 4 open positions",
+   "UNI Practice: Volume spike continuation: already 4 open positions",
+   "INJ Practice: Volume spike continuation: already 4 open positions"
+  ]
  }
 ]
