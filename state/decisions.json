@@ -5983,5 +5983,29 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-21T07:08:38Z",
+  "candle": "2026-11-21T06:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought BTC (Practice: Volume spike continuation) at $58,145.20. Bought ETH (Practice: Volume spike continuation) at $1,634.50",
+  "opened": [
+   "59085bce58",
+   "d8b5c2a9ed"
+  ],
+  "closed": [],
+  "skipped": [
+   "ZEC Practice: Volume spike continuation: already 4 open positions",
+   "XRP Practice: Volume spike continuation: already 4 open positions",
+   "NEAR Practice: Volume spike continuation: already 4 open positions",
+   "SUI Practice: Volume spike continuation: already 4 open positions",
+   "DOGE Practice: Volume spike continuation: already 4 open positions",
+   "ONDO Practice: Volume spike continuation: already 4 open positions",
+   "INJ Practice: Volume spike continuation: already 4 open positions",
+   "PEPE Practice: Volume spike continuation: already 4 open positions"
+  ]
  }
 ]
