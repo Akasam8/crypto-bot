@@ -1,13 +1,13 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 18. Open: 4. Pot after closed trades: £88.02 (started £100).
+Mode: PAPER. Closed trades: 19. Open: 3. Pot after closed trades: £88.13 (started £100).
 
-Win rate 28%, total £-11.98, average -4.70% per trade after fees.
+Win rate 32%, total £-11.87, average -4.41% per trade after fees.
 
 | Setup | Trades | Win rate | Avg % | Total £ |
 |---|---|---|---|---|
 | Moving average cross | 4 | 0% | -13.66% | £-6.59 |
-| Practice: Volume spike continuation | 14 | 36% | -2.14% | £-5.39 |
+| Practice: Volume spike continuation | 15 | 40% | -1.95% | £-5.28 |
 
 ## Last 40 trades
 
@@ -32,6 +32,6 @@ Win rate 28%, total £-11.98, average -4.70% per trade after fees.
 | be651a9ad7 | PAPER  | AERO-USD | Practice: Volume spike continuation | 2026-11-16T15:00:00Z |      0.42875  |      14.82 | 2026-11-17T15:00:00Z | time          |    0.5801 |    3.914  | closed   |
 | 631c77803d | PAPER  | VVV-USD  | Moving average cross                | 2026-11-17T00:00:00Z |     20.1074   |      10.88 | nan                  | nan           |  nan      |  nan      | open     |
 | d0b040da5d | PAPER  | AAVE-USD | Practice: Volume spike continuation | 2026-11-17T12:00:00Z |    113.79     |      16.97 | 2026-11-18T12:00:00Z | time          |   -0.5089 |   -2.999  | closed   |
-| 197aee2f94 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-20T22:00:00Z |      0.9121   |      17.62 | nan                  | nan           |  nan      |  nan      | open     |
+| 197aee2f94 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-20T22:00:00Z |      0.9121   |      17.62 | 2026-11-21T22:00:00Z | time          |    0.1181 |    0.6704 | closed   |
 | 59085bce58 | PAPER  | BTC-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |  58145.2      |      19.41 | nan                  | nan           |  nan      |  nan      | open     |
 | d8b5c2a9ed | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |   1634.5      |      16.17 | nan                  | nan           |  nan      |  nan      | open     |
