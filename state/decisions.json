@@ -6097,5 +6097,17 @@
    "UNI Practice: Volume spike continuation: already 4 open positions",
    "INJ Practice: Volume spike continuation: already 4 open positions"
   ]
+ },
+ {
+  "time": "2026-11-21T15:17:21Z",
+  "candle": "2026-11-21T14:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 14:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
