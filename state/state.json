@@ -3,7 +3,7 @@
   "halt_reason": "",
   "last_daily_summary": "2026-11-21",
   "last_weekly_summary": "2026-11-09",
-  "last_run": "2026-11-21T23:00:23Z",
+  "last_run": "2026-11-21T23:31:07Z",
   "consecutive_errors": 0,
   "last_prices": {
     "BTC-USD": 60024.39,
@@ -13,14 +13,14 @@
     "SOL-USD": 70.09,
     "NEAR-USD": 2.8774,
     "SUI-USD": 0.6435,
-    "QNT-USD": 142.92,
+    "QNT-USD": 142.87,
     "ADA-USD": 0.14393,
     "LINK-USD": 8.575,
     "PUMP-USD": 0.00234,
     "UNI-USD": 4.7081,
     "ENA-USD": 0.09838,
     "LTC-USD": 39.587,
-    "TAO-USD": 185.61,
+    "TAO-USD": 185.77,
     "VVV-USD": 24.5295,
     "XLM-USD": 0.128379,
     "DOGE-USD": 0.05495,
@@ -32,6 +32,6 @@
     "PEPE-USD": 3.4e-06,
     "AAVE-USD": 97.21
   },
-  "gbp_per_usd": 0.76573,
+  "gbp_per_usd": 0.765696,
   "last_candle": "2026-11-21T22:00:00Z"
 }
