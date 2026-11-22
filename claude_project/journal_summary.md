@@ -1,13 +1,13 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 19. Open: 3. Pot after closed trades: £88.13 (started £100).
+Mode: PAPER. Closed trades: 21. Open: 1. Pot after closed trades: £88.25 (started £100).
 
-Win rate 32%, total £-11.87, average -4.41% per trade after fees.
+Win rate 38%, total £-11.75, average -3.96% per trade after fees.
 
 | Setup | Trades | Win rate | Avg % | Total £ |
 |---|---|---|---|---|
 | Moving average cross | 4 | 0% | -13.66% | £-6.59 |
-| Practice: Volume spike continuation | 15 | 40% | -1.95% | £-5.28 |
+| Practice: Volume spike continuation | 17 | 47% | -1.68% | £-5.16 |
 
 ## Last 40 trades
 
@@ -33,5 +33,5 @@ Win rate 32%, total £-11.87, average -4.41% per trade after fees.
 | 631c77803d | PAPER  | VVV-USD  | Moving average cross                | 2026-11-17T00:00:00Z |     20.1074   |      10.88 | nan                  | nan           |  nan      |  nan      | open     |
 | d0b040da5d | PAPER  | AAVE-USD | Practice: Volume spike continuation | 2026-11-17T12:00:00Z |    113.79     |      16.97 | 2026-11-18T12:00:00Z | time          |   -0.5089 |   -2.999  | closed   |
 | 197aee2f94 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-20T22:00:00Z |      0.9121   |      17.62 | 2026-11-21T22:00:00Z | time          |    0.1181 |    0.6704 | closed   |
-| 59085bce58 | PAPER  | BTC-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |  58145.2      |      19.41 | nan                  | nan           |  nan      |  nan      | open     |
-| d8b5c2a9ed | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |   1634.5      |      16.17 | nan                  | nan           |  nan      |  nan      | open     |
+| 59085bce58 | PAPER  | BTC-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |  58145.2      |      19.41 | 2026-11-22T07:00:00Z | time          |    0.0583 |    0.3002 | closed   |
+| d8b5c2a9ed | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |   1634.5      |      16.17 | 2026-11-22T07:00:00Z | time          |    0.0529 |    0.3269 | closed   |
