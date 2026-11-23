@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-02T12:46:55Z",
-  "candle": "2026-11-02T11:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 3,
-  "text": "No trade: none of the 3 setups fired on the 11:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-02T13:48:28Z",
   "candle": "2026-11-02T12:00:00Z",
   "mode": "PAPER",
@@ -6126,5 +6114,29 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-23T14:24:25Z",
+  "candle": "2026-11-23T13:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought BTC (Practice: Volume spike continuation) at $63,658.44. Bought ETH (Practice: Volume spike continuation) at $1,818.57. Bought XRP (Practice: Volume spike continuation) at $1.01",
+  "opened": [
+   "12841e74d9",
+   "770663ed3d",
+   "95a4ae70a8"
+  ],
+  "closed": [],
+  "skipped": [
+   "QNT Practice: Volume spike continuation: already 4 open positions",
+   "LINK Practice: Volume spike continuation: already 4 open positions",
+   "TAO Practice: Volume spike continuation: already 4 open positions",
+   "XLM Practice: Volume spike continuation: already 4 open positions",
+   "DOGE Practice: Volume spike continuation: already 4 open positions",
+   "ONDO Practice: Volume spike continuation: already 4 open positions",
+   "AAVE Practice: Volume spike continuation: already 4 open positions"
+  ]
  }
 ]
