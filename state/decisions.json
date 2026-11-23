@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-02T14:50:47Z",
-  "candle": "2026-11-02T13:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 3,
-  "text": "No trade: none of the 3 setups fired on the 13:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-02T15:52:14Z",
   "candle": "2026-11-02T14:00:00Z",
   "mode": "PAPER",
@@ -6140,5 +6128,17 @@
   "skipped": [
    "UNI Practice: Volume spike continuation: already 4 open positions"
   ]
+ },
+ {
+  "time": "2026-11-23T16:27:19Z",
+  "candle": "2026-11-23T15:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 15:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
  }
 ]
