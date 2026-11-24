@@ -1,6 +1,6 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 22. Open: 3. Pot after closed trades: £90.46 (started £100).
+Mode: PAPER. Closed trades: 22. Open: 4. Pot after closed trades: £90.46 (started £100).
 
 Win rate 41%, total £-9.54, average -2.86% per trade after fees.
 
@@ -38,3 +38,4 @@ Win rate 41%, total £-9.54, average -2.86% per trade after fees.
 | 12841e74d9 | PAPER  | BTC-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |  63658.4      |      19.67 | nan                  | nan           |  nan      |  nan      | open     |
 | 770663ed3d | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |   1818.57     |      17.41 | nan                  | nan           |  nan      |  nan      | open     |
 | 95a4ae70a8 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |      1.0067   |      18.7  | nan                  | nan           |  nan      |  nan      | open     |
+| 5e9599e0cc | PAPER  | TAO-USD  | Moving average cross                | 2026-11-24T03:00:00Z |    186.96     |      10.64 | nan                  | nan           |  nan      |  nan      | open     |
