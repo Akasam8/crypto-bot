@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-02T22:34:18Z",
-  "candle": "2026-11-02T21:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 3,
-  "text": "No trade: none of the 3 setups fired on the 21:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-02T23:36:06Z",
   "candle": "2026-11-02T22:00:00Z",
   "mode": "PAPER",
@@ -6139,6 +6127,20 @@
   "text": "No trade: none of the 5 setups fired on the 22:00 candle",
   "opened": [],
   "closed": [],
+  "skipped": []
+ },
+ {
+  "time": "2026-11-24T00:08:22Z",
+  "candle": "2026-11-23T23:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold VVV (time, +\u00a32.22)",
+  "opened": [],
+  "closed": [
+   "631c77803d"
+  ],
   "skipped": []
  }
 ]

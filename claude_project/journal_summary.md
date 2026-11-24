@@ -1,12 +1,12 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 21. Open: 4. Pot after closed trades: £88.25 (started £100).
+Mode: PAPER. Closed trades: 22. Open: 3. Pot after closed trades: £90.46 (started £100).
 
-Win rate 38%, total £-11.75, average -3.96% per trade after fees.
+Win rate 41%, total £-9.54, average -2.86% per trade after fees.
 
 | Setup | Trades | Win rate | Avg % | Total £ |
 |---|---|---|---|---|
-| Moving average cross | 4 | 0% | -13.66% | £-6.59 |
+| Moving average cross | 5 | 20% | -6.85% | £-4.37 |
 | Practice: Volume spike continuation | 17 | 47% | -1.68% | £-5.16 |
 
 ## Last 40 trades
@@ -30,7 +30,7 @@ Win rate 38%, total £-11.75, average -3.96% per trade after fees.
 | 7d7e13e7fe | PAPER  | XLM-USD  | Practice: Volume spike continuation | 2026-11-15T00:00:00Z |      0.136735 |      19.21 | 2026-11-16T00:00:00Z | time          |    0.4351 |    2.2649 | closed   |
 | 74f700bdcd | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-16T15:00:00Z |   1810.93     |      19.49 | 2026-11-17T15:00:00Z | time          |   -0.2072 |   -1.063  | closed   |
 | be651a9ad7 | PAPER  | AERO-USD | Practice: Volume spike continuation | 2026-11-16T15:00:00Z |      0.42875  |      14.82 | 2026-11-17T15:00:00Z | time          |    0.5801 |    3.914  | closed   |
-| 631c77803d | PAPER  | VVV-USD  | Moving average cross                | 2026-11-17T00:00:00Z |     20.1074   |      10.88 | nan                  | nan           |  nan      |  nan      | open     |
+| 631c77803d | PAPER  | VVV-USD  | Moving average cross                | 2026-11-17T00:00:00Z |     20.1074   |      10.88 | 2026-11-24T00:00:00Z | time          |    2.2163 |   20.3706 | closed   |
 | d0b040da5d | PAPER  | AAVE-USD | Practice: Volume spike continuation | 2026-11-17T12:00:00Z |    113.79     |      16.97 | 2026-11-18T12:00:00Z | time          |   -0.5089 |   -2.999  | closed   |
 | 197aee2f94 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-20T22:00:00Z |      0.9121   |      17.62 | 2026-11-21T22:00:00Z | time          |    0.1181 |    0.6704 | closed   |
 | 59085bce58 | PAPER  | BTC-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |  58145.2      |      19.41 | 2026-11-22T07:00:00Z | time          |    0.0583 |    0.3002 | closed   |
