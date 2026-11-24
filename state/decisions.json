@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-03T17:36:07Z",
-  "candle": "2026-11-03T16:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 3,
-  "text": "No trade: none of the 3 setups fired on the 16:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-03T18:38:19Z",
   "candle": "2026-11-03T17:00:00Z",
   "mode": "PAPER",
@@ -6149,6 +6137,18 @@
   "coins_checked": 25,
   "setups": 5,
   "text": "No trade: none of the 5 setups fired on the 16:00 candle",
+  "opened": [],
+  "closed": [],
+  "skipped": []
+ },
+ {
+  "time": "2026-11-24T18:04:50Z",
+  "candle": "2026-11-24T17:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: none of the 5 setups fired on the 17:00 candle",
   "opened": [],
   "closed": [],
   "skipped": []
