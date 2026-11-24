@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-03T13:57:31Z",
-  "candle": "2026-11-03T12:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 3,
-  "text": "No trade: none of the 3 setups fired on the 12:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-03T15:32:56Z",
   "candle": "2026-11-03T14:00:00Z",
   "mode": "PAPER",
@@ -6149,6 +6137,20 @@
    "770663ed3d",
    "95a4ae70a8"
   ],
+  "skipped": []
+ },
+ {
+  "time": "2026-11-24T15:00:10Z",
+  "candle": "2026-11-24T14:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought LINK (Moving average cross) at $8.91",
+  "opened": [
+   "f2708b661e"
+  ],
+  "closed": [],
   "skipped": []
  }
 ]
