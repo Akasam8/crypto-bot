@@ -1,13 +1,13 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 22. Open: 4. Pot after closed trades: £90.46 (started £100).
+Mode: PAPER. Closed trades: 25. Open: 1. Pot after closed trades: £85.84 (started £100).
 
-Win rate 41%, total £-9.54, average -2.86% per trade after fees.
+Win rate 36%, total £-14.16, average -3.51% per trade after fees.
 
 | Setup | Trades | Win rate | Avg % | Total £ |
 |---|---|---|---|---|
 | Moving average cross | 5 | 20% | -6.85% | £-4.37 |
-| Practice: Volume spike continuation | 17 | 47% | -1.68% | £-5.16 |
+| Practice: Volume spike continuation | 20 | 40% | -2.68% | £-9.79 |
 
 ## Last 40 trades
 
@@ -35,7 +35,7 @@ Win rate 41%, total £-9.54, average -2.86% per trade after fees.
 | 197aee2f94 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-20T22:00:00Z |      0.9121   |      17.62 | 2026-11-21T22:00:00Z | time          |    0.1181 |    0.6704 | closed   |
 | 59085bce58 | PAPER  | BTC-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |  58145.2      |      19.41 | 2026-11-22T07:00:00Z | time          |    0.0583 |    0.3002 | closed   |
 | d8b5c2a9ed | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-21T07:00:00Z |   1634.5      |      16.17 | 2026-11-22T07:00:00Z | time          |    0.0529 |    0.3269 | closed   |
-| 12841e74d9 | PAPER  | BTC-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |  63658.4      |      19.67 | nan                  | nan           |  nan      |  nan      | open     |
-| 770663ed3d | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |   1818.57     |      17.41 | nan                  | nan           |  nan      |  nan      | open     |
-| 95a4ae70a8 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |      1.0067   |      18.7  | nan                  | nan           |  nan      |  nan      | open     |
+| 12841e74d9 | PAPER  | BTC-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |  63658.4      |      19.67 | 2026-11-24T14:00:00Z | time          |   -1.3688 |   -6.9588 | closed   |
+| 770663ed3d | PAPER  | ETH-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |   1818.57     |      17.41 | 2026-11-24T14:00:00Z | time          |   -1.4473 |   -8.3131 | closed   |
+| 95a4ae70a8 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |      1.0067   |      18.7  | 2026-11-24T14:00:00Z | stop          |   -1.8088 |   -9.6725 | closed   |
 | 5e9599e0cc | PAPER  | TAO-USD  | Moving average cross                | 2026-11-24T03:00:00Z |    186.96     |      10.64 | nan                  | nan           |  nan      |  nan      | open     |

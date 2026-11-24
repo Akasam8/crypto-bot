@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-03T12:55:55Z",
-  "candle": "2026-11-03T11:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 3,
-  "text": "No trade: none of the 3 setups fired on the 11:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-03T13:57:31Z",
   "candle": "2026-11-03T12:00:00Z",
   "mode": "PAPER",
@@ -6145,6 +6133,22 @@
   "text": "No trade: none of the 5 setups fired on the 12:00 candle",
   "opened": [],
   "closed": [],
+  "skipped": []
+ },
+ {
+  "time": "2026-11-24T14:29:20Z",
+  "candle": "2026-11-24T13:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Sold BTC (time, -\u00a31.37). Sold ETH (time, -\u00a31.45). Sold XRP (stop, -\u00a31.81)",
+  "opened": [],
+  "closed": [
+   "12841e74d9",
+   "770663ed3d",
+   "95a4ae70a8"
+  ],
   "skipped": []
  }
 ]
