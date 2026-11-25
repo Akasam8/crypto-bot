@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-04T17:57:53Z",
-  "candle": "2026-11-04T16:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 3,
-  "text": "No trade: none of the 3 setups fired on the 16:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-04T18:46:24Z",
   "candle": "2026-11-04T17:00:00Z",
   "mode": "PAPER",
@@ -6152,5 +6140,24 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-25T18:09:43Z",
+  "candle": "2026-11-25T17:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "Bought ZEC (Practice: Volume spike continuation) at $742.52. Bought NEAR (Practice: Volume spike continuation) at $2.88",
+  "opened": [
+   "a295731fc1",
+   "a24d3c997c"
+  ],
+  "closed": [],
+  "skipped": [
+   "PUMP Practice: Volume spike continuation: already 4 open positions",
+   "UNI Practice: Volume spike continuation: already 4 open positions",
+   "AAVE Practice: Volume spike continuation: already 4 open positions"
+  ]
  }
 ]
