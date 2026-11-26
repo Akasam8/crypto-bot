@@ -1,13 +1,13 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 25. Open: 4. Pot after closed trades: £85.84 (started £100).
+Mode: PAPER. Closed trades: 27. Open: 2. Pot after closed trades: £85.78 (started £100).
 
-Win rate 36%, total £-14.16, average -3.51% per trade after fees.
+Win rate 37%, total £-14.22, average -3.30% per trade after fees.
 
 | Setup | Trades | Win rate | Avg % | Total £ |
 |---|---|---|---|---|
 | Moving average cross | 5 | 20% | -6.85% | £-4.37 |
-| Practice: Volume spike continuation | 20 | 40% | -2.68% | £-9.79 |
+| Practice: Volume spike continuation | 22 | 41% | -2.49% | £-9.85 |
 
 ## Last 40 trades
 
@@ -40,5 +40,5 @@ Win rate 36%, total £-14.16, average -3.51% per trade after fees.
 | 95a4ae70a8 | PAPER  | XRP-USD  | Practice: Volume spike continuation | 2026-11-23T14:00:00Z |      1.0067   |      18.7  | 2026-11-24T14:00:00Z | stop          |   -1.8088 |   -9.6725 | closed   |
 | 5e9599e0cc | PAPER  | TAO-USD  | Moving average cross                | 2026-11-24T03:00:00Z |    186.96     |      10.64 | nan                  | nan           |  nan      |  nan      | open     |
 | f2708b661e | PAPER  | LINK-USD | Moving average cross                | 2026-11-24T15:00:00Z |      8.906    |      10.55 | nan                  | nan           |  nan      |  nan      | open     |
-| a295731fc1 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-25T18:00:00Z |    742.52     |      10.64 | nan                  | nan           |  nan      |  nan      | open     |
-| a24d3c997c | PAPER  | NEAR-USD | Practice: Volume spike continuation | 2026-11-25T18:00:00Z |      2.884    |      12.18 | nan                  | nan           |  nan      |  nan      | open     |
+| a295731fc1 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-25T18:00:00Z |    742.52     |      10.64 | 2026-11-26T18:00:00Z | time          |   -0.6817 |   -6.4065 | closed   |
+| a24d3c997c | PAPER  | NEAR-USD | Practice: Volume spike continuation | 2026-11-25T18:00:00Z |      2.884    |      12.18 | 2026-11-26T18:00:00Z | time          |    0.6204 |    5.094  | closed   |
