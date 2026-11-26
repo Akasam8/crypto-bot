@@ -3,12 +3,12 @@
   "halt_reason": "",
   "last_daily_summary": "2026-11-25",
   "last_weekly_summary": "2026-11-16",
-  "last_run": "2026-11-26T07:28:49Z",
+  "last_run": "2026-11-26T07:59:36Z",
   "consecutive_errors": 0,
   "last_prices": {
     "BTC-USD": 60476.12,
     "ETH-USD": 1685.28,
-    "ZEC-USD": 748.79,
+    "ZEC-USD": 748.59,
     "XRP-USD": 0.9488,
     "SOL-USD": 70.59,
     "NEAR-USD": 3.046,
@@ -25,13 +25,13 @@
     "XLM-USD": 0.127721,
     "DOGE-USD": 0.05626,
     "HBAR-USD": 0.05271,
-    "ONDO-USD": 0.28412,
+    "ONDO-USD": 0.28404,
     "AERO-USD": 0.39626,
     "AVAX-USD": 6.629,
-    "INJ-USD": 6.101,
+    "INJ-USD": 6.098,
     "PEPE-USD": 3.48e-06,
     "AAVE-USD": 94.9
   },
-  "gbp_per_usd": 0.762829,
+  "gbp_per_usd": 0.762991,
   "last_candle": "2026-11-26T06:00:00Z"
 }
