@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-06T16:53:41Z",
-  "candle": "2026-11-06T15:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 5,
-  "text": "No trade: none of the 5 setups fired on the 15:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-06T17:55:09Z",
   "candle": "2026-11-06T16:00:00Z",
   "mode": "PAPER",
@@ -6179,6 +6167,20 @@
   "closed": [],
   "skipped": [
    "SOL Moving average cross: already 4 open positions"
+  ]
+ },
+ {
+  "time": "2026-11-27T17:15:04Z",
+  "candle": "2026-11-27T16:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: 1 signal(s) skipped (already 4 open positions)",
+  "opened": [],
+  "closed": [],
+  "skipped": [
+   "ONDO Moving average cross: already 4 open positions"
   ]
  }
 ]
