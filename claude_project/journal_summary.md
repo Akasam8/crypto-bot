@@ -1,6 +1,6 @@
 # Journal summary
 
-Mode: PAPER. Closed trades: 27. Open: 3. Pot after closed trades: £85.78 (started £100).
+Mode: PAPER. Closed trades: 27. Open: 4. Pot after closed trades: £85.78 (started £100).
 
 Win rate 37%, total £-14.22, average -3.30% per trade after fees.
 
@@ -43,3 +43,4 @@ Win rate 37%, total £-14.22, average -3.30% per trade after fees.
 | a295731fc1 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-25T18:00:00Z |    742.52     |      10.64 | 2026-11-26T18:00:00Z | time          |   -0.6817 |   -6.4065 | closed   |
 | a24d3c997c | PAPER  | NEAR-USD | Practice: Volume spike continuation | 2026-11-25T18:00:00Z |      2.884    |      12.18 | 2026-11-26T18:00:00Z | time          |    0.6204 |    5.094  | closed   |
 | 457b8ea424 | PAPER  | LTC-USD  | Moving average cross                | 2026-11-26T20:00:00Z |     43.613    |      10.59 | nan                  | nan           |  nan      |  nan      | open     |
+| cc0ec3b2e0 | PAPER  | ZEC-USD  | Practice: Volume spike continuation | 2026-11-27T03:00:00Z |    750.93     |      10.64 | nan                  | nan           |  nan      |  nan      | open     |
