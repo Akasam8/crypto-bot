@@ -1,17 +1,5 @@
 [
  {
-  "time": "2026-11-06T21:30:22Z",
-  "candle": "2026-11-06T20:00:00Z",
-  "mode": "PAPER",
-  "btc_trend": "down",
-  "coins_checked": 25,
-  "setups": 5,
-  "text": "No trade: none of the 5 setups fired on the 20:00 candle",
-  "opened": [],
-  "closed": [],
-  "skipped": []
- },
- {
   "time": "2026-11-06T22:32:00Z",
   "candle": "2026-11-06T21:00:00Z",
   "mode": "PAPER",
@@ -6184,5 +6172,19 @@
   "opened": [],
   "closed": [],
   "skipped": []
+ },
+ {
+  "time": "2026-11-27T22:22:29Z",
+  "candle": "2026-11-27T21:00:00Z",
+  "mode": "PAPER",
+  "btc_trend": "down",
+  "coins_checked": 25,
+  "setups": 5,
+  "text": "No trade: 1 signal(s) skipped (already 4 open positions)",
+  "opened": [],
+  "closed": [],
+  "skipped": [
+   "SUI Moving average cross: already 4 open positions"
+  ]
  }
 ]
